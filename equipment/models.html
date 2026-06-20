@@ -3,95 +3,413 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Модели и комплектации — Quantum Consulting</title>
+  <title>Модели и комплектации HOCATT® — Quantum Consulting</title>
   <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-  <header class="topbar">
-    <a class="brand" href="../index.html">Quantum Consulting</a>
-    <nav class="nav">
-      <a class="" href="../index.html">Главная</a>
-<a class="active" href="../equipment/capsule.html">Оборудование</a>
-<a class="" href="../solutions/spa.html">Решения</a>
-<a class="" href="../technology/index.html">Технологии</a>
-<a class="" href="../blog.html">Блог</a>
-<a class="" href="../faq.html">FAQ</a>
-<a class="" href="../contacts.html">Контакты</a>
-<a class="" href="../sitemap.html">Карта</a>
-    </nav>
-  </header>
-  <div class="prototype-note"><strong>HTML-прототип:</strong> <span>Wireframe-прототип. Тексты и визуал пока черновые: проверяем структуру, связи и логику страниц.</span></div>
   <main class="page">
-    
-<section class="hero narrow">
-  <div>
-    <div class="breadcrumbs"><a href="../index.html">Главная</a> / Оборудование / Модели</div>
-    <span class="label">Модели и комплектации</span>
-    <h1>Сравнение моделей, функций и сценариев использования</h1>
-    <p>Задача страницы — не перегрузить пользователя, а дать понятный выбор: базовая, расширенная, полная и специальная комплектация.</p>
-  </div>
-  <div class="visual flat"><span>Фото моделей / таблица / комплектации</span></div>
-</section>
+    <header class="topbar">
+      <a class="brand" href="../index.html">Quantum Consulting</a>
+      <nav class="nav">
+        <a href="index.html">Оборудование</a>
+        <a href="../solutions/index.html">Решения</a>
+        <a href="../technology/index.html">Технологии</a>
+        <a href="../blog.html">Блог</a>
+        <a href="../contacts.html">Контакты</a>
+        <a href="#" onclick="openPopup(); return false;">Консультация</a>
+      </nav>
+    </header>
 
-<section>
-  <span class="label">Таблица</span>
-  <h2>Черновая логика сравнения</h2>
-  <div class="table row-5">
-    <div class="cell head">Параметр</div><div class="cell head">Базовая</div><div class="cell head">Базовая + опции</div><div class="cell head">Полная</div><div class="cell head">Специальная</div>
-    <div class="cell">Для кого</div><div class="cell">Стартовый запуск</div><div class="cell">SPA / фитнес</div><div class="cell">Премиум-объекты</div><div class="cell">Особые сценарии</div>
-    <div class="cell">Функции</div><div class="cell">Ключевой набор</div><div class="cell">Расширенный набор</div><div class="cell">10 технологий</div><div class="cell">Доп. оборудование</div>
-    <div class="cell">Площадь</div><div class="cell">Уточнить</div><div class="cell">Уточнить</div><div class="cell">Уточнить</div><div class="cell">Уточнить</div>
-    <div class="cell last-row">CTA</div><div class="cell last-row">Получить расчёт</div><div class="cell last-row">Сравнить</div><div class="cell last-row">Запросить КП</div><div class="cell last-row">Обсудить задачу</div>
-  </div>
-</section>
+    <!-- HERO -->
+    <section class="hero narrow">
+      <div>
+        <div class="breadcrumbs"><a href="../index.html">Главная</a> / <a href="index.html">Оборудование</a> / Модели</div>
+        <span class="label">Модели и комплектации</span>
+        <h1>Выберите идеальную комплектацию под ваш формат</h1>
+        <p>Мы предлагаем несколько моделей HOCATT® — от базовой до премиум-комплектации с высокоинтенсивным PEMF. Поможем подобрать оптимальный вариант под ваш бюджет, задачи и поток клиентов.</p>
+        <div class="actions">
+          <a class="btn" href="#compare">Сравнить модели</a>
+          <a class="btn secondary" href="#recommendations">Рекомендации по сегментам</a>
+          <a class="btn secondary" href="#" onclick="openPopup(); return false;">Получить индивидуальный расчёт</a>
+        </div>
+        <div class="kicker-row" style="margin-top:24px;">
+          <span class="kicker">⚙️ От базовой до премиум</span>
+          <span class="kicker">📊 Индивидуальный подбор</span>
+          <span class="kicker">💰 Расчёт окупаемости</span>
+        </div>
+      </div>
+      <div class="visual flat"><span>Визуал: три модели капсулы в ряд — базовая, расширенная, премиум</span></div>
+    </section>
 
-<section>
-  <span class="label">Выбор</span>
-  <h2>Как помочь выбрать модель</h2>
-  <div class="grid cols-4">
-    <div class="card"><h3>По типу объекта</h3><p>SPA, фитнес, отель, клиника, дом.</p></div>
-    <div class="card"><h3>По задаче</h3><p>Премиальная услуга, восстановление, wellness-программа.</p></div>
-    <div class="card"><h3>По потоку клиентов</h3><p>Сколько процедур планируется в день.</p></div>
-    <div class="card"><h3>По бюджету</h3><p>Сначала диапазон, потом консультация.</p></div>
-  </div>
-</section>
+    <!-- КАК ВЫБРАТЬ -->
+    <section>
+      <span class="label">Как выбрать</span>
+      <h2>4 шага к правильной модели</h2>
+      <p style="max-width:860px;">Выбор модели зависит от вашего формата бизнеса, целевой аудитории и бюджета. Мы помогаем подобрать комплектацию, которая решит именно ваши задачи.</p>
 
-<section>
-  <div class="cta">
-    <div>
-      <span class="label">Следующий шаг</span>
-      <h2>Получить подбор модели</h2>
-      <p>Оставьте заявку, и менеджер предложит 1–2 подходящих комплектации под вашу ситуацию.</p>
-    </div>
-    <div class="form">
-      <div class="input">Имя</div>
-      <div class="input">Телефон</div>
-      <div class="input">Тип объекта / задача</div>
-      <div class="input">Комментарий</div>
-      <a class="btn" href="../contacts.html">Получить консультацию</a>
-    </div>
-  </div>
-</section>
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:18px; margin-top:28px;">
+        <div style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:24px; text-align:center;">
+          <div style="font-size:32px; margin-bottom:12px;">1️⃣</div>
+          <h3 style="font-size:16px;">Тип объекта</h3>
+          <p style="font-size:14px; color:var(--muted);">SPA, фитнес-клуб, отель, санаторий, реабилитационный центр или частная резиденция. У каждого формата — свои приоритеты.</p>
+        </div>
+        <div style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:24px; text-align:center;">
+          <div style="font-size:32px; margin-bottom:12px;">2️⃣</div>
+          <h3 style="font-size:16px;">Задачи</h3>
+          <p style="font-size:14px; color:var(--muted);">Что важнее: премиальный опыт, глубокое восстановление, уход за кожей или реабилитация? Разные технологии — для разных целей.</p>
+        </div>
+        <div style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:24px; text-align:center;">
+          <div style="font-size:32px; margin-bottom:12px;">3️⃣</div>
+          <h3 style="font-size:16px;">Поток клиентов</h3>
+          <p style="font-size:14px; color:var(--muted);">Сколько процедур в день вы планируете проводить? От этого зависит необходимая мощность и комплектация.</p>
+        </div>
+        <div style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:24px; text-align:center;">
+          <div style="font-size:32px; margin-bottom:12px;">4️⃣</div>
+          <h3 style="font-size:16px;">Бюджет</h3>
+          <p style="font-size:14px; color:var(--muted);">Предложим несколько вариантов с разной стоимостью и сроками окупаемости. Выбирайте оптимальный.</p>
+        </div>
+      </div>
+    </section>
 
-<section class="footer">
-  <div>
-    <strong>Quantum Consulting</strong>
-    <p>Поставка и внедрение премиального wellness-оборудования.</p>
-  </div>
-  <div><strong>Оборудование</strong>
-    <p><a href="../equipment/capsule.html">Капсула</a><br><a href="../equipment/pemf.html">PEMF / HUGO™</a><br><a href="../equipment/models.html">Модели</a></p>
-  </div>
-  <div><strong>Решения</strong>
-    <p><a href="../solutions/spa.html">SPA</a><br><a href="../solutions/fitness.html">Фитнес</a><br><a href="../solutions/hotels.html">Отели</a><br><a href="../solutions/home-family.html">Дом</a></p>
-  </div>
-  <div><strong>Материалы</strong>
-    <p><a href="../technology/index.html">О технологии</a><br><a href="../blog.html">Блог</a><br><a href="../faq.html">FAQ</a></p>
-  </div>
-  <div><strong>Контакты</strong>
-    <p><a href="../contacts.html">Заявка</a><br>Telegram<br>WhatsApp<br>YouTube</p>
-  </div>
-</section>
+    <!-- СРАВНЕНИЕ МОДЕЛЕЙ -->
+    <section id="compare" style="background:#fafaf7;">
+      <span class="label">Сравнение моделей</span>
+      <h2>Какая комплектация подходит вам</h2>
+      <p style="max-width:860px;">Ниже — основные модели и их возможности. Полную комплектацию и цены уточняйте у менеджеров — мы подготовим индивидуальное предложение под ваш формат.</p>
+
+      <div class="table row-4" style="margin-top:28px;">
+        <div class="cell head">Параметр</div>
+        <div class="cell head">Базовая</div>
+        <div class="cell head">Расширенная</div>
+        <div class="cell head">Премиум (с PEMF)</div>
+        <div class="cell">Для кого</div>
+        <div class="cell">Стартовый запуск, небольшие SPA, частные дома</div>
+        <div class="cell">Фитнес-клубы, отели, санатории, SPA</div>
+        <div class="cell">Премиум-SPA, реабилитация, спорт, клиники</div>
+        <div class="cell">Технологии</div>
+        <div class="cell">Гипертермия, озон, пар, арома-, хромотерапия</div>
+        <div class="cell">+ микротоки, CO₂, кислород, ИК-прогрев</div>
+        <div class="cell">+ высокоинтенсивный PEMF (HUGO™)</div>
+        <div class="cell">Продолжительность сеанса</div>
+        <div class="cell">30–40 минут</div>
+        <div class="cell">30–40 минут</div>
+        <div class="cell">30–40 минут</div>
+        <div class="cell">Ключевые эффекты</div>
+        <div class="cell">Релаксация, очищение кожи, детокс</div>
+        <div class="cell">+ восстановление, лимфодренаж, тонус</div>
+        <div class="cell">+ клеточное восстановление, реабилитация</div>
+        <div class="cell">Рекомендуемая цена сеанса</div>
+        <div class="cell">3 500–5 000 ₽</div>
+        <div class="cell">5 000–7 000 ₽</div>
+        <div class="cell">7 000–10 000 ₽</div>
+        <div class="cell last-row">Окупаемость</div>
+        <div class="cell last-row">10–14 месяцев</div>
+        <div class="cell last-row">12–16 месяцев</div>
+        <div class="cell last-row">12–18 месяцев</div>
+      </div>
+
+      <div style="margin-top:24px; padding:18px 24px; background:#fff; border-radius:16px; border-left:4px solid #000;">
+        <p style="margin:0; font-size:14px; color:var(--muted);"><strong>💡 Важно:</strong> Все модели имеют голова снаружи — никакого страха замкнутого пространства. Температура регулируется от 35 до 43°C. Оборудование сертифицировано (CE, EAC, RoHS).</p>
+      </div>
+    </section>
+
+    <!-- РЕКОМЕНДАЦИИ ПО СЕГМЕНТАМ -->
+    <section id="recommendations">
+      <span class="label">Рекомендации по сегментам</span>
+      <h2>Какая модель подходит для вашего формата</h2>
+      <p style="max-width:860px;">Мы подготовили рекомендации по выбору модели для каждого сегмента. Но это лишь ориентир — финальное решение принимается с учётом ваших индивидуальных задач.</p>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:28px;">
+
+        <div style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:24px; border-left:4px solid #000;">
+          <h3 style="font-size:16px;">🏥 Клиники</h3>
+          <p style="font-size:14px; color:var(--muted);"><strong>Рекомендация:</strong> Премиум (с PEMF)</p>
+          <p style="font-size:14px; color:var(--muted);">Для косметологических клиник, клиник мужского/женского здоровья и anti-age центров критически важны микротоки и высокоинтенсивный PEMF для клеточного восстановления и постпроцедурного ухода.</p>
+        </div>
+
+        <div style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:24px; border-left:4px solid #000;">
+          <h3 style="font-size:16px;">🦴 Реабилитационные центры</h3>
+          <p style="font-size:14px; color:var(--muted);"><strong>Рекомендация:</strong> Премиум (с PEMF) или отдельный HUGO™</p>
+          <p style="font-size:14px; color:var(--muted);">PEMF одобрен FDA для лечения переломов и псевдоартрозов. Для реабилитации после операций и травм эта технология критически важна.</p>
+        </div>
+
+        <div style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:24px; border-left:4px solid #000;">
+          <h3 style="font-size:16px;">💆 SPA и wellness</h3>
+          <p style="font-size:14px; color:var(--muted);"><strong>Рекомендация:</strong> Расширенная или Премиум</p>
+          <p style="font-size:14px; color:var(--muted);">Для премиального SPA важны все технологии: озон для кожи, микротоки для лимфодренажа, CO₂ для эффекта лёгкости. Добавление PEMF даёт уникальное УТП «технологичный биохакинг».</p>
+        </div>
+
+        <div style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:24px; border-left:4px solid #000;">
+          <h3 style="font-size:16px;">🏋️ Фитнес-клубы</h3>
+          <p style="font-size:14px; color:var(--muted);"><strong>Рекомендация:</strong> Расширенная или Премиум</p>
+          <p style="font-size:14px; color:var(--muted);">Для восстановления после нагрузок ключевы микротоки (выведение лактата), гипертермия (снятие спазмов) и PEMF (глубокое клеточное восстановление).</p>
+        </div>
+
+        <div style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:24px; border-left:4px solid #000;">
+          <h3 style="font-size:16px;">🏨 Отели и санатории</h3>
+          <p style="font-size:14px; color:var(--muted);"><strong>Рекомендация:</strong> Расширенная</p>
+          <p style="font-size:14px; color:var(--muted);">Для гостей курортов важны детокс, релаксация и оздоровление. Расширенная комплектация даёт всё необходимое для wellness-программ.</p>
+        </div>
+
+        <div style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:24px; border-left:4px solid #000;">
+          <h3 style="font-size:16px;">🏠 Дом и семья</h3>
+          <p style="font-size:14px; color:var(--muted);"><strong>Рекомендация:</strong> Базовая или Расширенная</p>
+          <p style="font-size:14px; color:var(--muted);">Для домашнего использования достаточно базовой или расширенной комплектации. Выбор зависит от бюджета и задач (просто релаксация или полноценный wellness-ритуал).</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ДОПОЛНИТЕЛЬНЫЕ ОПЦИИ -->
+    <section style="background:#fafaf7;">
+      <span class="label">Дополнительные опции</span>
+      <h2>Что можно добавить к базовой комплектации</h2>
+      <p style="max-width:860px;">Мы предлагаем модульную систему — вы можете дооснастить капсулу под свои задачи.</p>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:18px; margin-top:28px;">
+        <div style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:24px; text-align:center;">
+          <div style="font-size:36px; margin-bottom:12px;">⚡</div>
+          <h3 style="font-size:16px;">Модуль высокоинтенсивного PEMF</h3>
+          <p style="font-size:14px; color:var(--muted);">Добавляет клеточное восстановление, ускоряет реабилитацию, снимает боль. Одобрен FDA. Идеально для спортсменов и реабилитации.</p>
+          <div style="margin-top:12px; font-size:13px; color:var(--muted);">Для кого: реабилитация, спорт, клиники, премиум-SPA</div>
+        </div>
+        <div style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:24px; text-align:center;">
+          <div style="font-size:36px; margin-bottom:12px;">🔬</div>
+          <h3 style="font-size:16px;">Модуль микротоков</h3>
+          <p style="font-size:14px; color:var(--muted);">Стимуляция выработки коллагена, лимфодренаж, улучшение тонуса кожи. Ключевая опция для SPA и косметологических клиник.</p>
+          <div style="margin-top:12px; font-size:13px; color:var(--muted);">Для кого: SPA, косметология, фитнес</div>
+        </div>
+        <div style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:24px; text-align:center;">
+          <div style="font-size:36px; margin-bottom:12px;">🌊</div>
+          <h3 style="font-size:16px;">Модуль CO₂ (эффект Бора)</h3>
+          <p style="font-size:14px; color:var(--muted);">Улучшает микроциркуляцию и отдачу кислорода тканям. Даёт эффект «лёгкости в теле» — то, за что возвращаются клиенты.</p>
+          <div style="margin-top:12px; font-size:13px; color:var(--muted);">Для кого: SPA, отели, санатории, фитнес</div>
+        </div>
+      </div>
+
+      <div style="margin-top:24px; padding:18px 24px; background:#fff; border-radius:16px; border-left:4px solid #000;">
+        <p style="margin:0; font-size:15px;"><strong>💡 Гибкость:</strong> Вы можете заказать капсулу с любым набором технологий. Мы поможем собрать оптимальную комплектацию под ваш бюджет и задачи.</p>
+      </div>
+    </section>
+
+    <!-- РАСЧЁТ ОКУПАЕМОСТИ -->
+    <section>
+      <span class="label">Бизнес-кейс</span>
+      <h2>Пример расчёта окупаемости</h2>
+      <p style="max-width:860px;">Покажем на конкретном примере, как быстро окупается капсула при средней загрузке.</p>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:28px;">
+        <div style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:24px;">
+          <h3 style="font-size:16px;">📊 Исходные данные</h3>
+          <ul style="font-size:14px; color:var(--muted); padding-left:18px; margin:8px 0 0;">
+            <li>Модель: Расширенная</li>
+            <li>Стоимость: от 3,5 млн ₽</li>
+            <li>Средняя цена сеанса: 6 000 ₽</li>
+            <li>Количество сеансов в день: 3</li>
+            <li>Рабочих дней в месяц: 25</li>
+          </ul>
+        </div>
+        <div style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:24px;">
+          <h3 style="font-size:16px;">💰 Расчёт</h3>
+          <ul style="font-size:14px; color:var(--muted); padding-left:18px; margin:8px 0 0;">
+            <li>Выручка в месяц: 6 000 × 3 × 25 = <strong>450 000 ₽</strong></li>
+            <li>Маржинальность: 70–80%</li>
+            <li>Чистая прибыль в месяц: ~340 000 ₽</li>
+            <li><strong>Окупаемость: 10–12 месяцев</strong></li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="margin-top:18px; text-align:center;">
+        <p style="font-size:14px; color:var(--muted);">Это примерный расчёт. Для точных цифр под ваш формат — запросите индивидуальный бизнес-план.</p>
+        <a href="#" class="btn" onclick="openPopup(); return false;" style="margin-top:12px;">Запросить расчёт</a>
+      </div>
+    </section>
+
+    <!-- СРАВНЕНИЕ С АНАЛОГАМИ -->
+    <section style="background:#fafaf7;">
+      <span class="label">Сравнение с аналогами</span>
+      <h2>Почему HOCATT® — это инвестиция, а не трата</h2>
+      <div class="table row-4">
+        <div class="cell head">Параметр</div>
+        <div class="cell head">HOCATT®</div>
+        <div class="cell head">Китайские аналоги</div>
+        <div class="cell head">BeautyShell</div>
+        <div class="cell">Технологии</div>
+        <div class="cell">10</div>
+        <div class="cell">1–3</div>
+        <div class="cell">5–7</div>
+        <div class="cell">Сервис в РФ</div>
+        <div class="cell">Есть (склад запчастей, инженеры)</div>
+        <div class="cell">Нет</div>
+        <div class="cell">Зависит от дилера</div>
+        <div class="cell">Гарантия</div>
+        <div class="cell">1 год</div>
+        <div class="cell">0–6 месяцев</div>
+        <div class="cell">1 год (часто с ограничениями)</div>
+        <div class="cell">Цена сеанса</div>
+        <div class="cell">5 000–10 000 ₽</div>
+        <div class="cell">1 000–2 000 ₽</div>
+        <div class="cell">3 000–4 000 ₽</div>
+        <div class="cell last-row">Окупаемость</div>
+        <div class="cell last-row">10–18 месяцев</div>
+        <div class="cell last-row">8–12 месяцев (но высокий риск поломки)</div>
+        <div class="cell last-row">14–20 месяцев</div>
+      </div>
+    </section>
+
+    <!-- ПРОТИВОПОКАЗАНИЯ -->
+    <section>
+      <span class="label">Безопасность</span>
+      <div class="redline">
+        <h2>Противопоказания и юридическая информация</h2>
+        <p>Позиционируем HOCATT® и HUGO™ как <strong>wellness-оборудование</strong>. Все технологии имеют научное обоснование, но мы не обещаем лечение заболеваний.</p>
+        <p style="margin-top:12px;"><strong>Абсолютные противопоказания:</strong> онкология, беременность, кардиостимулятор, эпилепсия, острые воспаления, тромбофлебит, кровотечения, тиреотоксикоз, гемофилия, тромбоцитопения.</p>
+        <p style="margin-top:8px;"><strong>Рекомендация:</strong> перед началом курса обязательна консультация с лечащим врачом и индивидуальный подбор режима.</p>
+      </div>
+    </section>
+
+    <!-- ФОРМА ЗАХВАТА -->
+    <section style="background:#fafaf7;">
+      <div style="max-width:700px; margin:0 auto; text-align:center;">
+        <span class="label">Поможем выбрать</span>
+        <h2 style="max-width:100%;">Не знаете, какая модель подойдёт?</h2>
+        <p style="max-width:100%;">Оставьте номер — мы перезвоним, разберём вашу задачу и предложим оптимальную комплектацию.</p>
+        <div style="display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin-top:24px;">
+          <input type="tel" placeholder="+7 (___) ___-__-__" style="flex:1; min-width:200px; padding:14px 18px; border:1px solid var(--line); border-radius:14px; font-size:16px;">
+          <a href="#" class="btn" onclick="alert('Спасибо! Мы свяжемся с вами в ближайшее время.'); return false;">Получить консультацию</a>
+        </div>
+        <p style="font-size:13px; color:var(--muted); margin-top:12px;">Отправляя номер, вы соглашаетесь на обработку персональных данных</p>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section>
+      <div class="cta">
+        <div>
+          <span class="label">Следующий шаг</span>
+          <h2>Получить индивидуальный расчёт</h2>
+          <p>Расскажите о вашем формате бизнеса и задачах — мы предложим оптимальную комплектацию с расчётом окупаемости под ваш сегмент.</p>
+        </div>
+        <div class="form">
+          <div class="input">Имя</div>
+          <div class="input">Телефон</div>
+          <select style="height:54px; border-radius:14px; background:#2a2a2a; color:#aaa; border:1px solid #444; padding:0 18px; font-size:15px; width:100%; appearance:none; cursor:pointer;">
+            <option value="" disabled selected>Выберите ваш сегмент</option>
+            <option value="clinics">Клиники</option>
+            <option value="rehab">Реабилитационные центры</option>
+            <option value="spa">SPA и wellness-центры</option>
+            <option value="fitness">Фитнес-клубы</option>
+            <option value="hotels">Отели и санатории</option>
+            <option value="home">Частные лица / Дом</option>
+            <option value="corporate">Корпоративный wellness</option>
+            <option value="athletes">Профессиональные спортсмены</option>
+            <option value="biohacker">Биохакеры</option>
+            <option value="other">Другое</option>
+          </select>
+          <div style="display:flex; flex-direction:column; gap:10px; margin:4px 0;">
+            <label style="display:flex; align-items:flex-start; gap:12px; font-size:12px; color:#aaa; cursor:pointer;">
+              <input type="checkbox" required style="margin-top:2px; width:16px; height:16px; accent-color:#fff; cursor:pointer;">
+              <span>Я принимаю условия <a href="../agreement.html" target="_blank" style="color:#fff; text-decoration:underline;">Согласия на обработку персональных данных</a> и даю согласие на обработку моих персональных данных.</span>
+            </label>
+            <label style="display:flex; align-items:flex-start; gap:12px; font-size:12px; color:#aaa; cursor:pointer;">
+              <input type="checkbox" style="margin-top:2px; width:16px; height:16px; accent-color:#fff; cursor:pointer;">
+              <span>Я принимаю условия <a href="../adv-agreement.html" target="_blank" style="color:#fff; text-decoration:underline;">Согласия на получение рекламных и информационных рассылок</a>.</span>
+            </label>
+          </div>
+          <a class="btn" href="#" onclick="alert('Спасибо! Мы свяжемся с вами в ближайшее время.'); return false;" style="background:#fff; color:#000; border-color:#fff;">Получить консультацию</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ФУТЕР -->
+    <section class="footer">
+      <div>
+        <strong>Quantum Consulting</strong>
+        <p>Поставка и внедрение премиального wellness-оборудования.</p>
+        <p style="margin-top:8px; font-size:13px;">+7 (495) 123-45-67<br>Managing@quantum-consulting.space</p>
+      </div>
+      <div><strong>Оборудование</strong>
+        <p><a href="capsule.html">Капсула HOCATT®</a><br><a href="pemf.html">PEMF / HUGO™</a><br><a href="models.html">Модели</a></p>
+      </div>
+      <div><strong>Решения</strong>
+        <p><a href="../solutions/clinics.html">Клиники</a><br><a href="../solutions/rehab.html">Реабилитация</a><br><a href="../solutions/spa.html">SPA</a><br><a href="../solutions/fitness.html">Фитнес</a><br><a href="../solutions/hotels.html">Отели</a><br><a href="../solutions/home-family.html">Дом</a></p>
+      </div>
+      <div><strong>Материалы</strong>
+        <p><a href="../technology/index.html">О технологии</a><br><a href="../blog.html">Блог</a><br><a href="../faq.html">FAQ</a></p>
+      </div>
+      <div><strong>Контакты</strong>
+        <p><a href="../contacts.html">Связаться с нами</a><br><a href="#" onclick="openPopup(); return false;">Заказать звонок</a></p>
+      </div>
+    </section>
+
+    <!-- ЮРИДИЧЕСКИЙ БЛОК -->
+    <section style="background:#111; border-bottom:none; padding:24px 72px; border-top:1px solid #333;">
+      <div style="display:flex; flex-wrap:wrap; gap:24px; justify-content:center; font-size:13px;">
+        <a href="../agreement.html" target="_blank" style="color:#b9b9b9; text-decoration:underline;">Согласие на обработку персональных данных</a>
+        <a href="../adv-agreement.html" target="_blank" style="color:#b9b9b9; text-decoration:underline;">Согласие на получение рассылок</a>
+        <a href="../privacy-policy.html" target="_blank" style="color:#b9b9b9; text-decoration:underline;">Политика конфиденциальности</a>
+        <a href="../cookies-policy.html" target="_blank" style="color:#b9b9b9; text-decoration:underline;">Политика использования Cookies</a>
+      </div>
+      <div style="text-align:center; margin-top:12px; font-size:12px; color:#888;">
+        ООО «КВАНТОВЫЙ КОНСАЛТИНГ» · ИНН 9718288984 · ОГРН 1257700508306 · г. Москва, ул. Стромынка, д. 5, кв. 5
+      </div>
+    </section>
 
   </main>
+
+  <!-- ПОПАП -->
+  <div id="popup-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:999; align-items:center; justify-content:center;">
+    <div style="background:#fff; border-radius:32px; padding:48px; max-width:480px; width:90%; position:relative; box-shadow:0 40px 80px rgba(0,0,0,0.3); max-height:90vh; overflow-y:auto;">
+      <button onclick="closePopup();" style="position:absolute; top:16px; right:20px; background:none; border:none; font-size:28px; color:#999; cursor:pointer;">&times;</button>
+      <span class="label" style="color:var(--muted);">Бесплатная консультация</span>
+      <h2 style="font-size:28px; margin:0 0 12px;">Получить консультацию специалиста</h2>
+      <p style="font-size:15px; color:var(--muted); margin-bottom:24px;">Оставьте номер — мы перезвоним в течение 15 минут и ответим на все вопросы.</p>
+      <div class="form" style="grid-template-columns:1fr;">
+        <div class="input" style="background:#f4f4f1; color:var(--ink); border:1px solid var(--line);">Имя</div>
+        <div class="input" style="background:#f4f4f1; color:var(--ink); border:1px solid var(--line);">Телефон</div>
+        <select style="height:54px; border-radius:14px; background:#f4f4f1; color:var(--ink); border:1px solid var(--line); padding:0 18px; font-size:15px; width:100%; appearance:none; cursor:pointer;">
+          <option value="" disabled selected>Выберите ваш сегмент</option>
+          <option value="clinics">Клиники</option>
+          <option value="rehab">Реабилитационные центры</option>
+          <option value="spa">SPA и wellness-центры</option>
+          <option value="fitness">Фитнес-клубы</option>
+          <option value="hotels">Отели и санатории</option>
+          <option value="home">Частные лица / Дом</option>
+          <option value="corporate">Корпоративный wellness</option>
+          <option value="athletes">Профессиональные спортсмены</option>
+          <option value="biohacker">Биохакеры</option>
+          <option value="other">Другое</option>
+        </select>
+        <div style="display:flex; flex-direction:column; gap:10px; margin:8px 0;">
+          <label style="display:flex; align-items:flex-start; gap:12px; font-size:12px; color:var(--muted); cursor:pointer;">
+            <input type="checkbox" required style="margin-top:2px; width:16px; height:16px; accent-color:#000; cursor:pointer;">
+            <span>Я принимаю условия <a href="../agreement.html" target="_blank" style="color:var(--ink); text-decoration:underline;">Согласия на обработку персональных данных</a> и даю согласие на обработку моих персональных данных.</span>
+          </label>
+          <label style="display:flex; align-items:flex-start; gap:12px; font-size:12px; color:var(--muted); cursor:pointer;">
+            <input type="checkbox" style="margin-top:2px; width:16px; height:16px; accent-color:#000; cursor:pointer;">
+            <span>Я принимаю условия <a href="../adv-agreement.html" target="_blank" style="color:var(--ink); text-decoration:underline;">Согласия на получение рекламных и информационных рассылок</a>.</span>
+          </label>
+        </div>
+        <a class="btn" href="#" onclick="alert('Спасибо! Мы свяжемся с вами в ближайшее время.'); closePopup(); return false;" style="background:#000; color:#fff; border-color:#000;">Получить консультацию</a>
+        <p style="font-size:11px; color:var(--muted); text-align:center; margin-top:8px;">Отправляя заявку, вы соглашаетесь с условиями обработки данных</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openPopup() {
+      document.getElementById('popup-overlay').style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+    function closePopup() {
+      document.getElementById('popup-overlay').style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+    document.getElementById('popup-overlay').addEventListener('click', function(e) {
+      if (e.target === this) closePopup();
+    });
+  </script>
+
 </body>
 </html>
