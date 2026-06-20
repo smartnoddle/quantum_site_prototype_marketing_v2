@@ -20,24 +20,28 @@
       </nav>
     </header>
 
+    <!-- HERO -->
     <section class="hero narrow">
       <div>
         <span class="label">Свяжитесь с нами</span>
         <h1>Мы на связи — расскажем, покажем и поможем подобрать решение</h1>
-        <p>Оставьте заявку, и наш специалист свяжется с вами в ближайшее время. Или позвоните нам по телефону — мы работаем с 9:00 до 21:00 по Москве.</p>
+        <p>Оставьте заявку, и наш специалист свяжется с вами в ближайшее время. Или запишитесь на демо-сеанс в одном из центров, чтобы лично ощутить эффект процедуры.</p>
         <div class="actions">
-          <a class="btn" href="#" onclick="openPopup(); return false;">Заказать звонок</a>
-          <a class="btn secondary" href="#centers">Найти центр с капсулой</a>
+          <a class="btn" href="#demo">Записаться на демо</a>
+          <a class="btn secondary" href="#centers">Центры с капсулой</a>
+        </div>
+        <div class="kicker-row" style="margin-top:24px;">
+          <span class="kicker">📍 2 центра в Москве</span>
+          <span class="kicker">💎 HOCATT® и HUGO™</span>
+          <span class="kicker">🧘 Оцените эффект на себе</span>
         </div>
       </div>
-      <div class="visual flat">
-        <span style="display:flex; flex-direction:column; gap:8px; align-items:flex-start; background:transparent; border:none; backdrop-filter:none; color:var(--ink);">
-          <strong style="font-size:22px;">Quantum Consulting</strong>
-          <span style="font-size:16px;">📍 Москва, ул. Стромынка, д. 5, кв. 5</span>
-          <span style="font-size:16px;">📞 +7 (495) 123-45-67</span>
-          <span style="font-size:16px;">✉️ Managing@quantum-consulting.space</span>
-          <span style="font-size:14px; color:var(--muted); margin-top:8px;">Работаем: пн–пт 9:00–21:00</span>
-        </span>
+      <div class="visual" style="background: linear-gradient(145deg, #1a1a2e, #16213e); display:flex; align-items:center; justify-content:center; border: none;">
+        <div style="text-align:center; color:#fff; padding:20px;">
+          <div style="font-size:80px; margin-bottom:8px;">📍</div>
+          <span style="font-size:14px; opacity:0.7;">2 центра в Москве</span>
+          <div style="font-size:12px; opacity:0.4; margin-top:4px;">Фитнес-центр ENKOR · Клиника Divus</div>
+        </div>
       </div>
     </section>
 
@@ -73,41 +77,65 @@
       </div>
     </section>
 
-    <!-- ЦЕНТРЫ С КАПСУЛОЙ -->
-    <section id="centers" style="background:#fafaf7;">
-      <span class="label">Где попробовать</span>
-      <h2>Центры, где уже установлена капсула HOCATT®</h2>
-      <p style="max-width:860px;">Вы можете посетить один из центров, где уже работает наша капсула, и лично оценить эффект процедуры. Обратитесь к администратору и скажите, что вы от Quantum Consulting.</p>
+    <!-- ============================================================ -->
+    <!-- БЛОК: ПОПРОБУЙТЕ НА СЕБЕ — ЦЕНТРЫ С КАПСУЛОЙ -->
+    <!-- ============================================================ -->
+    <section id="demo" style="background:#fafaf7;">
+      <span class="label">Попробуйте на себе</span>
+      <h2>Оцените эффект HOCATT® и HUGO™ — запишитесь на демо-сеанс в Москве</h2>
+      <p style="max-width:860px;">Самый надёжный способ понять, как работает капсула — ощутить это на себе. 30–40 минут в капсуле — и вы почувствуете лёгкость, тепло и глубокую релаксацию. Вы сможете оценить все 10 технологий в действии.</p>
 
-      <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:18px; margin-top:28px;">
-        <div style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:24px;">
-          <h3 style="font-size:17px;">📍 Москва</h3>
-          <p style="font-size:14px; margin:8px 0;"><strong>Wellness-центр «Атмосфера»</strong></p>
-          <p style="font-size:14px; color:var(--muted);">ул. Арбат, д. 12</p>
-          <p style="font-size:14px; color:var(--muted);">+7 (495) 234-56-78</p>
-          <p style="font-size:13px; color:var(--muted); margin-top:8px;">🕐 Ежедневно 10:00–22:00</p>
-          <a href="#" style="display:inline-block; margin-top:12px; color:var(--ink); font-weight:600; font-size:14px;">Проложить маршрут →</a>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:28px;">
+
+        <!-- ЦЕНТР 1: ENKOR -->
+        <div style="background:#fff; border:1px solid var(--line); border-radius:26px; overflow:hidden; transition:transform .15s ease, box-shadow .15s ease;">
+          <div style="padding:24px 24px 16px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+              <h3 style="font-size:20px; margin:0;">🏋️ Фитнес-центр ENKOR</h3>
+              <span style="background:var(--soft); padding:4px 14px; border-radius:20px; font-size:12px;">📍 Ходынка</span>
+            </div>
+            <p style="font-size:14px; color:var(--muted); margin:4px 0;">ул. Ходынский бульвар, д. 4</p>
+            <p style="font-size:14px; color:var(--muted); margin:4px 0;">+7 (495) 234-56-78</p>
+            <p style="font-size:13px; color:var(--muted); margin:8px 0 0;">🕐 Ежедневно 8:00–23:00</p>
+          </div>
+          <div style="background:#f4f4f1; padding:16px 24px; border-top:1px solid var(--line); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+            <span style="font-size:13px; color:var(--muted);">✅ HOCATT® · ✅ HUGO™</span>
+            <a href="#" class="btn" style="padding:8px 20px; min-height:auto; font-size:14px;" onclick="alert('Спасибо! Мы свяжем вас с центром для записи на демо-сеанс.'); return false;">Записаться на демо</a>
+          </div>
         </div>
-        <div style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:24px;">
-          <h3 style="font-size:17px;">📍 Санкт-Петербург</h3>
-          <p style="font-size:14px; margin:8px 0;"><strong>SPA-студия «Нева»</strong></p>
-          <p style="font-size:14px; color:var(--muted);">Невский пр-т, д. 45</p>
-          <p style="font-size:14px; color:var(--muted);">+7 (812) 345-67-89</p>
-          <p style="font-size:13px; color:var(--muted); margin-top:8px;">🕐 Пн–Вс 10:00–21:00</p>
-          <a href="#" style="display:inline-block; margin-top:12px; color:var(--ink); font-weight:600; font-size:14px;">Проложить маршрут →</a>
+
+        <!-- ЦЕНТР 2: DIVUS -->
+        <div style="background:#fff; border:1px solid var(--line); border-radius:26px; overflow:hidden; transition:transform .15s ease, box-shadow .15s ease;">
+          <div style="padding:24px 24px 16px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+              <h3 style="font-size:20px; margin:0;">🧬 Клиника Divus</h3>
+              <span style="background:var(--soft); padding:4px 14px; border-radius:20px; font-size:12px;">📍 Пресня</span>
+            </div>
+            <p style="font-size:14px; color:var(--muted); margin:4px 0;">ул. Климашкина, д. 16</p>
+            <p style="font-size:14px; color:var(--muted); margin:4px 0;">+7 (495) 345-67-89</p>
+            <p style="font-size:13px; color:var(--muted); margin:8px 0 0;">🕐 Пн–Сб 9:00–21:00</p>
+          </div>
+          <div style="background:#f4f4f1; padding:16px 24px; border-top:1px solid var(--line); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+            <span style="font-size:13px; color:var(--muted);">✅ HOCATT® · ✅ HUGO™</span>
+            <a href="#" class="btn" style="padding:8px 20px; min-height:auto; font-size:14px;" onclick="alert('Спасибо! Мы свяжем вас с центром для записи на демо-сеанс.'); return false;">Записаться на демо</a>
+          </div>
         </div>
-        <div style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:24px;">
-          <h3 style="font-size:17px;">📍 Сочи</h3>
-          <p style="font-size:14px; margin:8px 0;"><strong>Курорт «Rosa Wellness»</strong></p>
-          <p style="font-size:14px; color:var(--muted);">Красная Поляна, ул. Горная, д. 8</p>
-          <p style="font-size:14px; color:var(--muted);">+7 (862) 456-78-90</p>
-          <p style="font-size:13px; color:var(--muted); margin-top:8px;">🕐 Ежедневно 9:00–23:00</p>
-          <a href="#" style="display:inline-block; margin-top:12px; color:var(--ink); font-weight:600; font-size:14px;">Проложить маршрут →</a>
-        </div>
+
       </div>
 
-      <div style="margin-top:18px; padding:16px 24px; background:#fff; border-radius:16px; border-left:4px solid var(--ink);">
-        <p style="margin:0; font-size:14px; color:var(--muted);"><strong>📌 Хотите, чтобы мы добавили ваш центр в список?</strong> Напишите нам — и мы разместим информацию на сайте бесплатно.</p>
+      <div style="margin-top:24px; padding:18px 24px; background:#fff; border-radius:16px; border-left:4px solid #000;">
+        <p style="margin:0; font-size:15px;"><strong>💡 Почему стоит попробовать:</strong> После первого сеанса вы поймёте, что капсула — это не просто сауна. Тепло, лёгкость, ясность в голове. И вы сможете принять решение с полным пониманием.</p>
+      </div>
+    </section>
+
+    <!-- 📸 ПОЛНОЭКРАННОЕ ФОТО: АТМОСФЕРА ДЕМО-СЕАНСА -->
+    <section style="padding:0; border-bottom:none; background:#1a1a2e; min-height:400px; display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.6); text-align:center; font-size:14px; position:relative;">
+      <div style="position:absolute; top:20px; left:20px; background:rgba(0,0,0,0.5); color:#fff; padding:8px 16px; border-radius:20px; font-size:12px;">📸 ПОЛНОЭКРАННОЕ ФОТО</div>
+      <div>
+        <div style="font-size:64px; margin-bottom:12px;">🧘</div>
+        <div style="font-size:20px; color:#fff; font-weight:300;">Попробуйте на себе</div>
+        <div style="font-size:14px; opacity:0.6;">Приходите на демо-сеанс и ощутите эффект HOCATT®</div>
+        <div style="font-size:12px; opacity:0.4; margin-top:12px;">Фото: процедура в капсуле</div>
       </div>
     </section>
 
@@ -123,8 +151,6 @@
           <div class="input" style="background:#2a2a2a; color:#fff;">Имя</div>
           <div class="input" style="background:#2a2a2a; color:#fff;">Телефон</div>
           <div class="input" style="background:#2a2a2a; color:#fff;">Ваш вопрос / задача</div>
-          
-          <!-- ЧЕКБОКСЫ ДЛЯ СОГЛАСИЙ -->
           <div style="display:flex; flex-direction:column; gap:10px; margin:8px 0;">
             <label style="display:flex; align-items:flex-start; gap:12px; font-size:13px; color:#cfcfcf; cursor:pointer;">
               <input type="checkbox" required style="margin-top:2px; width:18px; height:18px; accent-color:#fff; cursor:pointer;">
@@ -135,7 +161,6 @@
               <span>Я принимаю условия <a href="adv-agreement.html" target="_blank" style="color:#fff; text-decoration:underline;">Согласия на получение рекламных и информационных рассылок</a>.</span>
             </label>
           </div>
-          
           <a class="btn" href="#" onclick="alert('Спасибо! Мы свяжемся с вами в ближайшее время.'); return false;" style="background:#fff; color:#000; border-color:#fff;">Отправить заявку</a>
         </div>
       </div>
@@ -192,28 +217,7 @@
       </div>
     </section>
 
-    <!-- ФУТЕР -->
-    <section class="footer">
-      <div>
-        <strong>Quantum Consulting</strong>
-        <p>Поставка и внедрение премиального wellness-оборудования.</p>
-        <p style="margin-top:8px; font-size:13px;">+7 (495) 123-45-67<br>Managing@quantum-consulting.space</p>
-      </div>
-      <div><strong>Оборудование</strong>
-        <p><a href="equipment/capsule.html">Капсула HOCATT®</a><br><a href="equipment/pemf.html">PEMF / HUGO™</a><br><a href="equipment/models.html">Модели</a></p>
-      </div>
-      <div><strong>Решения</strong>
-        <p><a href="solutions/spa.html">SPA</a><br><a href="solutions/fitness.html">Фитнес</a><br><a href="solutions/hotels.html">Отели</a><br><a href="solutions/rehab.html">Реабилитация</a><br><a href="solutions/home-family.html">Дом</a></p>
-      </div>
-      <div><strong>Материалы</strong>
-        <p><a href="technology/index.html">О технологии</a><br><a href="blog.html">Блог</a><br><a href="faq.html">FAQ</a></p>
-      </div>
-      <div><strong>Контакты</strong>
-        <p><a href="contacts.html">Связаться с нами</a><br><a href="#centers">Центры с капсулой</a><br><a href="#" onclick="openPopup(); return false;">Заказать звонок</a></p>
-      </div>
-    </section>
-
-    <!-- ЮРИДИЧЕСКИЙ БЛОК (В САМОМ НИЗУ) -->
+    <!-- ЮРИДИЧЕСКИЙ БЛОК -->
     <section style="background:#111; border-bottom:none; padding:24px 72px; border-top:1px solid #333;">
       <div style="display:flex; flex-wrap:wrap; gap:24px; justify-content:center; font-size:13px;">
         <a href="agreement.html" target="_blank" style="color:#b9b9b9; text-decoration:underline;">Согласие на обработку персональных данных</a>
@@ -228,7 +232,7 @@
 
   </main>
 
-  <!-- ПОПАП ДЛЯ КОНСУЛЬТАЦИИ (УНИВЕРСАЛЬНЫЙ) -->
+  <!-- ПОПАП -->
   <div id="popup-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:999; align-items:center; justify-content:center;">
     <div style="background:#fff; border-radius:32px; padding:48px; max-width:480px; width:90%; position:relative; box-shadow:0 40px 80px rgba(0,0,0,0.3); max-height:90vh; overflow-y:auto;">
       <button onclick="closePopup();" style="position:absolute; top:16px; right:20px; background:none; border:none; font-size:28px; color:#999; cursor:pointer;">&times;</button>
@@ -238,22 +242,19 @@
       <div class="form" style="grid-template-columns:1fr;">
         <div class="input" style="background:#f4f4f1; color:var(--ink); border:1px solid var(--line);">Имя</div>
         <div class="input" style="background:#f4f4f1; color:var(--ink); border:1px solid var(--line);">Телефон</div>
-        
-        <!-- СЕЛЕКТОР СЕГМЕНТОВ -->
         <select style="height:54px; border-radius:14px; background:#f4f4f1; color:var(--ink); border:1px solid var(--line); padding:0 18px; font-size:15px; width:100%; appearance:none; cursor:pointer;">
           <option value="" disabled selected>Выберите ваш сегмент</option>
+          <option value="clinics">Клиники</option>
+          <option value="rehab">Реабилитационные центры</option>
           <option value="spa">SPA и wellness-центры</option>
           <option value="fitness">Фитнес-клубы</option>
           <option value="hotels">Отели и санатории</option>
-          <option value="rehab">Реабилитационные центры</option>
-          <option value="cosmetology">Косметологические клиники</option>
-          <option value="athletes">Спортсмены</option>
           <option value="home">Частные лица / Дом</option>
-          <option value="business">Корпоративный wellness</option>
+          <option value="corporate">Корпоративный wellness</option>
+          <option value="athletes">Профессиональные спортсмены</option>
+          <option value="biohacker">Биохакеры</option>
           <option value="other">Другое</option>
         </select>
-        
-        <!-- ЧЕКБОКСЫ В ПОПАПЕ -->
         <div style="display:flex; flex-direction:column; gap:10px; margin:8px 0;">
           <label style="display:flex; align-items:flex-start; gap:12px; font-size:12px; color:var(--muted); cursor:pointer;">
             <input type="checkbox" required style="margin-top:2px; width:16px; height:16px; accent-color:#000; cursor:pointer;">
@@ -264,7 +265,6 @@
             <span>Я принимаю условия <a href="adv-agreement.html" target="_blank" style="color:var(--ink); text-decoration:underline;">Согласия на получение рекламных и информационных рассылок</a>.</span>
           </label>
         </div>
-        
         <a class="btn" href="#" onclick="alert('Спасибо! Мы свяжемся с вами в ближайшее время.'); closePopup(); return false;" style="background:#000; color:#fff; border-color:#000;">Получить консультацию</a>
         <p style="font-size:11px; color:var(--muted); text-align:center; margin-top:8px;">Отправляя заявку, вы соглашаетесь с условиями обработки данных</p>
       </div>
