@@ -31,6 +31,7 @@
           <a class="btn" href="#cosmetology">Косметология</a>
           <a class="btn secondary" href="#mens-health">Мужское здоровье</a>
           <a class="btn secondary" href="#anti-age">Anti-age</a>
+          <a class="btn secondary" href="#" onclick="openPopup(); return false;">Получить консультацию</a>
         </div>
         <div class="kicker-row" style="margin-top:24px;">
           <span class="kicker">✅ Downtime ↓ 1,5–2×</span>
@@ -41,36 +42,69 @@
       <div class="visual"><span>Визуал: капсула в клинике, врач и пациент</span></div>
     </section>
 
-    <!-- ДЛЯ КОГО ЭТА СТРАНИЦА -->
+    <!-- ЭФФЕКТЫ ДЛЯ КЛИНИК -->
     <section>
+      <span class="label">Эффекты для клиник</span>
+      <h2>Что даёт МОК-терапия в клинической практике</h2>
+      <p style="max-width:860px;">МОК-терапия — это не просто процедура, а инструмент для повышения качества медицинской помощи, снижения рисков и создания новых источников дохода.</p>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:18px; margin-top:28px;">
+
+        <div style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:24px; text-align:center;">
+          <div style="font-size:36px; margin-bottom:12px;">⚡</div>
+          <h3 style="font-size:16px;">Снижение downtime на 1,5–2×</h3>
+          <p style="font-size:14px; color:var(--muted);">PEMF + микротоки + озон ускоряют заживление после лазеров, пилингов и инъекций. Клиенты быстрее возвращаются к обычной жизни.</p>
+        </div>
+
+        <div style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:24px; text-align:center;">
+          <div style="font-size:36px; margin-bottom:12px;">💊</div>
+          <h3 style="font-size:16px;">Снижение лекарственной нагрузки на 30–40%</h3>
+          <p style="font-size:14px; color:var(--muted);">Озон и PEMF уменьшают потребность в антибиотиках и обезболивающих. Пациенты получают более естественное восстановление.</p>
+        </div>
+
+        <div style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:24px; text-align:center;">
+          <div style="font-size:36px; margin-bottom:12px;">🔄</div>
+          <h3 style="font-size:16px;">Усиление других процедур в 2 раза</h3>
+          <p style="font-size:14px; color:var(--muted);">МОК-терапия перед инъекциями или лазерами улучшает проникновение препаратов и подготавливает кожу, повышая эффективность основных процедур.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ДЛЯ КОГО ЭТА СТРАНИЦА -->
+    <section style="background:#fafaf7;">
       <span class="label">Для кого эта страница</span>
       <h2>Три направления — одно решение</h2>
       <p style="max-width:860px;">Мы объединили три ключевых клинических направления на одной странице, потому что у них общая задача — повысить эффективность лечения, снизить риски и создать новые источники дохода.</p>
 
       <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:18px; margin-top:28px;">
+
         <a href="#cosmetology" style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:24px; text-align:center; text-decoration:none; color:inherit; transition:transform .15s ease, box-shadow .15s ease;">
           <div style="font-size:48px; margin-bottom:12px;">✨</div>
           <h3 style="font-size:17px;">Косметологические клиники</h3>
           <p style="font-size:14px; color:var(--muted);">Пред- и постпроцедурные протоколы, ускорение заживления, неинвазивная коллагеностимуляция.</p>
           <span style="font-size:13px; color:var(--ink); font-weight:600; display:inline-block; margin-top:8px;">Подробнее ↓</span>
         </a>
+
         <a href="#mens-health" style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:24px; text-align:center; text-decoration:none; color:inherit; transition:transform .15s ease, box-shadow .15s ease;">
           <div style="font-size:48px; margin-bottom:12px;">💪</div>
           <h3 style="font-size:17px;">Мужское здоровье</h3>
           <p style="font-size:14px; color:var(--muted);">Немедикаментозная поддержка при хроническом простатите, улучшение кровообращения, повышение либидо.</p>
           <span style="font-size:13px; color:var(--ink); font-weight:600; display:inline-block; margin-top:8px;">Подробнее ↓</span>
         </a>
+
         <a href="#anti-age" style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:24px; text-align:center; text-decoration:none; color:inherit; transition:transform .15s ease, box-shadow .15s ease;">
           <div style="font-size:48px; margin-bottom:12px;">🧬</div>
           <h3 style="font-size:17px;">Anti-age центры</h3>
           <p style="font-size:14px; color:var(--muted);">Клеточное восстановление, поддержка суставов и когнитивных функций, программы активного долголетия.</p>
           <span style="font-size:13px; color:var(--ink); font-weight:600; display:inline-block; margin-top:8px;">Подробнее ↓</span>
         </a>
+
       </div>
     </section>
 
     <!-- КОСМЕТОЛОГИЧЕСКИЕ КЛИНИКИ -->
-    <section id="cosmetology" style="background:#fafaf7;">
+    <section id="cosmetology">
       <span class="label">Косметологические клиники</span>
       <h2>Пред- и постпроцедурный протокол 10-в-1</h2>
       <div class="two-col">
@@ -96,13 +130,26 @@
           </div>
         </div>
       </div>
+
       <div style="margin-top:18px; padding:16px 24px; background:#fff; border-radius:16px; border-left:4px solid #000;">
         <p style="margin:0; font-size:14px; color:var(--muted);"><strong>💡 Для бизнеса:</strong> Процедуру проводит медсестра, врач назначает протокол. Маржинальность — 70–80%. Downtime сокращается, клиенты довольны быстрым результатом.</p>
+      </div>
+
+      <!-- Научные факты для косметологии -->
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:24px;">
+        <div style="background:#fff; border:1px solid var(--line); border-radius:16px; padding:16px 20px; border-left:4px solid #000;">
+          <p style="font-size:14px; color:var(--muted); margin:0;"><strong>🧬 Озон разрушает биоплёнки</strong> — то, что не могут сделать антибиотики. Это снижает риск постакне и воспалений после процедур.</p>
+          <div style="font-size:12px; color:var(--muted); margin-top:6px;">Источник: клинические исследования</div>
+        </div>
+        <div style="background:#fff; border:1px solid var(--line); border-radius:16px; padding:16px 20px; border-left:4px solid #000;">
+          <p style="font-size:14px; color:var(--muted); margin:0;"><strong>🔬 Микротоки стимулируют выработку коллагена</strong> — доказано в косметологических исследованиях. Эффект заметен после курса из 5–10 процедур.</p>
+          <div style="font-size:12px; color:var(--muted); margin-top:6px;">Источник: косметологические исследования</div>
+        </div>
       </div>
     </section>
 
     <!-- МУЖСКОЕ ЗДОРОВЬЕ -->
-    <section id="mens-health">
+    <section id="mens-health" style="background:#fafaf7;">
       <span class="label">Мужское здоровье</span>
       <h2>Немедикаментозная поддержка в урологии и андрологии</h2>
       <div class="two-col">
@@ -128,13 +175,26 @@
           </div>
         </div>
       </div>
+
       <div style="margin-top:18px; padding:16px 24px; background:#fff7f6; border-radius:16px; border-left:4px solid #9a4f49;">
         <p style="margin:0; font-size:14px; color:#5a3a36;"><strong>⚕️ Важно:</strong> Позиционируем как wellness-поддержку, а не лечение. Решения о применении принимает врач. Противопоказания: онкология, кардиостимулятор, острые воспаления.</p>
+      </div>
+
+      <!-- Научные факты для мужского здоровья -->
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:24px;">
+        <div style="background:#fff; border:1px solid var(--line); border-radius:16px; padding:16px 20px; border-left:4px solid #000;">
+          <p style="font-size:14px; color:var(--muted); margin:0;"><strong>🧬 Озон разрушает бактериальные биоплёнки</strong> — ключевой механизм при хроническом абактериальном простатите, где антибиотики бессильны.</p>
+          <div style="font-size:12px; color:var(--muted); margin-top:6px;">Источник: клинические исследования</div>
+        </div>
+        <div style="background:#fff; border:1px solid var(--line); border-radius:16px; padding:16px 20px; border-left:4px solid #000;">
+          <p style="font-size:14px; color:var(--muted); margin:0;"><strong>⚡ PEMF улучшает микроциркуляцию</strong> в органах малого таза, что способствует улучшению эректильной функции и снижению венозного застоя.</p>
+          <div style="font-size:12px; color:var(--muted); margin-top:6px;">Источник: клинические исследования</div>
+        </div>
       </div>
     </section>
 
     <!-- ANTI-AGE ЦЕНТРЫ -->
-    <section id="anti-age" style="background:#fafaf7;">
+    <section id="anti-age">
       <span class="label">Anti-age центры</span>
       <h2>Клеточное восстановление и активное долголетие</h2>
       <div class="two-col">
@@ -160,41 +220,21 @@
           </div>
         </div>
       </div>
+
       <div style="margin-top:18px; padding:16px 24px; background:#fff; border-radius:16px; border-left:4px solid #000;">
         <p style="margin:0; font-size:14px; color:var(--muted);"><strong>💡 Для бизнеса:</strong> Курсовая продажа — устойчивый денежный поток. Маржинальность 70–80%. Клиенты возвращаются на поддерживающие курсы 2–4 раза в год.</p>
       </div>
-    </section>
 
-    <!-- НАУЧНАЯ БАЗА -->
-    <section>
-      <span class="label">Научное обоснование</span>
-      <h2>Доказательная база для врачей</h2>
-      <p style="max-width:860px;">Каждая технология в HOCATT® имеет научное обоснование. Мы не просто говорим «это работает» — мы показываем исследования.</p>
-
-      <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:18px; margin-top:28px;">
-
-        <div style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:24px; border-top:4px solid #000;">
-          <div style="font-size:36px; margin-bottom:12px;">🏛️</div>
-          <h3 style="font-size:16px;">PEMF одобрен FDA</h3>
-          <p style="font-size:14px; color:var(--muted);">Одобрен для лечения несрастающихся переломов и псевдоартрозов. Это официально признанная медицинская технология.</p>
+      <!-- Научные факты для anti-age -->
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:24px;">
+        <div style="background:#fff; border:1px solid var(--line); border-radius:16px; padding:16px 20px; border-left:4px solid #000;">
+          <p style="font-size:14px; color:var(--muted); margin:0;"><strong>🧬 PEMF активирует митохондрии</strong> — «энергостанции» клеток. Стимулирует синтез АТФ, улучшая клеточный метаболизм и замедляя старение.</p>
+          <div style="font-size:12px; color:var(--muted); margin-top:6px;">Источник: клинические исследования</div>
         </div>
-
-        <div style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:24px; border-top:4px solid #000;">
-          <div style="font-size:36px; margin-bottom:12px;">🧬</div>
-          <h3 style="font-size:16px;">Эффект Бора — классическая физиология</h3>
-          <p style="font-size:14px; color:var(--muted);">CO₂ + гипертермия = расширение капилляров и улучшение отдачи кислорода тканям. Научный факт, не маркетинг.</p>
+        <div style="background:#fff; border:1px solid var(--line); border-radius:16px; padding:16px 20px; border-left:4px solid #000;">
+          <p style="font-size:14px; color:var(--muted); margin:0;"><strong>🌊 Эффект Бора — классическая физиология</strong> CO₂ + гипертермия расширяют капилляры и улучшают отдачу кислорода тканям, что даёт ощущение «лёгкости в теле».</p>
+          <div style="font-size:12px; color:var(--muted); margin-top:6px;">Источник: классическая физиология</div>
         </div>
-
-        <div style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:24px; border-top:4px solid #000;">
-          <div style="font-size:36px; margin-bottom:12px;">🧪</div>
-          <h3 style="font-size:16px;">Озон — сотни исследований</h3>
-          <p style="font-size:14px; color:var(--muted);">Антисептический эффект, разрушение биоплёнок, активация антиоксидантной системы. Метод одобрен Минздравом РФ.</p>
-        </div>
-
-      </div>
-
-      <div style="margin-top:24px; text-align:center;">
-        <a href="../blog.html" class="btn secondary">Все исследования в блоге →</a>
       </div>
     </section>
 
@@ -218,6 +258,34 @@
         <div style="background:#fff; border:1px solid var(--line); border-radius:20px; padding:24px;">
           <p style="font-size:15px; font-style:italic;">«I have also had ozone treatments which are fantastic for improving general health.»</p>
           <p style="font-size:14px; color:var(--muted); margin-top:12px;">— Jennifer, 5 лет клиент</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- БИЗНЕС-ВЫГОДЫ -->
+    <section>
+      <span class="label">Для бизнеса</span>
+      <h2>Что получает клиника</h2>
+      <div class="grid cols-4" style="margin-top:28px;">
+        <div class="card compact" style="text-align:center; min-height:auto; padding:24px;">
+          <div style="font-size:32px; margin-bottom:8px;">🏆</div>
+          <h3 style="font-size:15px;">Конкурентное преимущество</h3>
+          <p style="font-size:13px; color:var(--muted);">«Единственная клиника в городе с технологией 10-в-1». Привлечение пациентов, которые ищут современные методы.</p>
+        </div>
+        <div class="card compact" style="text-align:center; min-height:auto; padding:24px;">
+          <div style="font-size:32px; margin-bottom:8px;">💰</div>
+          <h3 style="font-size:15px;">Высокая маржинальность</h3>
+          <p style="font-size:13px; color:var(--muted);">Маржинальность процедуры 70–80%. Продажа курсов (10–15 сеансов) — от 50 000 до 100 000 ₽ за курс.</p>
+        </div>
+        <div class="card compact" style="text-align:center; min-height:auto; padding:24px;">
+          <div style="font-size:32px; margin-bottom:8px;">⚡</div>
+          <h3 style="font-size:15px;">Ускорение восстановления</h3>
+          <p style="font-size:13px; color:var(--muted);">Downtime сокращается в 1,5–2 раза. Пациенты быстрее возвращаются к нормальной жизни и рекомендуют клинику друзьям.</p>
+        </div>
+        <div class="card compact" style="text-align:center; min-height:auto; padding:24px;">
+          <div style="font-size:32px; margin-bottom:8px;">📈</div>
+          <h3 style="font-size:15px;">Повышение лояльности</h3>
+          <p style="font-size:13px; color:var(--muted);">Комплексный подход «лазер + МОК-терапия» даёт лучший результат, чем лазер в одиночку. Клиенты возвращаются и приводят друзей.</p>
         </div>
       </div>
     </section>
@@ -292,7 +360,7 @@
         <p><a href="../equipment/capsule.html">Капсула HOCATT®</a><br><a href="../equipment/pemf.html">PEMF / HUGO™</a><br><a href="../equipment/models.html">Модели</a></p>
       </div>
       <div><strong>Решения</strong>
-        <p><a href="spa.html">SPA</a><br><a href="fitness.html">Фитнес</a><br><a href="hotels.html">Отели</a><br><a href="rehab.html">Реабилитация</a><br><a href="clinics.html">Клиники</a><br><a href="home-family.html">Дом</a></p>
+        <p><a href="clinics.html">Клиники</a><br><a href="rehab.html">Реабилитация</a><br><a href="spa.html">SPA</a><br><a href="fitness.html">Фитнес</a><br><a href="hotels.html">Отели</a><br><a href="home-family.html">Дом</a></p>
       </div>
       <div><strong>Материалы</strong>
         <p><a href="../technology/index.html">О технологии</a><br><a href="../blog.html">Блог</a><br><a href="../faq.html">FAQ</a></p>
@@ -329,12 +397,15 @@
         <div class="input" style="background:#f4f4f1; color:var(--ink); border:1px solid var(--line);">Телефон</div>
         <select style="height:54px; border-radius:14px; background:#f4f4f1; color:var(--ink); border:1px solid var(--line); padding:0 18px; font-size:15px; width:100%; appearance:none; cursor:pointer;">
           <option value="" disabled selected>Выберите ваш сегмент</option>
+          <option value="clinics">Клиники</option>
+          <option value="rehab">Реабилитационные центры</option>
           <option value="spa">SPA и wellness-центры</option>
           <option value="fitness">Фитнес-клубы</option>
           <option value="hotels">Отели и санатории</option>
-          <option value="rehab">Реабилитационные центры</option>
-          <option value="clinics">Клиники</option>
           <option value="home">Частные лица / Дом</option>
+          <option value="corporate">Корпоративный wellness</option>
+          <option value="athletes">Профессиональные спортсмены</option>
+          <option value="biohacker">Биохакеры</option>
           <option value="other">Другое</option>
         </select>
         <div style="display:flex; flex-direction:column; gap:10px; margin:8px 0;">
