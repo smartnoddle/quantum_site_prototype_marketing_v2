@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Решения для бизнеса — Quantum Consulting</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <main class="page">
+    <header class="topbar">
+      <a class="brand" href="../index.html">Quantum Consulting</a>
+      <nav class="nav">
+        <a href="../equipment/index.html">Оборудование</a>
+        <a class="active" href="index.html">Решения</a>
+        <a href="../technology/index.html">Технологии</a>
+        <a href="../blog.html">Блог</a>
+        <a href="../contacts.html">Контакты</a>
+        <a href="#" onclick="openPopup(); return false;">Консультация</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero narrow">
+      <div>
+        <span class="label">Решения для бизнеса</span>
+        <h1>Оборудование для SPA, фитнеса, отелей, клиник и дома</h1>
+        <p>Мы поставляем премиальное wellness-оборудование под любой формат: от частной резиденции до крупного курорта. Выберите ваш сегмент — и получите готовое решение с расчётом окупаемости, обучением и поддержкой.</p>
+        <div class="actions">
+          <a class="btn" href="#segments">Выбрать сегмент</a>
+          <a class="btn secondary" href="#" onclick="openPopup(); return false;">Получить консультацию</a>
+        </div>
+      </div>
+      <div class="visual flat">
+        <span style="display:flex; flex-direction:column; gap:12px; align-items:center; background:transparent; border:none; backdrop-filter:none; color:var(--ink); text-align:center;">
+          <div style="display:flex; gap:30px; justify-content:center; flex-wrap:wrap; font-size:14px;">
+            <span>💆 SPA</span>
+            <span>🏋️ Фитнес</span>
+            <span>🏨 Отели</span>
+            <span>🦴 Реабилитация</span>
+            <span>🏠 Дом</span>
+          </div>
+          <span style="font-size:14px; color:var(--muted);">Выберите ваш сегмент</span>
+        </span>
+      </div>
+    </section>
+
+    <!-- ВСЕ РЕШЕНИЯ - СЕТКА 3×3 -->
+    <section id="segments">
+      <span class="label">Все решения</span>
+      <h2>Выберите ваш сегмент</h2>
+      <p style="max-width:860px;">Каждый сегмент требует своего подхода. Мы разработали готовые решения с учётом специфики бизнеса, целевой аудитории и экономики.</p>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:18px; margin-top:28px;">
+
+        <!-- SPA -->
+        <a href="spa.html" class="card" style="text-align:center; min-height:auto; padding:32px 24px; transition:transform .15s ease, box-shadow .15s ease; text-decoration:none; color:inherit;">
+          <div style="font-size:48px; margin-bottom:12px;">💆</div>
+          <h3 style="font-size:18px;">SPA и wellness-центры</h3>
+          <p style="font-size:14px; color:var(--muted);">Уникальная процедура 10-в-1, которая повысит средний чек на 30% и создаст УТП «технологичный биохакинг».</p>
+          <div style="display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-top:12px;">
+            <span style="font-size:12px; background:var(--soft); padding:4px 12px; border-radius:20px;">Рост чека 30–40%</span>
+            <span style="font-size:12px; background:var(--soft); padding:4px 12px; border-radius:20px;">Окупаемость 10–16 мес</span>
+          </div>
+        </a>
+
+        <!-- Фитнес -->
+        <a href="fitness.html" class="card" style="text-align:center; min-height:auto; padding:32px 24px; transition:transform .15s ease, box-shadow .15s ease; text-decoration:none; color:inherit;">
+          <div style="font-size:48px; margin-bottom:12px;">🏋️</div>
+          <h3 style="font-size:18px;">Фитнес-клубы</h3>
+          <p style="font-size:14px; color:var(--muted);">Восстановление после нагрузок в 2 раза быстрее. Новый премиум-продукт для удержания VIP-клиентов.</p>
+          <div style="display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-top:12px;">
+            <span style="font-size:12px; background:var(--soft); padding:4px 12px; border-radius:20px;">Снижение крепатуры 40–60%</span>
+            <span style="font-size:12px; background:var(--soft); padding:4px 12px; border-radius:20px;">Окупаемость 8–14 мес</span>
+          </div>
+        </a>
+
+        <!-- Отели -->
+        <a href="hotels.html" class="card" style="text-align:center; min-height:auto; padding:32px 24px; transition:transform .15s ease, box-shadow .15s ease; text-decoration:none; color:inherit;">
+          <div style="font-size:48px; margin-bottom:12px;">🏨</div>
+          <h3 style="font-size:18px;">Отели и санатории</h3>
+          <p style="font-size:14px; color:var(--muted);">Готовая детокс-программа для гостей. Эксклюзивное УТП, которое выделит вас среди конкурентов.</p>
+          <div style="display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-top:12px;">
+            <span style="font-size:12px; background:var(--soft); padding:4px 12px; border-radius:20px;">Увеличение LTV гостя</span>
+            <span style="font-size:12px; background:var(--soft); padding:4px 12px; border-radius:20px;">Окупаемость 12–18 мес</span>
+          </div>
+        </a>
+
+        <!-- Реабилитация -->
+        <a href="rehab.html" class="card" style="text-align:center; min-height:auto; padding:32px 24px; transition:transform .15s ease, box-shadow .15s ease; text-decoration:none; color:inherit;">
+          <div style="font-size:48px; margin-bottom:12px;">🦴</div>
+          <h3 style="font-size:18px;">Реабилитационные центры</h3>
+          <p style="font-size:14px; color:var(--muted);">PEMF-терапия уровня FDA. Ускорение восстановления после травм и операций на 20–30%.</p>
+          <div style="display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-top:12px;">
+            <span style="font-size:12px; background:var(--soft); padding:4px 12px; border-radius:20px;">Одобрено FDA</span>
+            <span style="font-size:12px; background:var(--soft); padding:4px 12px; border-radius:20px;">Окупаемость 12–18 мес</span>
+          </div>
+        </a>
+
+        <!-- Косметология -->
+        <a href="cosmetology.html" class="card" style="text-align:center; min-height:auto; padding:32px 24px; transition:transform .15s ease, box-shadow .15s ease; text-decoration:none; color:inherit;">
+          <div style="font-size:48px; margin-bottom:12px;">✨</div>
+          <h3 style="font-size:18px;">Косметологические клиники</h3>
+          <p style="font-size:14px; color:var(--muted);">Пред- и постпроцедурный протокол 10-в-1. Ускорение заживления после пилингов и лазеров в 1,5–2 раза.</p>
+          <div style="display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-top:12px;">
+            <span style="font-size:12px; background:var(--soft); padding:4px 12px; border-radius:20px;">Downtime ↓ 1,5–2×</span>
+            <span style="font-size:12px; background:var(--soft); padding:4px 12px; border-radius:20px;">Маржинальность 70–80%</span>
+          </div>
+        </a>
+
+        <!-- Спортсмены -->
+        <a href="athletes.html" class="card" style="text-align:center; min-height:auto; padding:32px 24px; transition:transform .15s ease, box-shadow .15s ease; text-decoration:none; color:inherit;">
+          <div style="font-size:48px; margin-bottom:12px;">🏃</div>
+          <h3 style="font-size:18px;">Спортсмены</h3>
+          <p style="font-size:14px; color:var(--muted);">PEMF-восстановление уровня топ-команд. 12–20 минут в капсуле — и готовность к новой тренировке.</p>
+          <div style="display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-top:12px;">
+            <span style="font-size:12px; background:var(--soft); padding:4px 12px; border-radius:20px;">Восстановление ↑ 2×</span>
+            <span style="font-size:12px; background:var(--soft); padding:4px 12px; border-radius:20px;">Не входит в список WADA</span>
+          </div>
+        </a>
+
+        <!-- Дом -->
+        <a href="home-family.html" class="card" style="text-align:center; min-height:auto; padding:32px 24px; transition:transform .15s ease, box-shadow .15s ease; text-decoration:none; color:inherit;">
+          <div style="font-size:48px; margin-bottom:12px;">🏠</div>
+          <h3 style="font-size:18px;">Дом и семья</h3>
+          <p style="font-size:14px; color:var(--muted);">Персональная wellness-капсула 10-в-1 для всей семьи. Экономия на SPA и бьюти-процедурах.</p>
+          <div style="display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-top:12px;">
+            <span style="font-size:12px; background:var(--soft); padding:4px 12px; border-radius:20px;">Окупаемость 1–2 года</span>
+            <span style="font-size:12px; background:var(--soft); padding:4px 12px; border-radius:20px;">10 технологий дома</span>
+          </div>
+        </a>
+
+        <!-- Мужское здоровье -->
+        <a href="../solutions/mens-health.html" class="card" style="text-align:center; min-height:auto; padding:32px 24px; transition:transform .15s ease, box-shadow .15s ease; text-decoration:none; color:inherit;">
+          <div style="font-size:48px; margin-bottom:12px;">💪</div>
+          <h3 style="font-size:18px;">Мужское здоровье</h3>
+          <p style="font-size:14px; color:var(--muted);">Немедикаментозная поддержка мужского здоровья. Улучшение кровообращения, снижение воспаления.</p>
+          <div style="display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-top:12px;">
+            <span style="font-size:12px; background:var(--soft); padding:4px 12px; border-radius:20px;">Конфиденциально</span>
+            <span style="font-size:12px; background:var(--soft); padding:4px 12px; border-radius:20px;">Курс 10–15 сеансов</span>
+          </div>
+        </a>
+
+        <!-- Корпоративный wellness -->
+        <a href="../solutions/corporate.html" class="card" style="text-align:center; min-height:auto; padding:32px 24px; transition:transform .15s ease, box-shadow .15s ease; text-decoration:none; color:inherit;">
+          <div style="font-size:48px; margin-bottom:12px;">🏢</div>
+          <h3 style="font-size:18px;">Корпоративный wellness</h3>
+          <p style="font-size:14px; color:var(--muted);">Wellness-капсула для топ-команды. Снижение стресса, повышение продуктивности, сокращение больничных.</p>
+          <div style="display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-top:12px;">
+            <span style="font-size:12px; background:var(--soft); padding:4px 12px; border-radius:20px;">Sick days ↓ 30–40%</span>
+            <span style="font-size:12px; background:var(--soft); padding:4px 12px; border-radius:20px;">Удержание топ-команды</span>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- КЛЮЧЕВАЯ ИДЕЯ -->
+    <section style="background:#fafaf7;">
+      <div style="background:#171717; color:#fff; border-radius:36px; padding:54px; text-align:center;">
+        <span class="label" style="color:#aaa;">Для любого формата</span>
+        <h2 style="color:#fff; max-width:860px; margin:0 auto 18px;">Одно оборудование — десятки сценариев использования</h2>
+        <p style="color:#cfcfcf; max-width:700px; margin:0 auto;">HOCATT® и HUGO™ подходят для любого формата бизнеса. Мы адаптируем комплектацию, протоколы и обучение под ваши задачи.</p>
+      </div>
+    </section>
+
+    <!-- ФОРМА ЗАХВАТА -->
+    <section style="background:#fafaf7;">
+      <div style="max-width:700px; margin:0 auto; text-align:center;">
+        <span class="label">Нужна помощь с выбором?</span>
+        <h2 style="max-width:100%;">Не знаете, какое решение подойдёт вам?</h2>
+        <p style="max-width:100%;">Оставьте номер — мы перезвоним, разберём вашу задачу и предложим оптимальное решение под ваш формат.</p>
+        <div style="display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin-top:24px;">
+          <input type="tel" placeholder="+7 (___) ___-__-__" style="flex:1; min-width:200px; padding:14px 18px; border:1px solid var(--line); border-radius:14px; font-size:16px;">
+          <a href="#" class="btn" onclick="alert('Спасибо! Мы свяжемся с вами в ближайшее время.'); return false;">Получить консультацию</a>
+        </div>
+        <p style="font-size:13px; color:var(--muted); margin-top:12px;">Отправляя номер, вы соглашаетесь на обработку персональных данных</p>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section>
+      <div class="cta">
+        <div>
+          <span class="label">Следующий шаг</span>
+          <h2>Обсудить решение под ваш формат</h2>
+          <p>Расскажите о вашем бизнесе, и мы предложим оптимальную комплектацию с расчётом окупаемости под ваш сегмент.</p>
+        </div>
+        <div class="form">
+          <div class="input">Имя</div>
+          <div class="input">Телефон</div>
+          <select style="height:54px; border-radius:14px; background:#2a2a2a; color:#aaa; border:1px solid #444; padding:0 18px; font-size:15px; width:100%; appearance:none; cursor:pointer;">
+            <option value="" disabled selected>Выберите ваш сегмент</option>
+            <option value="spa">SPA и wellness-центры</option>
+            <option value="fitness">Фитнес-клубы</option>
+            <option value="hotels">Отели и санатории</option>
+            <option value="rehab">Реабилитационные центры</option>
+            <option value="cosmetology">Косметологические клиники</option>
+            <option value="athletes">Спортсмены</option>
+            <option value="home">Частные лица / Дом</option>
+            <option value="business">Корпоративный wellness</option>
+            <option value="other">Другое</option>
+          </select>
+          <div style="display:flex; flex-direction:column; gap:10px; margin:4px 0;">
+            <label style="display:flex; align-items:flex-start; gap:12px; font-size:12px; color:#aaa; cursor:pointer;">
+              <input type="checkbox" required style="margin-top:2px; width:16px; height:16px; accent-color:#fff; cursor:pointer;">
+              <span>Я принимаю условия <a href="../agreement.html" target="_blank" style="color:#fff; text-decoration:underline;">Согласия на обработку персональных данных</a> и даю согласие на обработку моих персональных данных.</span>
+            </label>
+            <label style="display:flex; align-items:flex-start; gap:12px; font-size:12px; color:#aaa; cursor:pointer;">
+              <input type="checkbox" style="margin-top:2px; width:16px; height:16px; accent-color:#fff; cursor:pointer;">
+              <span>Я принимаю условия <a href="../adv-agreement.html" target="_blank" style="color:#fff; text-decoration:underline;">Согласия на получение рекламных и информационных рассылок</a>.</span>
+            </label>
+          </div>
+          <a class="btn" href="#" onclick="alert('Спасибо! Мы свяжемся с вами в ближайшее время.'); return false;" style="background:#fff; color:#000; border-color:#fff;">Получить консультацию</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ФУТЕР -->
+    <section class="footer">
+      <div>
+        <strong>Quantum Consulting</strong>
+        <p>Поставка и внедрение премиального wellness-оборудования.</p>
+        <p style="margin-top:8px; font-size:13px;">+7 (495) 123-45-67<br>Managing@quantum-consulting.space</p>
+      </div>
+      <div><strong>Оборудование</strong>
+        <p><a href="../equipment/capsule.html">Капсула HOCATT®</a><br><a href="../equipment/pemf.html">PEMF / HUGO™</a><br><a href="../equipment/models.html">Модели</a></p>
+      </div>
+      <div><strong>Решения</strong>
+        <p><a href="spa.html">SPA</a><br><a href="fitness.html">Фитнес</a><br><a href="hotels.html">Отели</a><br><a href="rehab.html">Реабилитация</a><br><a href="home-family.html">Дом</a></p>
+      </div>
+      <div><strong>Материалы</strong>
+        <p><a href="../technology/index.html">О технологии</a><br><a href="../blog.html">Блог</a><br><a href="../faq.html">FAQ</a></p>
+      </div>
+      <div><strong>Контакты</strong>
+        <p><a href="../contacts.html">Связаться с нами</a><br><a href="#" onclick="openPopup(); return false;">Заказать звонок</a></p>
+      </div>
+    </section>
+
+    <!-- ЮРИДИЧЕСКИЙ БЛОК -->
+    <section style="background:#111; border-bottom:none; padding:24px 72px; border-top:1px solid #333;">
+      <div style="display:flex; flex-wrap:wrap; gap:24px; justify-content:center; font-size:13px;">
+        <a href="../agreement.html" target="_blank" style="color:#b9b9b9; text-decoration:underline;">Согласие на обработку персональных данных</a>
+        <a href="../adv-agreement.html" target="_blank" style="color:#b9b9b9; text-decoration:underline;">Согласие на получение рассылок</a>
+        <a href="../privacy-policy.html" target="_blank" style="color:#b9b9b9; text-decoration:underline;">Политика конфиденциальности</a>
+        <a href="../cookies-policy.html" target="_blank" style="color:#b9b9b9; text-decoration:underline;">Политика использования Cookies</a>
+      </div>
+      <div style="text-align:center; margin-top:12px; font-size:12px; color:#888;">
+        ООО «КВАНТОВЫЙ КОНСАЛТИНГ» · ИНН 9718288984 · ОГРН 1257700508306 · г. Москва, ул. Стромынка, д. 5, кв. 5
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ПОПАП -->
+  <div id="popup-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:999; align-items:center; justify-content:center;">
+    <div style="background:#fff; border-radius:32px; padding:48px; max-width:480px; width:90%; position:relative; box-shadow:0 40px 80px rgba(0,0,0,0.3); max-height:90vh; overflow-y:auto;">
+      <button onclick="closePopup();" style="position:absolute; top:16px; right:20px; background:none; border:none; font-size:28px; color:#999; cursor:pointer;">&times;</button>
+      <span class="label" style="color:var(--muted);">Бесплатная консультация</span>
+      <h2 style="font-size:28px; margin:0 0 12px;">Получить консультацию специалиста</h2>
+      <p style="font-size:15px; color:var(--muted); margin-bottom:24px;">Оставьте номер — мы перезвоним в течение 15 минут и ответим на все вопросы.</p>
+      <div class="form" style="grid-template-columns:1fr;">
+        <div class="input" style="background:#f4f4f1; color:var(--ink); border:1px solid var(--line);">Имя</div>
+        <div class="input" style="background:#f4f4f1; color:var(--ink); border:1px solid var(--line);">Телефон</div>
+        <select style="height:54px; border-radius:14px; background:#f4f4f1; color:var(--ink); border:1px solid var(--line); padding:0 18px; font-size:15px; width:100%; appearance:none; cursor:pointer;">
+          <option value="" disabled selected>Выберите ваш сегмент</option>
+          <option value="spa">SPA и wellness-центры</option>
+          <option value="fitness">Фитнес-клубы</option>
+          <option value="hotels">Отели и санатории</option>
+          <option value="rehab">Реабилитационные центры</option>
+          <option value="cosmetology">Косметологические клиники</option>
+          <option value="athletes">Спортсмены</option>
+          <option value="home">Частные лица / Дом</option>
+          <option value="business">Корпоративный wellness</option>
+          <option value="other">Другое</option>
+        </select>
+        <div style="display:flex; flex-direction:column; gap:10px; margin:8px 0;">
+          <label style="display:flex; align-items:flex-start; gap:12px; font-size:12px; color:var(--muted); cursor:pointer;">
+            <input type="checkbox" required style="margin-top:2px; width:16px; height:16px; accent-color:#000; cursor:pointer;">
+            <span>Я принимаю условия <a href="../agreement.html" target="_blank" style="color:var(--ink); text-decoration:underline;">Согласия на обработку персональных данных</a> и даю согласие на обработку моих персональных данных.</span>
+          </label>
+          <label style="display:flex; align-items:flex-start; gap:12px; font-size:12px; color:var(--muted); cursor:pointer;">
+            <input type="checkbox" style="margin-top:2px; width:16px; height:16px; accent-color:#000; cursor:pointer;">
+            <span>Я принимаю условия <a href="../adv-agreement.html" target="_blank" style="color:var(--ink); text-decoration:underline;">Согласия на получение рекламных и информационных рассылок</a>.</span>
+          </label>
+        </div>
+        <a class="btn" href="#" onclick="alert('Спасибо! Мы свяжемся с вами в ближайшее время.'); closePopup(); return false;" style="background:#000; color:#fff; border-color:#000;">Получить консультацию</a>
+        <p style="font-size:11px; color:var(--muted); text-align:center; margin-top:8px;">Отправляя заявку, вы соглашаетесь с условиями обработки данных</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openPopup() {
+      document.getElementById('popup-overlay').style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+    function closePopup() {
+      document.getElementById('popup-overlay').style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+    document.getElementById('popup-overlay').addEventListener('click', function(e) {
+      if (e.target === this) closePopup();
+    });
+  </script>
+
+</body>
+</html>
