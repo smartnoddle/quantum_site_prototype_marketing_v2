@@ -1,0 +1,1140 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Калькулятор окупаемости капсулы HOCATT® — Quantum Consulting</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ============================================================ */
+    /* ДОПОЛНИТЕЛЬНЫЕ СТИЛИ ДЛЯ КАЛЬКУЛЯТОРА */
+    /* ============================================================ */
+
+    .calc-hero {
+      background: linear-gradient(145deg, #1a1a2e, #16213e);
+      color: #fff;
+      border-radius: 36px;
+      padding: 60px 72px;
+      margin-bottom: 0;
+      border-bottom: none;
+    }
+
+    .calc-hero h1 {
+      color: #fff;
+      max-width: 860px;
+    }
+    .calc-hero p {
+      color: rgba(255,255,255,0.7);
+      max-width: 700px;
+    }
+
+    .calc-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      background: #fff;
+      border-radius: 36px;
+      padding: 48px;
+      border: 1px solid var(--line);
+      margin-top: -20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .calc-params label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .calc-params .field-group {
+      margin-bottom: 28px;
+    }
+
+    .calc-params select {
+      width: 100%;
+      height: 52px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      padding: 0 18px;
+      font-size: 16px;
+      background: #fafaf7;
+      appearance: none;
+      cursor: pointer;
+      color: var(--ink);
+    }
+
+    .calc-params select:focus {
+      outline: none;
+      border-color: var(--ink);
+    }
+
+    .range-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .range-wrapper input[type="range"] {
+      flex: 1;
+      height: 4px;
+      -webkit-appearance: none;
+      appearance: none;
+      background: var(--line);
+      border-radius: 4px;
+      outline: none;
+    }
+
+    .range-wrapper input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--ink);
+      cursor: pointer;
+      border: 2px solid #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    .range-wrapper input[type="range"]::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--ink);
+      cursor: pointer;
+      border: 2px solid #fff;
+    }
+
+    .range-value {
+      min-width: 70px;
+      text-align: center;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .range-value small {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--muted);
+    }
+
+    /* Результаты */
+    .calc-results {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .result-main {
+      background: #fafaf7;
+      border-radius: 24px;
+      padding: 32px;
+      text-align: center;
+      border: 1px solid var(--line);
+    }
+
+    .result-main .number {
+      font-size: 56px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      color: var(--ink);
+      line-height: 1;
+    }
+
+    .result-main .number small {
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--muted);
+    }
+
+    .result-main .label {
+      font-size: 14px;
+      color: var(--muted);
+      margin-top: 8px;
+      display: block;
+    }
+
+    .result-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+    }
+
+    .result-item {
+      background: #fafaf7;
+      border-radius: 16px;
+      padding: 16px;
+      text-align: center;
+      border: 1px solid var(--line);
+    }
+
+    .result-item .number {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .result-item .label {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 4px;
+      display: block;
+    }
+
+    /* Сценарии */
+    .scenarios {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .scenario-card {
+      border-radius: 16px;
+      padding: 16px;
+      text-align: center;
+      border: 1px solid var(--line);
+      background: #fafaf7;
+    }
+
+    .scenario-card.optimistic {
+      border-left: 4px solid #00c853;
+    }
+    .scenario-card.base {
+      border-left: 4px solid #1a73e8;
+    }
+    .scenario-card.pessimistic {
+      border-left: 4px solid #ff1744;
+    }
+
+    .scenario-card .label {
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .scenario-card .number {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .scenario-card .desc {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    /* График */
+    .chart-container {
+      background: #fafaf7;
+      border-radius: 16px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      margin-top: 8px;
+    }
+
+    .chart-container canvas {
+      width: 100% !important;
+      height: auto !important;
+      max-height: 180px;
+    }
+
+    .chart-legend {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      margin-top: 12px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .chart-legend span::before {
+      content: "";
+      display: inline-block;
+      width: 14px;
+      height: 3px;
+      margin-right: 8px;
+      vertical-align: middle;
+      border-radius: 4px;
+    }
+
+    .chart-legend .l-cost::before { background: #ff1744; width: 14px; height: 3px; }
+    .chart-legend .l-revenue::before { background: #1a73e8; width: 14px; height: 3px; }
+
+    /* Сравнение моделей */
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .compare-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 24px;
+      text-align: center;
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+
+    .compare-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 50px rgba(0,0,0,0.06);
+    }
+
+    .compare-card .price {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--ink);
+      margin: 8px 0;
+    }
+
+    .compare-card .payback {
+      font-size: 20px;
+      font-weight: 600;
+      color: #1a73e8;
+    }
+
+    .compare-card .tag {
+      display: inline-block;
+      background: var(--soft);
+      padding: 4px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    /* Экономия 10-в-1 */
+    .savings-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .savings-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--line);
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .savings-item .price {
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .savings-total {
+      background: #fafaf7;
+      border-radius: 16px;
+      padding: 20px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 12px;
+      border: 1px solid var(--line);
+    }
+
+    .savings-total .total-label {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .savings-total .total-price {
+      font-size: 24px;
+      font-weight: 700;
+      color: #00c853;
+    }
+
+    .savings-total .total-price .old {
+      font-size: 16px;
+      color: #ff1744;
+      text-decoration: line-through;
+      font-weight: 400;
+      margin-right: 12px;
+    }
+
+    /* Форма захвата */
+    .calc-cta {
+      background: #171717;
+      color: #fff;
+      border-radius: 36px;
+      padding: 48px 54px;
+      margin-top: 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 42px;
+      align-items: center;
+    }
+
+    .calc-cta h2 {
+      color: #fff;
+      font-size: 28px;
+      max-width: 100%;
+    }
+
+    .calc-cta p {
+      color: #cfcfcf;
+      max-width: 100%;
+    }
+
+    .calc-cta .form {
+      display: grid;
+      gap: 14px;
+    }
+
+    .calc-cta .input {
+      height: 52px;
+      border-radius: 14px;
+      background: #2a2a2a;
+      color: #fff;
+      padding: 0 18px;
+      display: flex;
+      align-items: center;
+      font-size: 15px;
+      border: 1px solid #444;
+    }
+
+    .calc-cta .input input {
+      background: transparent;
+      border: none;
+      color: #fff;
+      width: 100%;
+      outline: none;
+      font-size: 15px;
+    }
+
+    .calc-cta .input input::placeholder {
+      color: #888;
+    }
+
+    .calc-cta select {
+      height: 52px;
+      border-radius: 14px;
+      background: #2a2a2a;
+      color: #aaa;
+      border: 1px solid #444;
+      padding: 0 18px;
+      font-size: 15px;
+      width: 100%;
+      appearance: none;
+      cursor: pointer;
+    }
+
+    .calc-cta select:focus {
+      outline: none;
+      border-color: #666;
+    }
+
+    /* Адаптив */
+    @media (max-width: 1180px) {
+      .calc-hero {
+        padding: 40px 32px;
+      }
+      .calc-wrapper {
+        grid-template-columns: 1fr;
+        padding: 32px;
+      }
+      .result-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .scenarios {
+        grid-template-columns: 1fr;
+      }
+      .compare-grid {
+        grid-template-columns: 1fr;
+      }
+      .savings-grid {
+        grid-template-columns: 1fr;
+      }
+      .calc-cta {
+        grid-template-columns: 1fr;
+        padding: 32px 28px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .calc-hero {
+        padding: 28px 18px;
+      }
+      .calc-wrapper {
+        padding: 20px;
+      }
+      .result-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .result-main .number {
+        font-size: 40px;
+      }
+      .calc-cta {
+        padding: 24px 18px;
+      }
+    }
+
+    /* скрываем стандартный инпут для цены модели */
+    .hidden-input {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="topbar">
+      <a class="brand" href="index.html">Quantum Consulting</a>
+      <nav class="nav">
+        <a href="equipment/index.html">Оборудование</a>
+        <a href="solutions/index.html">Решения</a>
+        <a href="technology/index.html">Технологии</a>
+        <a href="blog.html">Блог</a>
+        <a href="contacts.html">Контакты</a>
+        <a href="#" onclick="openPopup(); return false;">Консультация</a>
+      </nav>
+    </header>
+
+    <!-- ============================================================ -->
+    <!-- HERO КАЛЬКУЛЯТОРА -->
+    <!-- ============================================================ -->
+    <section class="calc-hero">
+      <span class="label" style="color:rgba(255,255,255,0.5);">Интерактивный расчёт</span>
+      <h1>Рассчитайте окупаемость капсулы HOCATT® для вашего бизнеса</h1>
+      <p style="font-size:18px;">Введите параметры вашего бизнеса и узнайте, через сколько месяцев капсула окупится и начнёт приносить чистую прибыль. Три сценария — от пессимистичного до оптимистичного.</p>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- ОСНОВНОЙ КАЛЬКУЛЯТОР -->
+    <!-- ============================================================ -->
+    <section style="padding-top:0; border-bottom:1px solid var(--line);">
+      <div class="calc-wrapper">
+
+        <!-- Левая колонка: параметры -->
+        <div class="calc-params">
+
+          <!-- 1. Выбор модели -->
+          <div class="field-group">
+            <label for="modelSelect">Модель капсулы</label>
+            <select id="modelSelect">
+              <option value="base">Базовая — от 1 500 000 ₽</option>
+              <option value="extended" selected>Расширенная — от 2 500 000 ₽</option>
+              <option value="premium">Премиум (с PEMF) — от 3 500 000 ₽</option>
+            </select>
+            <div style="font-size:13px; color:var(--muted); margin-top:6px;">
+              Стоимость оборудования: <strong id="modelCostDisplay">2 500 000</strong> ₽
+            </div>
+          </div>
+
+          <!-- 2. Цена сеанса -->
+          <div class="field-group">
+            <label for="priceRange">Цена одного сеанса</label>
+            <div class="range-wrapper">
+              <input type="range" id="priceRange" min="3000" max="15000" step="500" value="7000">
+              <span class="range-value" id="priceDisplay">7 000 <small>₽</small></span>
+            </div>
+            <div style="display:flex; justify-content:space-between; font-size:12px; color:var(--muted);">
+              <span>3 000 ₽</span>
+              <span>15 000 ₽</span>
+            </div>
+          </div>
+
+          <!-- 3. Количество сеансов в день -->
+          <div class="field-group">
+            <label for="sessionsRange">Количество сеансов в день</label>
+            <div class="range-wrapper">
+              <input type="range" id="sessionsRange" min="1" max="10" step="1" value="3">
+              <span class="range-value" id="sessionsDisplay">3 <small>сеанса</small></span>
+            </div>
+            <div style="display:flex; justify-content:space-between; font-size:12px; color:var(--muted);">
+              <span>1 сеанс</span>
+              <span>10 сеансов</span>
+            </div>
+          </div>
+
+          <!-- 4. Дополнительные затраты (опционально) -->
+          <div class="field-group" style="margin-bottom:0;">
+            <label style="font-size:13px; color:var(--muted); font-weight:400;">
+              <input type="checkbox" id="includeCosts" style="margin-right:8px; accent-color:#000;">
+              Учесть затраты на электроэнергию и расходные материалы
+            </label>
+            <div id="costsFields" style="display:none; margin-top:12px; display:none;">
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+                <div>
+                  <label style="font-size:13px; color:var(--muted);">Электроэнергия (мес.)</label>
+                  <input type="number" id="electricityCost" value="5000" style="width:100%; height:40px; border-radius:10px; border:1px solid var(--line); padding:0 12px; font-size:14px;">
+                </div>
+                <div>
+                  <label style="font-size:13px; color:var(--muted);">Расходные материалы (мес.)</label>
+                  <input type="number" id="suppliesCost" value="3000" style="width:100%; height:40px; border-radius:10px; border:1px solid var(--line); padding:0 12px; font-size:14px;">
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Правая колонка: результаты -->
+        <div class="calc-results">
+
+          <!-- Главный результат: срок окупаемости -->
+          <div class="result-main">
+            <span class="number" id="paybackDisplay">14 <small>мес.</small></span>
+            <span class="label">Срок окупаемости</span>
+            <div style="font-size:14px; color:var(--muted); margin-top:4px;">
+              ≈ <span id="paybackYearsDisplay">1,2</span> года
+            </div>
+          </div>
+
+          <!-- Дополнительные результаты -->
+          <div class="result-grid">
+            <div class="result-item">
+              <span class="number" id="monthlyRevenueDisplay">630 000</span>
+              <span class="label">Выручка в месяц</span>
+            </div>
+            <div class="result-item">
+              <span class="number" id="annualRevenueDisplay">7 560 000</span>
+              <span class="label">Выручка в год</span>
+            </div>
+            <div class="result-item">
+              <span class="number" id="roiDisplay">202</span>
+              <span class="label">ROI, %</span>
+            </div>
+          </div>
+
+          <!-- Три сценария -->
+          <div class="scenarios">
+            <div class="scenario-card optimistic">
+              <div class="label">Оптимистичный</div>
+              <div class="number" id="optimisticDisplay">10</div>
+              <div class="desc">месяцев</div>
+            </div>
+            <div class="scenario-card base">
+              <div class="label">Базовый</div>
+              <div class="number" id="baseDisplay">14</div>
+              <div class="desc">месяцев</div>
+            </div>
+            <div class="scenario-card pessimistic">
+              <div class="label">Пессимистичный</div>
+              <div class="number" id="pessimisticDisplay">22</div>
+              <div class="desc">месяцев</div>
+            </div>
+          </div>
+
+          <!-- График накопленного дохода -->
+          <div class="chart-container">
+            <canvas id="paybackChart" height="120"></canvas>
+            <div class="chart-legend">
+              <span class="l-cost">Стоимость оборудования</span>
+              <span class="l-revenue">Накопленный доход</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- СРАВНЕНИЕ МОДЕЛЕЙ -->
+    <!-- ============================================================ -->
+    <section style="background:#fafaf7;">
+      <span class="label">Сравнение моделей</span>
+      <h2>Какая модель окупится быстрее? Сравните три варианта</h2>
+      <p style="max-width:860px;">Расчёт для каждой модели выполнен при одинаковых условиях: цена сеанса — <span id="comparePriceDisplay">7 000</span> ₽, сеансов в день — <span id="compareSessionsDisplay">3</span>.</p>
+
+      <div class="compare-grid" id="compareGrid">
+        <!-- Заполняется JavaScript -->
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- КАЛЬКУЛЯТОР ЭКОНОМИИ «10 В 1» -->
+    <!-- ============================================================ -->
+    <section>
+      <span class="label">Экономия «10 в 1»</span>
+      <h2>Купить всё по отдельности? Мы посчитали за вас</h2>
+      <p style="max-width:860px;">Одна капсула HOCATT® заменяет 10 отдельных устройств. Вот сколько бы вы заплатили, если бы покупали каждую технологию отдельно.</p>
+
+      <div class="savings-grid" id="savingsGrid">
+        <div class="savings-item"><span>🔥 Гипертермия (сауна)</span><span class="price">150 000 ₽</span></div>
+        <div class="savings-item"><span>💨 Трансдермальное озонирование</span><span class="price">180 000 ₽</span></div>
+        <div class="savings-item"><span>💨 Ингаляция кислородом</span><span class="price">120 000 ₽</span></div>
+        <div class="savings-item"><span>⚡ Высокоинтенсивный PEMF</span><span class="price">400 000 ₽</span></div>
+        <div class="savings-item"><span>🔬 Микротоки</span><span class="price">250 000 ₽</span></div>
+        <div class="savings-item"><span>🔥 Дальний ИК-спектр (FIR)</span><span class="price">180 000 ₽</span></div>
+        <div class="savings-item"><span>🌊 CO₂ (эффект Бора)</span><span class="price">350 000 ₽</span></div>
+        <div class="savings-item"><span>🌸 Ароматерапия</span><span class="price">80 000 ₽</span></div>
+        <div class="savings-item"><span>🌈 Хромотерапия</span><span class="price">60 000 ₽</span></div>
+        <div class="savings-item"><span>☀️ УФ-воздействие</span><span class="price">90 000 ₽</span></div>
+      </div>
+
+      <div class="savings-total">
+        <span class="total-label">Итого при покупке отдельных устройств:</span>
+        <span class="total-price">
+          <span class="old">1 860 000 ₽</span>
+          <span id="savingsTotal">1 860 000 ₽</span>
+        </span>
+      </div>
+
+      <div style="margin-top:12px; padding:18px 24px; background:#fff; border-radius:16px; border-left:4px solid #00c853;">
+        <p style="margin:0; font-size:15px;"><strong>💡 Ваша экономия:</strong> покупка капсулы 10-в-1 вместо 10 отдельных устройств экономит от <strong id="savingsPercent">25</strong>% до <strong id="savingsPercentMax">47</strong>% бюджета.</p>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- ФОРМА ЗАХВАТА -->
+    <!-- ============================================================ -->
+    <section style="background:#fafaf7;">
+      <div class="calc-cta">
+        <div>
+          <span class="label" style="color:rgba(255,255,255,0.5);">Получите точный расчёт</span>
+          <h2>Наш менеджер подготовит персонализированный бизнес-план для вашего бизнеса</h2>
+          <p>Оставьте контакты — мы свяжемся с вами в течение 15 минут и рассчитаем окупаемость с учётом ваших условий.</p>
+        </div>
+        <div class="form">
+          <div class="input"><input type="text" placeholder="Имя"></div>
+          <div class="input"><input type="tel" placeholder="+7 (___) ___-__-__"></div>
+          <div class="input"><input type="email" placeholder="E-mail"></div>
+          <select>
+            <option value="" disabled selected>Выберите ваш сегмент</option>
+            <option value="clinics">Клиники</option>
+            <option value="rehab">Реабилитационные центры</option>
+            <option value="spa">SPA и wellness-центры</option>
+            <option value="fitness">Фитнес-клубы</option>
+            <option value="hotels">Отели и санатории</option>
+            <option value="home">Частные лица / Дом</option>
+            <option value="corporate">Корпоративный wellness</option>
+            <option value="athletes">Профессиональные спортсмены</option>
+            <option value="biohacker">Биохакеры</option>
+            <option value="other">Другое</option>
+          </select>
+          <div style="display:flex; flex-direction:column; gap:10px; margin:4px 0;">
+            <label style="display:flex; align-items:flex-start; gap:12px; font-size:12px; color:#aaa; cursor:pointer;">
+              <input type="checkbox" required style="margin-top:2px; width:16px; height:16px; accent-color:#fff; cursor:pointer;">
+              <span>Я принимаю условия <a href="agreement.html" target="_blank" style="color:#fff; text-decoration:underline;">Согласия на обработку персональных данных</a> и даю согласие на обработку моих персональных данных.</span>
+            </label>
+            <label style="display:flex; align-items:flex-start; gap:12px; font-size:12px; color:#aaa; cursor:pointer;">
+              <input type="checkbox" style="margin-top:2px; width:16px; height:16px; accent-color:#fff; cursor:pointer;">
+              <span>Я принимаю условия <a href="adv-agreement.html" target="_blank" style="color:#fff; text-decoration:underline;">Согласия на получение рекламных и информационных рассылок</a>.</span>
+            </label>
+          </div>
+          <a class="btn" href="#" onclick="alert('Спасибо! Мы свяжемся с вами в ближайшее время.'); return false;" style="background:#fff; color:#000; border-color:#fff; text-align:center;">Получить индивидуальный расчёт</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- ФУТЕР -->
+    <!-- ============================================================ -->
+    <section class="footer">
+      <div>
+        <strong>Quantum Consulting</strong>
+        <p>Поставка и внедрение премиального wellness-оборудования.</p>
+        <p style="margin-top:8px; font-size:13px;">+7 (495) 123-45-67<br>Managing@quantum-consulting.space</p>
+      </div>
+      <div><strong>Оборудование</strong>
+        <p><a href="equipment/capsule.html">Капсула HOCATT®</a><br><a href="equipment/pemf.html">PEMF / HUGO™</a><br><a href="equipment/models.html">Модели</a><br><a href="equipment/coming-soon.html">Новинки 2026</a></p>
+      </div>
+      <div><strong>Решения</strong>
+        <p><a href="solutions/clinics.html">Клиники</a><br><a href="solutions/rehab.html">Реабилитация</a><br><a href="solutions/spa.html">SPA</a><br><a href="solutions/fitness.html">Фитнес</a><br><a href="solutions/hotels.html">Отели</a><br><a href="solutions/home-family.html">Дом</a></p>
+      </div>
+      <div><strong>Материалы</strong>
+        <p><a href="technology/index.html">О технологии</a><br><a href="blog.html">Блог</a><br><a href="faq.html">FAQ</a></p>
+      </div>
+      <div><strong>Контакты</strong>
+        <p><a href="contacts.html">Связаться с нами</a><br><a href="#" onclick="openPopup(); return false;">Заказать звонок</a></p>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- ЮРИДИЧЕСКИЙ БЛОК -->
+    <!-- ============================================================ -->
+    <section style="background:#111; border-bottom:none; padding:24px 72px; border-top:1px solid #333;">
+      <div style="display:flex; flex-wrap:wrap; gap:24px; justify-content:center; font-size:13px;">
+        <a href="agreement.html" target="_blank" style="color:#b9b9b9; text-decoration:underline;">Согласие на обработку персональных данных</a>
+        <a href="adv-agreement.html" target="_blank" style="color:#b9b9b9; text-decoration:underline;">Согласие на получение рассылок</a>
+        <a href="privacy-policy.html" target="_blank" style="color:#b9b9b9; text-decoration:underline;">Политика конфиденциальности</a>
+        <a href="cookies-policy.html" target="_blank" style="color:#b9b9b9; text-decoration:underline;">Политика использования Cookies</a>
+      </div>
+      <div style="text-align:center; margin-top:12px; font-size:12px; color:#888;">
+        ООО «КВАНТОВЫЙ КОНСАЛТИНГ» · ИНН 9718288984 · ОГРН 1257700508306 · г. Москва, ул. Стромынка, д. 5, кв. 5
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================ -->
+  <!-- ПОПАП -->
+  <!-- ============================================================ -->
+  <div id="popup-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:999; align-items:center; justify-content:center;">
+    <div style="background:#fff; border-radius:32px; padding:48px; max-width:480px; width:90%; position:relative; box-shadow:0 40px 80px rgba(0,0,0,0.3); max-height:90vh; overflow-y:auto;">
+      <button onclick="closePopup();" style="position:absolute; top:16px; right:20px; background:none; border:none; font-size:28px; color:#999; cursor:pointer;">&times;</button>
+      <span class="label" style="color:var(--muted);">Индивидуальный расчёт</span>
+      <h2 style="font-size:28px; margin:0 0 12px;">Получите персонализированный бизнес-план</h2>
+      <p style="font-size:15px; color:var(--muted); margin-bottom:24px;">Оставьте номер — мы перезвоним в течение 15 минут и подготовим расчёт окупаемости под ваш формат.</p>
+      <div class="form" style="grid-template-columns:1fr;">
+        <div class="input" style="background:#f4f4f1; color:var(--ink); border:1px solid var(--line);">Имя</div>
+        <div class="input" style="background:#f4f4f1; color:var(--ink); border:1px solid var(--line);">Телефон</div>
+        <select style="height:54px; border-radius:14px; background:#f4f4f1; color:var(--ink); border:1px solid var(--line); padding:0 18px; font-size:15px; width:100%; appearance:none; cursor:pointer;">
+          <option value="" disabled selected>Выберите ваш сегмент</option>
+          <option value="clinics">Клиники</option>
+          <option value="rehab">Реабилитационные центры</option>
+          <option value="spa">SPA и wellness-центры</option>
+          <option value="fitness">Фитнес-клубы</option>
+          <option value="hotels">Отели и санатории</option>
+          <option value="home">Частные лица / Дом</option>
+          <option value="corporate">Корпоративный wellness</option>
+          <option value="athletes">Профессиональные спортсмены</option>
+          <option value="biohacker">Биохакеры</option>
+          <option value="other">Другое</option>
+        </select>
+        <div style="display:flex; flex-direction:column; gap:10px; margin:8px 0;">
+          <label style="display:flex; align-items:flex-start; gap:12px; font-size:12px; color:var(--muted); cursor:pointer;">
+            <input type="checkbox" required style="margin-top:2px; width:16px; height:16px; accent-color:#000; cursor:pointer;">
+            <span>Я принимаю условия <a href="agreement.html" target="_blank" style="color:var(--ink); text-decoration:underline;">Согласия на обработку персональных данных</a> и даю согласие на обработку моих персональных данных.</span>
+          </label>
+          <label style="display:flex; align-items:flex-start; gap:12px; font-size:12px; color:var(--muted); cursor:pointer;">
+            <input type="checkbox" style="margin-top:2px; width:16px; height:16px; accent-color:#000; cursor:pointer;">
+            <span>Я принимаю условия <a href="adv-agreement.html" target="_blank" style="color:var(--ink); text-decoration:underline;">Согласия на получение рекламных и информационных рассылок</a>.</span>
+          </label>
+        </div>
+        <a class="btn" href="#" onclick="alert('Спасибо! Мы свяжемся с вами в ближайшее время.'); closePopup(); return false;" style="background:#000; color:#fff; border-color:#000;">Получить расчёт</a>
+        <p style="font-size:11px; color:var(--muted); text-align:center; margin-top:8px;">Отправляя заявку, вы соглашаетесь с условиями обработки данных</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- JAVASCRIPT — ЛОГИКА КАЛЬКУЛЯТОРА -->
+  <!-- ============================================================ -->
+  <script>
+    // ============================================================
+    // 1. ДАННЫЕ
+    // ============================================================
+
+    const models = {
+      base: { name: 'Базовая', cost: 1500000 },
+      extended: { name: 'Расширенная', cost: 2500000 },
+      premium: { name: 'Премиум (с PEMF)', cost: 3500000 }
+    };
+
+    const savingsItems = [
+      { name: '🔥 Гипертермия (сауна)', price: 150000 },
+      { name: '💨 Трансдермальное озонирование', price: 180000 },
+      { name: '💨 Ингаляция кислородом', price: 120000 },
+      { name: '⚡ Высокоинтенсивный PEMF', price: 400000 },
+      { name: '🔬 Микротоки', price: 250000 },
+      { name: '🔥 Дальний ИК-спектр (FIR)', price: 180000 },
+      { name: '🌊 CO₂ (эффект Бора)', price: 350000 },
+      { name: '🌸 Ароматерапия', price: 80000 },
+      { name: '🌈 Хромотерапия', price: 60000 },
+      { name: '☀️ УФ-воздействие', price: 90000 }
+    ];
+
+    const totalSavings = savingsItems.reduce((sum, item) => sum + item.price, 0);
+
+    // ============================================================
+    // 2. ПОЛУЧЕНИЕ ЭЛЕМЕНТОВ
+    // ============================================================
+
+    const modelSelect = document.getElementById('modelSelect');
+    const modelCostDisplay = document.getElementById('modelCostDisplay');
+    const priceRange = document.getElementById('priceRange');
+    const priceDisplay = document.getElementById('priceDisplay');
+    const sessionsRange = document.getElementById('sessionsRange');
+    const sessionsDisplay = document.getElementById('sessionsDisplay');
+
+    const paybackDisplay = document.getElementById('paybackDisplay');
+    const paybackYearsDisplay = document.getElementById('paybackYearsDisplay');
+    const monthlyRevenueDisplay = document.getElementById('monthlyRevenueDisplay');
+    const annualRevenueDisplay = document.getElementById('annualRevenueDisplay');
+    const roiDisplay = document.getElementById('roiDisplay');
+
+    const optimisticDisplay = document.getElementById('optimisticDisplay');
+    const baseDisplay = document.getElementById('baseDisplay');
+    const pessimisticDisplay = document.getElementById('pessimisticDisplay');
+
+    const includeCosts = document.getElementById('includeCosts');
+    const costsFields = document.getElementById('costsFields');
+    const electricityCost = document.getElementById('electricityCost');
+    const suppliesCost = document.getElementById('suppliesCost');
+
+    const comparePriceDisplay = document.getElementById('comparePriceDisplay');
+    const compareSessionsDisplay = document.getElementById('compareSessionsDisplay');
+    const compareGrid = document.getElementById('compareGrid');
+
+    const savingsTotal = document.getElementById('savingsTotal');
+    const savingsPercent = document.getElementById('savingsPercent');
+    const savingsPercentMax = document.getElementById('savingsPercentMax');
+
+    // ============================================================
+    // 3. ФУНКЦИЯ РАСЧЁТА
+    // ============================================================
+
+    function calculate() {
+      const modelKey = modelSelect.value;
+      const modelCost = models[modelKey].cost;
+      const price = parseInt(priceRange.value);
+      const sessions = parseInt(sessionsRange.value);
+
+      // Учёт затрат
+      let monthlyCosts = 0;
+      if (includeCosts.checked) {
+        monthlyCosts = (parseInt(electricityCost.value) || 0) + (parseInt(suppliesCost.value) || 0);
+      }
+
+      const monthlyRevenue = price * sessions * 30;
+      const monthlyProfit = monthlyRevenue - monthlyCosts;
+      const annualRevenue = monthlyRevenue * 12;
+      const paybackMonths = monthlyProfit > 0 ? modelCost / monthlyProfit : Infinity;
+      const roi = modelCost > 0 ? ((annualRevenue - modelCost) / modelCost) * 100 : 0;
+
+      // Три сценария
+      const priceOpt = price * 1.3;
+      const sessionsOpt = sessions * 1.2;
+      const monthlyRevenueOpt = priceOpt * sessionsOpt * 30;
+      const monthlyProfitOpt = monthlyRevenueOpt - monthlyCosts;
+      const paybackOpt = monthlyProfitOpt > 0 ? modelCost / monthlyProfitOpt : Infinity;
+
+      const pricePess = price * 0.8;
+      const sessionsPess = sessions * 0.7;
+      const monthlyRevenuePess = pricePess * sessionsPess * 30;
+      const monthlyProfitPess = monthlyRevenuePess - monthlyCosts;
+      const paybackPess = monthlyProfitPess > 0 ? modelCost / monthlyProfitPess : Infinity;
+
+      // Обновление UI
+      modelCostDisplay.textContent = modelCost.toLocaleString();
+
+      priceDisplay.innerHTML = `${price.toLocaleString()} <small>₽</small>`;
+      sessionsDisplay.innerHTML = `${sessions} <small>сеанса</small>`;
+
+      paybackDisplay.innerHTML = `${Math.round(paybackMonths)} <small>мес.</small>`;
+      paybackYearsDisplay.textContent = (paybackMonths / 12).toFixed(1);
+
+      monthlyRevenueDisplay.textContent = Math.round(monthlyRevenue).toLocaleString();
+      annualRevenueDisplay.textContent = Math.round(annualRevenue).toLocaleString();
+      roiDisplay.textContent = Math.round(roi);
+
+      optimisticDisplay.textContent = Math.round(paybackOpt);
+      baseDisplay.textContent = Math.round(paybackMonths);
+      pessimisticDisplay.textContent = Math.round(paybackPess);
+
+      // Обновление сравнения моделей
+      updateCompare(price, sessions, monthlyCosts);
+
+      // Обновление графика
+      drawChart(modelCost, monthlyProfit, paybackMonths);
+
+      // Обновление экономии
+      updateSavings(modelCost);
+
+      // Обновление подписей в сравнении
+      comparePriceDisplay.textContent = price.toLocaleString();
+      compareSessionsDisplay.textContent = sessions;
+    }
+
+    // ============================================================
+    // 4. СРАВНЕНИЕ МОДЕЛЕЙ
+    // ============================================================
+
+    function updateCompare(price, sessions, monthlyCosts) {
+      let html = '';
+      for (const [key, model] of Object.entries(models)) {
+        const monthlyRevenue = price * sessions * 30;
+        const monthlyProfit = monthlyRevenue - monthlyCosts;
+        const payback = monthlyProfit > 0 ? model.cost / monthlyProfit : Infinity;
+        const isSelected = key === modelSelect.value;
+        html += `
+          <div class="compare-card" style="${isSelected ? 'border-color:#000; border-width:2px;' : ''}">
+            <div class="tag">${isSelected ? '✓ Ваша модель' : ''}</div>
+            <h3 style="font-size:16px; margin:4px 0;">${model.name}</h3>
+            <div class="price">${model.cost.toLocaleString()} ₽</div>
+            <div class="payback">${Math.round(payback)} мес.</div>
+            <div style="font-size:13px; color:var(--muted);">окупаемость</div>
+          </div>
+        `;
+      }
+      compareGrid.innerHTML = html;
+    }
+
+    // ============================================================
+    // 5. ГРАФИК НАКОПЛЕННОГО ДОХОДА (Canvas)
+    // ============================================================
+
+    function drawChart(equipmentCost, monthlyProfit, paybackMonths) {
+      const canvas = document.getElementById('paybackChart');
+      const ctx = canvas.getContext('2d');
+
+      const rect = canvas.parentElement.getBoundingClientRect();
+      const width = canvas.parentElement.clientWidth - 48;
+      const height = 120;
+      canvas.width = width * 2;
+      canvas.height = height * 2;
+      canvas.style.width = width + 'px';
+      canvas.style.height = height + 'px';
+
+      const dpr = 2;
+      const w = width * dpr;
+      const h = height * dpr;
+      const pad = { top: 20 * dpr, bottom: 20 * dpr, left: 60 * dpr, right: 20 * dpr };
+      const chartW = w - pad.left - pad.right;
+      const chartH = h - pad.top - pad.bottom;
+
+      ctx.clearRect(0, 0, w, h);
+
+      const maxMonths = Math.max(24, Math.ceil(paybackMonths * 1.4));
+      const maxRevenue = equipmentCost * 1.5;
+
+      // Функция для преобразования координат
+      const x = (month) => pad.left + (month / maxMonths) * chartW;
+      const y = (value) => pad.top + chartH - (value / maxRevenue) * chartH;
+
+      // Линия стоимости оборудования (горизонтальная)
+      ctx.beginPath();
+      ctx.moveTo(x(0), y(equipmentCost));
+      ctx.lineTo(x(maxMonths), y(equipmentCost));
+      ctx.strokeStyle = '#ff1744';
+      ctx.lineWidth = 2 * dpr;
+      ctx.setLineDash([6 * dpr, 6 * dpr]);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Подпись "Стоимость оборудования"
+      ctx.fillStyle = '#ff1744';
+      ctx.font = `${11 * dpr}px Arial, sans-serif`;
+      ctx.fillText('Стоимость оборудования', x(maxMonths * 0.7), y(equipmentCost) - 8 * dpr);
+
+      // Линия накопленного дохода
+      ctx.beginPath();
+      let cumulative = 0;
+      const steps = 30;
+      for (let i = 0; i <= steps; i++) {
+        const month = (i / steps) * maxMonths;
+        const monthProfit = monthlyProfit * month;
+        cumulative = Math.min(monthProfit, maxRevenue);
+        const px = x(month);
+        const py = y(cumulative);
+        if (i === 0) ctx.moveTo(px, py);
+        else ctx.lineTo(px, py);
+      }
+      ctx.strokeStyle = '#1a73e8';
+      ctx.lineWidth = 3 * dpr;
+      ctx.stroke();
+
+      // Заливка под графиком
+      const lastX = x(maxMonths);
+      const lastY = y(Math.min(monthlyProfit * maxMonths, maxRevenue));
+      ctx.lineTo(lastX, y(0));
+      ctx.lineTo(x(0), y(0));
+      ctx.closePath();
+      ctx.fillStyle = 'rgba(26, 115, 232, 0.08)';
+      ctx.fill();
+
+      // Точка пересечения (окупаемость)
+      if (paybackMonths <= maxMonths) {
+        const px = x(paybackMonths);
+        const py = y(equipmentCost);
+        ctx.beginPath();
+        ctx.arc(px, py, 6 * dpr, 0, 2 * Math.PI);
+        ctx.fillStyle = '#00c853';
+        ctx.fill();
+        ctx.strokeStyle = '#fff';
+        ctx.lineWidth = 2 * dpr;
+        ctx.stroke();
+
+        ctx.fillStyle = '#00c853';
+        ctx.font = `bold ${12 * dpr}px Arial, sans-serif`;
+        ctx.fillText(`Окупаемость: ${Math.round(paybackMonths)} мес.`, px - 60 * dpr, py - 20 * dpr);
+      }
+
+      // Оси
+      ctx.strokeStyle = '#ddd';
+      ctx.lineWidth = 1 * dpr;
+      ctx.beginPath();
+      ctx.moveTo(x(0), y(0));
+      ctx.lineTo(x(0), y(maxRevenue));
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(x(0), y(0));
+      ctx.lineTo(x(maxMonths), y(0));
+      ctx.stroke();
+
+      // Подписи осей
+      ctx.fillStyle = '#999';
+      ctx.font = `${10 * dpr}px Arial, sans-serif`;
+      ctx.fillText('0', x(0) - 12 * dpr, y(0) + 16 * dpr);
+      ctx.fillText('месяцы', x(maxMonths) - 24 * dpr, y(0) + 16 * dpr);
+      ctx.fillText('₽', x(0) - 20 * dpr, y(maxRevenue) - 4 * dpr);
+
+      // Метки на оси X
+      for (let i = 3; i <= maxMonths; i += 3) {
+        if (i <= maxMonths) {
+          ctx.fillText(i, x(i) - 6 * dpr, y(0) + 16 * dpr);
+        }
+      }
+    }
+
+    // ============================================================
+    // 6. КАЛЬКУЛЯТОР ЭКОНОМИИ
+    // ============================================================
+
+    function updateSavings(modelCost) {
+      const selectedModel = models[modelSelect.value];
+      const savings = totalSavings - selectedModel.cost;
+      const percent = Math.round((savings / totalSavings) * 100);
+      const percentMax = Math.round(((totalSavings - 1500000) / totalSavings) * 100);
+
+      savingsTotal.textContent = `${totalSavings.toLocaleString()} ₽`;
+      savingsPercent.textContent = Math.min(percent, 47);
+      savingsPercentMax.textContent = percentMax;
+    }
+
+    // ============================================================
+    // 7. ОБРАБОТЧИКИ СОБЫТИЙ
+    // ============================================================
+
+    modelSelect.addEventListener('change', calculate);
+    priceRange.addEventListener('input', calculate);
+    sessionsRange.addEventListener('input', calculate);
+    includeCosts.addEventListener('change', function() {
+      costsFields.style.display = this.checked ? 'block' : 'none';
+      calculate();
+    });
+    electricityCost.addEventListener('input', calculate);
+    suppliesCost.addEventListener('input', calculate);
+
+    // ============================================================
+    // 8. ПОПАП
+    // ============================================================
+
+    function openPopup() {
+      document.getElementById('popup-overlay').style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closePopup() {
+      document.getElementById('popup-overlay').style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+
+    document.getElementById('popup-overlay').addEventListener('click', function(e) {
+      if (e.target === this) closePopup();
+    });
+
+    // ============================================================
+    // 9. ПЕРВИЧНЫЙ ЗАПУСК
+    // ============================================================
+
+    calculate();
+  </script>
+
+</body>
+</html>
