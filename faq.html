@@ -3,82 +3,862 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>FAQ — Quantum Consulting</title>
+  <title>Часто задаваемые вопросы — Quantum Consulting</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .faq-hero {
+      background: linear-gradient(145deg, #1a1a2e, #16213e);
+      color: #fff;
+      border-radius: 36px;
+      padding: 48px 72px;
+      margin-bottom: 0;
+      border-bottom: none;
+    }
+    .faq-hero h1 {
+      color: #fff;
+      max-width: 860px;
+    }
+    .faq-hero p {
+      color: rgba(255,255,255,0.7);
+      max-width: 700px;
+    }
+
+    .faq-category-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 28px 0 0;
+      padding: 0;
+      list-style: none;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 4px;
+    }
+    .faq-category-nav li {
+      margin: 0;
+    }
+    .faq-category-nav a {
+      display: inline-block;
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-size: 14px;
+      color: var(--muted);
+      text-decoration: none;
+      transition: background .15s ease, color .15s ease;
+      background: transparent;
+    }
+    .faq-category-nav a:hover,
+    .faq-category-nav a.active {
+      background: var(--ink);
+      color: #fff;
+    }
+
+    .faq-section {
+      margin-top: 40px;
+    }
+    .faq-section h2 {
+      font-size: 28px;
+      margin-bottom: 6px;
+    }
+    .faq-section .section-desc {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .faq-item {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: border-color .15s ease;
+    }
+    .faq-item:hover {
+      border-color: #c9c9c2;
+    }
+
+    .faq-item .question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 24px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 16px;
+      color: var(--ink);
+      gap: 24px;
+      user-select: none;
+      transition: background .15s ease;
+    }
+    .faq-item .question:hover {
+      background: #fafaf7;
+    }
+    .faq-item .question .icon {
+      flex-shrink: 0;
+      font-size: 20px;
+      transition: transform .2s ease;
+      color: var(--muted);
+    }
+    .faq-item.open .question .icon {
+      transform: rotate(180deg);
+    }
+
+    .faq-item .answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .3s ease, padding .3s ease;
+      padding: 0 24px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    .faq-item.open .answer {
+      max-height: 1200px;
+      padding: 0 24px 24px;
+    }
+
+    .faq-item .answer p {
+      margin: 0 0 8px;
+      font-size: 15px;
+      color: var(--muted);
+    }
+    .faq-item .answer p:last-child {
+      margin-bottom: 0;
+    }
+
+    .faq-item .answer ul {
+      margin: 8px 0 12px;
+      padding-left: 20px;
+    }
+    .faq-item .answer ul li {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .faq-item .answer .highlight {
+      background: #fafaf7;
+      padding: 12px 16px;
+      border-radius: 10px;
+      border-left: 3px solid var(--ink);
+      margin: 12px 0;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .faq-item .answer .highlight strong {
+      color: var(--ink);
+    }
+
+    .faq-cta {
+      background: #171717;
+      color: #fff;
+      border-radius: 36px;
+      padding: 48px 54px;
+      margin-top: 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 42px;
+      align-items: center;
+    }
+    .faq-cta h2 {
+      color: #fff;
+      font-size: 28px;
+      max-width: 100%;
+    }
+    .faq-cta p {
+      color: #cfcfcf;
+      max-width: 100%;
+    }
+    .faq-cta .form {
+      display: grid;
+      gap: 14px;
+    }
+    .faq-cta .input {
+      height: 52px;
+      border-radius: 14px;
+      background: #2a2a2a;
+      color: #fff;
+      padding: 0 18px;
+      display: flex;
+      align-items: center;
+      font-size: 15px;
+      border: 1px solid #444;
+    }
+    .faq-cta .input input {
+      background: transparent;
+      border: none;
+      color: #fff;
+      width: 100%;
+      outline: none;
+      font-size: 15px;
+    }
+    .faq-cta .input input::placeholder {
+      color: #888;
+    }
+    .faq-cta select {
+      height: 52px;
+      border-radius: 14px;
+      background: #2a2a2a;
+      color: #aaa;
+      border: 1px solid #444;
+      padding: 0 18px;
+      font-size: 15px;
+      width: 100%;
+      appearance: none;
+      cursor: pointer;
+    }
+    .faq-cta select:focus {
+      outline: none;
+      border-color: #666;
+    }
+
+    @media (max-width: 900px) {
+      .faq-hero {
+        padding: 32px 24px;
+      }
+      .faq-cta {
+        grid-template-columns: 1fr;
+        padding: 32px 28px;
+      }
+      .faq-category-nav {
+        gap: 6px;
+      }
+      .faq-category-nav a {
+        font-size: 13px;
+        padding: 6px 14px;
+      }
+      .faq-item .question {
+        font-size: 15px;
+        padding: 14px 18px;
+      }
+      .faq-item .answer {
+        font-size: 14px;
+        padding: 0 18px;
+      }
+      .faq-item.open .answer {
+        padding: 0 18px 18px;
+      }
+    }
+    @media (max-width: 600px) {
+      .faq-category-nav a {
+        font-size: 12px;
+        padding: 4px 12px;
+      }
+      .faq-cta {
+        padding: 24px 18px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <header class="topbar">
-    <a class="brand" href="index.html">Quantum Consulting</a>
-    <nav class="nav">
-      <a class="" href="index.html">Главная</a>
-<a class="" href="equipment/capsule.html">Оборудование</a>
-<a class="" href="solutions/spa.html">Решения</a>
-<a class="" href="technology/index.html">Технологии</a>
-<a class="" href="blog.html">Блог</a>
-<a class="active" href="faq.html">FAQ</a>
-<a class="" href="contacts.html">Контакты</a>
-<a class="" href="sitemap.html">Карта</a>
-    </nav>
-  </header>
-  <div class="prototype-note"><strong>HTML-прототип:</strong> <span>Wireframe-прототип. Тексты и визуал пока черновые: проверяем структуру, связи и логику страниц.</span></div>
   <main class="page">
-    
-<section class="hero narrow">
-  <div>
-    <span class="label">FAQ</span>
-    <h1>Ответы на вопросы и возражения</h1>
-    <p>Здесь собираем частые вопросы. На главной оставляем короткий FAQ, а подробные ответы ведут сюда.</p>
-  </div>
-  <div class="visual flat"><span>Аккордеон FAQ</span></div>
-</section>
-<section>
-  <span class="label">Общие вопросы</span>
-  <div class="faq-list">
-    <div class="faq-item"><strong>Это медицинское оборудование?<span>+</span></strong><p>Публичный ответ должен быть аккуратным: оборудование используется в wellness-формате, без обещаний лечения.</p></div>
-    <div class="faq-item"><strong>Нужна ли медицинская лицензия?<span>+</span></strong><p>Нужно согласовать финальную юридическую формулировку. На сайте лучше писать через формат процедуры и консультацию специалиста.</p></div>
-    <div class="faq-item"><strong>Чем капсула отличается от обычной сауны?<span>+</span></strong><p>Не только прогрев: в комплексе несколько технологий, включая PEMF, CO₂, микротоки и другие компоненты.</p></div>
-    <div class="faq-item"><strong>Можно ли поставить оборудование дома?<span>+</span></strong><p>Да, для частного сценария нужна отдельная консультация по помещению, установке и режимам использования.</p></div>
-    <div class="faq-item"><strong>Как выбрать модель?<span>+</span></strong><p>По типу объекта, задачам, потоку клиентов, бюджету и нужным функциям.</p></div>
-    <div class="faq-item"><strong>Есть ли сервис и обучение?<span>+</span></strong><p>На странице нужно раскрыть обучение персонала, сопровождение и сервисную поддержку.</p></div>
-  </div>
-</section>
+    <header class="topbar">
+      <a class="brand" href="index.html">Quantum Consulting</a>
+      <nav class="nav">
+        <a href="equipment/index.html">Оборудование</a>
+        <a href="solutions/index.html">Решения</a>
+        <a href="technology/index.html">Технологии</a>
+        <a href="blog.html">Блог</a>
+        <a href="contacts.html">Контакты</a>
+        <a href="#" onclick="openPopup(); return false;">Консультация</a>
+      </nav>
+    </header>
 
-<section>
-  <div class="cta">
-    <div>
-      <span class="label">Следующий шаг</span>
-      <h2>Не нашли ответ?</h2>
-      <p>Оставьте вопрос, и консультант подскажет по вашему сценарию.</p>
-    </div>
-    <div class="form">
-      <div class="input">Имя</div>
-      <div class="input">Телефон</div>
-      <div class="input">Тип объекта / задача</div>
-      <div class="input">Комментарий</div>
-      <a class="btn" href="contacts.html">Получить консультацию</a>
-    </div>
-  </div>
-</section>
+    <!-- ============================================================ -->
+    <!-- HERO -->
+    <!-- ============================================================ -->
+    <section class="faq-hero">
+      <span class="label" style="color:rgba(255,255,255,0.5);">База знаний</span>
+      <h1>Ответы на частые вопросы</h1>
+      <p style="font-size:18px;">Здесь собраны ответы на самые частые вопросы — от технологии и безопасности до окупаемости и сервиса. Не нашли свой вопрос? Оставьте заявку внизу страницы.</p>
+    </section>
 
-<section class="footer">
-  <div>
-    <strong>Quantum Consulting</strong>
-    <p>Поставка и внедрение премиального wellness-оборудования.</p>
-  </div>
-  <div><strong>Оборудование</strong>
-    <p><a href="equipment/capsule.html">Капсула</a><br><a href="equipment/pemf.html">PEMF / HUGO™</a><br><a href="equipment/models.html">Модели</a></p>
-  </div>
-  <div><strong>Решения</strong>
-    <p><a href="solutions/spa.html">SPA</a><br><a href="solutions/fitness.html">Фитнес</a><br><a href="solutions/hotels.html">Отели</a><br><a href="solutions/home-family.html">Дом</a></p>
-  </div>
-  <div><strong>Материалы</strong>
-    <p><a href="technology/index.html">О технологии</a><br><a href="blog.html">Блог</a><br><a href="faq.html">FAQ</a></p>
-  </div>
-  <div><strong>Контакты</strong>
-    <p><a href="contacts.html">Заявка</a><br>Telegram<br>WhatsApp<br>YouTube</p>
-  </div>
-</section>
+    <!-- ============================================================ -->
+    <!-- НАВИГАЦИЯ ПО КАТЕГОРИЯМ -->
+    <!-- ============================================================ -->
+    <section style="padding-top:0; border-bottom:1px solid var(--line);">
+      <ul class="faq-category-nav" id="faqNav">
+        <li><a href="#general" class="active">Общие вопросы</a></li>
+        <li><a href="#technology">Технологии</a></li>
+        <li><a href="#business">Для бизнеса</a></li>
+        <li><a href="#safety">Безопасность</a></li>
+        <li><a href="#service">Сервис и гарантия</a></li>
+        <li><a href="#installation">Установка и обучение</a></li>
+      </ul>
+
+      <!-- ============================================================ -->
+      <!-- КАТЕГОРИЯ 1: ОБЩИЕ ВОПРОСЫ -->
+      <!-- ============================================================ -->
+      <div class="faq-section" id="general">
+        <h2>Общие вопросы</h2>
+        <p class="section-desc">Что такое МОК-терапия, кому подходит и чем отличается от других процедур.</p>
+
+        <div class="faq-list">
+
+          <div class="faq-item open">
+            <div class="question" onclick="toggleFaq(this)">
+              <span>Что такое МОК-терапия?</span>
+              <span class="icon">▾</span>
+            </div>
+            <div class="answer">
+              <p><strong>МОК-терапия</strong> — это комплексная wellness-процедура, объединяющая 10 технологий в одном сеансе. Проводится в мультифункциональной капсуле HOCATT®. Голова находится снаружи, что исключает страх замкнутого пространства и обеспечивает комфортное дыхание.</p>
+              <p>В основе — синергия гипертермии, озона, PEMF, микротоков, CO₂, кислорода, арома- и хромотерапии, ИК-прогрева и УФ-воздействия. Каждая технология усиливает действие другой, создавая комплексный эффект восстановления, детокса и релаксации.</p>
+              <div class="highlight"><strong>💡 Важно:</strong> МОК-терапия позиционируется как <strong>wellness-процедура</strong>, а не медицинская услуга. Мы не обещаем лечение заболеваний. Для индивидуальных ограничений обязательна консультация с врачом.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="question" onclick="toggleFaq(this)">
+              <span>Кому подходит МОК-терапия?</span>
+              <span class="icon">▾</span>
+            </div>
+            <div class="answer">
+              <p>МОК-терапия подходит широкому кругу людей и бизнесов:</p>
+              <ul>
+                <li><strong>Для частных лиц:</strong> поддержка здоровья, антистресс, улучшение качества кожи, повышение энергии, восстановление после нагрузок.</li>
+                <li><strong>Для бизнеса:</strong> SPA-центры, фитнес-клубы, косметологические клиники, реабилитационные центры, отели и санатории — как новая премиальная услуга с высокой маржинальностью.</li>
+                <li><strong>Для спортсменов:</strong> ускорение восстановления, снижение крепатуры, профилактика травм.</li>
+                <li><strong>Для людей с хронической усталостью:</strong> поддержка организма, улучшение сна и общего самочувствия.</li>
+              </ul>
+              <p>Перед первым сеансом обязательна консультация с врачом.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="question" onclick="toggleFaq(this)">
+              <span>Чем МОК-терапия отличается от обычной сауны?</span>
+              <span class="icon">▾</span>
+            </div>
+            <div class="answer">
+              <p>Обычная сауна — это только прогрев. МОК-терапия — это <strong>10 технологий в одном сеансе</strong>:</p>
+              <ul>
+                <li><strong>Обычная сауна:</strong> только температура и влажность.</li>
+                <li><strong>МОК-терапия:</strong> прогрев + озон (антисептика) + PEMF (клеточное восстановление) + микротоки (коллаген и лимфодренаж) + CO₂ (эффект Бора) + кислород + арома- и хромотерапия + ИК-прогрев + УФ-воздействие.</li>
+              </ul>
+              <p>Результат: не просто «пропотеть», а получить глубокое клеточное восстановление, очищение кожи и релаксацию нервной системы.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="question" onclick="toggleFaq(this)">
+              <span>Где можно попробовать МОК-терапию?</span>
+              <span class="icon">▾</span>
+            </div>
+            <div class="answer">
+              <p>Вы можете записаться на демо-сеанс в одном из центров в Москве:</p>
+              <ul>
+                <li><strong>🏋️ Фитнес-центр ENKOR</strong> — ул. Ходынский бульвар, д. 4. Ежедневно 8:00–23:00. Телефон: +7 (495) 234-56-78.</li>
+                <li><strong>🧬 Клиника Divus</strong> — ул. Климашкина, д. 16. Пн–Сб 9:00–21:00. Телефон: +7 (495) 345-67-89.</li>
+              </ul>
+              <p>Запись по предварительной договорённости. 30–40 минут в капсуле — и вы почувствуете эффект лично.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- КАТЕГОРИЯ 2: ТЕХНОЛОГИИ -->
+      <!-- ============================================================ -->
+      <div class="faq-section" id="technology">
+        <h2>Технологии</h2>
+        <p class="section-desc">Как работают 10 технологий МОК-терапии и есть ли у них научное обоснование.</p>
+
+        <div class="faq-list">
+
+          <div class="faq-item">
+            <div class="question" onclick="toggleFaq(this)">
+              <span>Какие 10 технологий входят в МОК-терапию?</span>
+              <span class="icon">▾</span>
+            </div>
+            <div class="answer">
+              <p>Капсула HOCATT® объединяет 10 технологий, каждая из которых решает свою задачу:</p>
+              <ul>
+                <li><strong>🔥 Гипертермия</strong> — мягкое повышение температуры тела на 1–2°С, ускорение метаболизма.</li>
+                <li><strong>💨 Трансдермальное озонирование</strong> — антисептический эффект, очищение кожи.</li>
+                <li><strong>💨 Ингаляция кислородом</strong> — насыщение крови O₂, повышение энергии.</li>
+                <li><strong>⚡ Высокоинтенсивный PEMF</strong> — клеточное восстановление, одобрен FDA.</li>
+                <li><strong>🔬 Микротоки</strong> — стимуляция коллагена, лимфодренаж.</li>
+                <li><strong>🔥 Дальний ИК-спектр (FIR)</strong> — прогрев тканей на глубину 3–4 см.</li>
+                <li><strong>🌊 CO₂ (эффект Бора)</strong> — расширение капилляров, улучшение микроциркуляции.</li>
+                <li><strong>🌸 Ароматерапия</strong> — релаксация, снижение стресса.</li>
+                <li><strong>🌈 Хромотерапия</strong> — эмоциональный баланс через цвет.</li>
+                <li><strong>☀️ УФ-воздействие</strong> — дезинфекция кожи (строго дозированно).</li>
+              </ul>
+              <div class="highlight"><strong>💡 Синергия:</strong> Все технологии работают одновременно, усиливая действие друг друга. Эффект 10-в-1 за один сеанс.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="question" onclick="toggleFaq(this)">
+              <span>Что такое эффект Бора и как он работает?</span>
+              <span class="icon">▾</span>
+            </div>
+            <div class="answer">
+              <p><strong>Эффект Бора</strong> — это классический физиологический механизм, описанный в учебниках физиологии. Повышение концентрации CO₂ в крови вызывает расширение капилляров и улучшает отдачу кислорода от крови тканям.</p>
+              <p>В капсуле HOCATT® CO₂ подаётся в сочетании с паром и теплом, что усиливает этот эффект. Клиент выходит с ощущением «лёгкости в теле» и «ясности в голове».</p>
+              <div class="highlight"><strong>📖 Научный факт:</strong> Эффект Бора — это не маркетинг, а фундаментальный механизм, описанный в 1904 году.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="question" onclick="toggleFaq(this)">
+              <span>Есть ли научное обоснование технологий?</span>
+              <span class="icon">▾</span>
+            </div>
+            <div class="answer">
+              <p>Да, каждая технология имеет научное обоснование:</p>
+              <ul>
+                <li><strong>PEMF</strong> — одобрен FDA для лечения несрастающихся переломов и псевдоартрозов. Включён в клинические рекомендации АТОР.</li>
+                <li><strong>Озон</strong> — сотни клинических исследований, официальные технологии Минздрава РФ.</li>
+                <li><strong>Эффект Бора</strong> — классическая физиология, описанная в учебниках.</li>
+                <li><strong>Микротоки</strong> — доказанная косметологическая методика.</li>
+              </ul>
+              <p>В разделе <a href="blog.html">Блог</a> собраны 20+ научных статей с исследованиями и ссылками на источники.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- КАТЕГОРИЯ 3: ДЛЯ БИЗНЕСА -->
+      <!-- ============================================================ -->
+      <div class="faq-section" id="business">
+        <h2>Для бизнеса</h2>
+        <p class="section-desc">Окупаемость, маржинальность, внедрение и маркетинг для SPA, фитнеса, клиник и отелей.</p>
+
+        <div class="faq-list">
+
+          <div class="faq-item">
+            <div class="question" onclick="toggleFaq(this)">
+              <span>Как быстро окупается капсула для бизнеса?</span>
+              <span class="icon">▾</span>
+            </div>
+            <div class="answer">
+              <p>Срок окупаемости зависит от сегмента, загрузки и ценообразования. Ориентировочные сроки:</p>
+              <ul>
+                <li><strong>Фитнес-клубы:</strong> 8–14 месяцев</li>
+                <li><strong>SPA и wellness-центры:</strong> 10–16 месяцев</li>
+                <li><strong>Косметологические клиники:</strong> 10–14 месяцев</li>
+                <li><strong>Реабилитационные центры:</strong> 12–18 месяцев</li>
+                <li><strong>Отели и санатории:</strong> 12–18 месяцев</li>
+              </ul>
+              <p>При загрузке 3–4 сеанса в день и цене сеанса 5 000–7 000 ₽ капсула окупается в указанные сроки. Мы помогаем рассчитать окупаемость под ваш конкретный формат.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="question" onclick="toggleFaq(this)">
+              <span>Какая маржинальность процедуры?</span>
+              <span class="icon">▾</span>
+            </div>
+            <div class="answer">
+              <p>Маржинальность процедуры составляет <strong>70–80%</strong>.</p>
+              <p>При цене сеанса 7 000 ₽ и операционных затратах около 1 500 ₽ (электричество, салфетки, амортизация) — чистая прибыль с одной процедуры составляет 5 500 ₽.</p>
+              <p>Курс из 10 процедур приносит от 55 000 ₽ чистыми с одного клиента.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="question" onclick="toggleFaq(this)">
+              <span>Нужна ли медицинская лицензия для установки капсулы?</span>
+              <span class="icon">▾</span>
+            </div>
+            <div class="answer">
+              <p>Нет. Капсула позиционируется как <strong>wellness-оборудование</strong>, а не медицинское устройство. Это юридически чистая установка для любого формата бизнеса — SPA, фитнеса, отелей, частных резиденций.</p>
+              <p>Вся документация для проверяющих органов (сертификаты CE, EAC, RoHS, декларации) предоставляется в полном объёме.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="question" onclick="toggleFaq(this)">
+              <span>Как привлечь клиентов на новую услугу?</span>
+              <span class="icon">▾</span>
+            </div>
+            <div class="answer">
+              <p>Мы предоставляем готовый маркетинговый пакет:</p>
+              <ul>
+                <li>Готовые посты для социальных сетей</li>
+                <li>Видео-ролики процедуры</li>
+                <li>Фото капсулы в интерьере</li>
+                <li>Макеты прайс-листов (сеанс, курс, абонемент)</li>
+                <li>Скрипты продаж для администраторов</li>
+              </ul>
+              <p>Кроме того, клиенты сами снимают себя в капсуле и выкладывают в Instagram — это бесплатная реклама вашего заведения.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- КАТЕГОРИЯ 4: БЕЗОПАСНОСТЬ -->
+      <!-- ============================================================ -->
+      <div class="faq-section" id="safety">
+        <h2>Безопасность</h2>
+        <p class="section-desc">Противопоказания, меры предосторожности и юридические ограничения.</p>
+
+        <div class="faq-list">
+
+          <div class="faq-item">
+            <div class="question" onclick="toggleFaq(this)">
+              <span>Есть ли противопоказания?</span>
+              <span class="icon">▾</span>
+            </div>
+            <div class="answer">
+              <p>Да, МОК-терапия имеет стандартные для wellness-процедур противопоказания:</p>
+              <ul>
+                <li><strong>Абсолютные:</strong> онкология, беременность, кардиостимулятор, эпилепсия, острые воспаления, тромбофлебит, кровотечения, тиреотоксикоз, гемофилия, тромбоцитопения.</li>
+                <li><strong>Относительные:</strong> острый инфаркт миокарда, геморрагический инсульт, острый панкреатит (в анамнезе — требуется консультация врача).</li>
+              </ul>
+              <div class="highlight"><strong>⚕️ Рекомендация:</strong> перед первым сеансом обязательна консультация с лечащим врачом и индивидуальный подбор режима.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="question" onclick="toggleFaq(this)">
+              <span>Безопасно ли для гипертоников?</span>
+              <span class="icon">▾</span>
+            </div>
+            <div class="answer">
+              <p>Капсула — не баня. Температура регулируется от 35°С до 43°С. Голова находится снаружи — нет перегрева мозга.</p>
+              <p>Для гипертоников предусмотрены щадящие режимы 35–38°С без пара. Перед процедурой обязательна консультация с врачом и измерение давления.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="question" onclick="toggleFaq(this)">
+              <span>Безопасно ли УФ-воздействие?</span>
+              <span class="icon">▾</span>
+            </div>
+            <div class="answer">
+              <p>УФ-воздействие в капсуле HOCATT® применяется <strong>строго дозированно</strong> и под контролем специалиста:</p>
+              <ul>
+                <li>Индивидуальный подбор времени и интенсивности</li>
+                <li>Использование защитных очков</li>
+                <li>Проведение процедуры только обученным специалистом</li>
+              </ul>
+              <p><strong>Противопоказания к УФ:</strong> светочувствительность, фотодерматоз, приём фотосенсибилизирующих препаратов, онкология кожи.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="question" onclick="toggleFaq(this)">
+              <span>Можно ли детям проходить процедуру?</span>
+              <span class="icon">▾</span>
+            </div>
+            <div class="answer">
+              <p>Процедура рекомендуется для лиц старше 14 лет. Для подростков используются щадящие режимы с пониженной температурой и минимальным временем сеанса. Обязательно присутствие родителя и предварительная консультация с врачом.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- КАТЕГОРИЯ 5: СЕРВИС И ГАРАНТИЯ -->
+      <!-- ============================================================ -->
+      <div class="faq-section" id="service">
+        <h2>Сервис и гарантия</h2>
+        <p class="section-desc">Гарантийные обязательства, сервисное обслуживание и поддержка в России.</p>
+
+        <div class="faq-list">
+
+          <div class="faq-item">
+            <div class="question" onclick="toggleFaq(this)">
+              <span>Какая гарантия на оборудование?</span>
+              <span class="icon">▾</span>
+            </div>
+            <div class="answer">
+              <p>На оборудование предоставляется <strong>гарантия 1 год</strong>. Гарантия распространяется на все компоненты и узлы капсулы.</p>
+              <p>Гарантийный ремонт выполняется сервисным инженером в Москве. При необходимости — замена оборудования на время ремонта (при простое более 72 часов).</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="question" onclick="toggleFaq(this)">
+              <span>Есть ли сервисная поддержка в России?</span>
+              <span class="icon">▾</span>
+            </div>
+            <div class="answer">
+              <p>Да, у нас есть <strong>полноценная сервисная служба в Москве</strong>:</p>
+              <ul>
+                <li>Склад запасных частей на территории РФ</li>
+                <li>Инженеры с опытом работы с HOCATT®</li>
+                <li>Выезд мастера в течение 24 часов</li>
+                <li>Удалённая поддержка по телефону и в мессенджерах</li>
+              </ul>
+              <p>Вы не останетесь один на один с поломкой. Мы обеспечиваем оперативный ремонт и замену запчастей.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="question" onclick="toggleFaq(this)">
+              <span>Что делать, если оборудование сломалось?</span>
+              <span class="icon">▾</span>
+            </div>
+            <div class="answer">
+              <p>Алгоритм действий прост:</p>
+              <ol style="font-size:14px; color:var(--muted); padding-left:20px; margin:8px 0;">
+                <li>Свяжитесь с нами по телефону или в мессенджере.</li>
+                <li>Опишите проблему — инженер проведёт первичную диагностику удалённо.</li>
+                <li>Если требуется выезд — мастер прибудет в течение 24 часов.</li>
+                <li>При необходимости замены запчасти — всё есть на складе в Москве.</li>
+              </ol>
+              <p>Если ремонт занимает более 72 часов, мы предоставляем аппарат на замену, чтобы ваш бизнес не простаивал.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- КАТЕГОРИЯ 6: УСТАНОВКА И ОБУЧЕНИЕ -->
+      <!-- ============================================================ -->
+      <div class="faq-section" id="installation">
+        <h2>Установка и обучение</h2>
+        <p class="section-desc">Как проходит монтаж, подготовка помещения и обучение персонала.</p>
+
+        <div class="faq-list">
+
+          <div class="faq-item">
+            <div class="question" onclick="toggleFaq(this)">
+              <span>Какие требования к помещению?</span>
+              <span class="icon">▾</span>
+            </div>
+            <div class="answer">
+              <p>Капсула компактна и помещается в стандартный кабинет. Основные требования:</p>
+              <ul>
+                <li><strong>Площадь:</strong> от 2–3 м²</li>
+                <li><strong>Высота потолков:</strong> от 2,4 м</li>
+                <li><strong>Электропитание:</strong> розетка 220В с заземлением</li>
+                <li><strong>Вентиляция:</strong> возможность подключения к вытяжке или наличие окна</li>
+                <li><strong>Температура:</strong> от +15°С до +30°С</li>
+              </ul>
+              <p>Мы проводим бесплатный аудит помещения по фото и видео — высылаем чек-лист и помогаем подготовить кабинет.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="question" onclick="toggleFaq(this)">
+              <span>Сколько времени занимает установка?</span>
+              <span class="icon">▾</span>
+            </div>
+            <div class="answer">
+              <p>Полный цикл от подписания договора до запуска занимает <strong>14 дней</strong> (с учётом доставки и таможни).</p>
+              <ul>
+                <li><strong>Монтаж:</strong> 1 день</li>
+                <li><strong>Обучение персонала:</strong> 1 день</li>
+                <li><strong>Пусконаладка и тестирование:</strong> 2–3 часа</li>
+              </ul>
+              <p>Мы работаем быстро и без сюрпризов — все этапы согласовываются заранее.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="question" onclick="toggleFaq(this)">
+              <span>Как проходит обучение персонала?</span>
+              <span class="icon">▾</span>
+            </div>
+            <div class="answer">
+              <p>Обучение входит в стоимость и проводится непосредственно на объекте:</p>
+              <ul>
+                <li><strong>Длительность:</strong> 1 день (теория + практика)</li>
+                <li><strong>Кого обучаем:</strong> администраторов, массажистов, медсестёр — любого сотрудника, который будет проводить процедуры</li>
+                <li><strong>Что включает:</strong> устройство капсулы, настройка режимов, техника безопасности, протоколы процедур, общение с клиентами</li>
+              </ul>
+              <p>После обучения сотрудник может самостоятельно проводить сеансы. При необходимости — проводим повторное обучение удалённо.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="question" onclick="toggleFaq(this)">
+              <span>Можно ли установить капсулу дома?</span>
+              <span class="icon">▾</span>
+            </div>
+            <div class="answer">
+              <p>Да, капсула отлично подходит для частных резиденций. Требования к помещению те же, что и для бизнеса: 2–3 м², розетка 220В, вентиляция.</p>
+              <p>Капсула выглядит как high-tech устройство и вписывается в любой современный интерьер. Для домашнего использования доступны все комплектации — от базовой до премиум с высокоинтенсивным PEMF.</p>
+              <p>Окупаемость для дома: 1–2 года при регулярном использовании (замена походов в SPA и косметолога).</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- CTA -->
+      <!-- ============================================================ -->
+      <div class="faq-cta">
+        <div>
+          <span class="label" style="color:rgba(255,255,255,0.5);">Не нашли ответ?</span>
+          <h2>Оставьте вопрос — мы ответим в течение 15 минут</h2>
+          <p>Напишите, что вас интересует, и наш специалист свяжется с вами и даст развёрнутый ответ.</p>
+        </div>
+        <div class="form">
+          <div class="input"><input type="text" placeholder="Имя"></div>
+          <div class="input"><input type="tel" placeholder="+7 (___) ___-__-__"></div>
+          <select>
+            <option value="" disabled selected>Выберите ваш сегмент</option>
+            <option value="clinics">Клиники</option>
+            <option value="rehab">Реабилитационные центры</option>
+            <option value="spa">SPA и wellness-центры</option>
+            <option value="fitness">Фитнес-клубы</option>
+            <option value="hotels">Отели и санатории</option>
+            <option value="home">Частные лица / Дом</option>
+            <option value="corporate">Корпоративный wellness</option>
+            <option value="athletes">Профессиональные спортсмены</option>
+            <option value="biohacker">Биохакеры</option>
+            <option value="other">Другое</option>
+          </select>
+          <div style="display:flex; flex-direction:column; gap:10px; margin:4px 0;">
+            <label style="display:flex; align-items:flex-start; gap:12px; font-size:12px; color:#aaa; cursor:pointer;">
+              <input type="checkbox" required style="margin-top:2px; width:16px; height:16px; accent-color:#fff; cursor:pointer;">
+              <span>Я принимаю условия <a href="agreement.html" target="_blank" style="color:#fff; text-decoration:underline;">Согласия на обработку персональных данных</a> и даю согласие на обработку моих персональных данных.</span>
+            </label>
+            <label style="display:flex; align-items:flex-start; gap:12px; font-size:12px; color:#aaa; cursor:pointer;">
+              <input type="checkbox" style="margin-top:2px; width:16px; height:16px; accent-color:#fff; cursor:pointer;">
+              <span>Я принимаю условия <a href="adv-agreement.html" target="_blank" style="color:#fff; text-decoration:underline;">Согласия на получение рекламных и информационных рассылок</a>.</span>
+            </label>
+          </div>
+          <a class="btn" href="#" onclick="alert('Спасибо! Мы свяжемся с вами в ближайшее время.'); return false;" style="background:#fff; color:#000; border-color:#fff; text-align:center;">Задать вопрос</a>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- ФУТЕР -->
+    <!-- ============================================================ -->
+    <section class="footer">
+      <div>
+        <strong>Quantum Consulting</strong>
+        <p>Поставка и внедрение премиального wellness-оборудования.</p>
+        <p style="margin-top:8px; font-size:13px;">+7 (495) 123-45-67<br>Managing@quantum-consulting.space</p>
+      </div>
+      <div><strong>Оборудование</strong>
+        <p><a href="equipment/capsule.html">Капсула HOCATT®</a><br><a href="equipment/pemf.html">PEMF / HUGO™</a><br><a href="equipment/models.html">Модели</a><br><a href="equipment/coming-soon.html">Новинки 2026</a></p>
+      </div>
+      <div><strong>Решения</strong>
+        <p><a href="solutions/clinics.html">Клиники</a><br><a href="solutions/rehab.html">Реабилитация</a><br><a href="solutions/spa.html">SPA</a><br><a href="solutions/fitness.html">Фитнес</a><br><a href="solutions/hotels.html">Отели</a><br><a href="solutions/home-family.html">Дом</a></p>
+      </div>
+      <div><strong>Материалы</strong>
+        <p><a href="technology/index.html">О технологии</a><br><a href="blog.html">Блог</a><br><a href="faq.html">FAQ</a></p>
+      </div>
+      <div><strong>Контакты</strong>
+        <p><a href="contacts.html">Связаться с нами</a><br><a href="#" onclick="openPopup(); return false;">Заказать звонок</a></p>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- ЮРИДИЧЕСКИЙ БЛОК -->
+    <!-- ============================================================ -->
+    <section style="background:#111; border-bottom:none; padding:24px 72px; border-top:1px solid #333;">
+      <div style="display:flex; flex-wrap:wrap; gap:24px; justify-content:center; font-size:13px;">
+        <a href="agreement.html" target="_blank" style="color:#b9b9b9; text-decoration:underline;">Согласие на обработку персональных данных</a>
+        <a href="adv-agreement.html" target="_blank" style="color:#b9b9b9; text-decoration:underline;">Согласие на получение рассылок</a>
+        <a href="privacy-policy.html" target="_blank" style="color:#b9b9b9; text-decoration:underline;">Политика конфиденциальности</a>
+        <a href="cookies-policy.html" target="_blank" style="color:#b9b9b9; text-decoration:underline;">Политика использования Cookies</a>
+      </div>
+      <div style="text-align:center; margin-top:12px; font-size:12px; color:#888;">
+        ООО «КВАНТОВЫЙ КОНСАЛТИНГ» · ИНН 9718288984 · ОГРН 1257700508306 · г. Москва, ул. Стромынка, д. 5, кв. 5
+      </div>
+    </section>
 
   </main>
+
+  <!-- ============================================================ -->
+  <!-- ПОПАП -->
+  <!-- ============================================================ -->
+  <div id="popup-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:999; align-items:center; justify-content:center;">
+    <div style="background:#fff; border-radius:32px; padding:48px; max-width:480px; width:90%; position:relative; box-shadow:0 40px 80px rgba(0,0,0,0.3); max-height:90vh; overflow-y:auto;">
+      <button onclick="closePopup();" style="position:absolute; top:16px; right:20px; background:none; border:none; font-size:28px; color:#999; cursor:pointer;">&times;</button>
+      <span class="label" style="color:var(--muted);">Бесплатная консультация</span>
+      <h2 style="font-size:28px; margin:0 0 12px;">Получить консультацию специалиста</h2>
+      <p style="font-size:15px; color:var(--muted); margin-bottom:24px;">Оставьте номер — мы перезвоним в течение 15 минут и ответим на все вопросы.</p>
+      <div class="form" style="grid-template-columns:1fr;">
+        <div class="input" style="background:#f4f4f1; color:var(--ink); border:1px solid var(--line);">Имя</div>
+        <div class="input" style="background:#f4f4f1; color:var(--ink); border:1px solid var(--line);">Телефон</div>
+        <select style="height:54px; border-radius:14px; background:#f4f4f1; color:var(--ink); border:1px solid var(--line); padding:0 18px; font-size:15px; width:100%; appearance:none; cursor:pointer;">
+          <option value="" disabled selected>Выберите ваш сегмент</option>
+          <option value="clinics">Клиники</option>
+          <option value="rehab">Реабилитационные центры</option>
+          <option value="spa">SPA и wellness-центры</option>
+          <option value="fitness">Фитнес-клубы</option>
+          <option value="hotels">Отели и санатории</option>
+          <option value="home">Частные лица / Дом</option>
+          <option value="corporate">Корпоративный wellness</option>
+          <option value="athletes">Профессиональные спортсмены</option>
+          <option value="biohacker">Биохакеры</option>
+          <option value="other">Другое</option>
+        </select>
+        <div style="display:flex; flex-direction:column; gap:10px; margin:8px 0;">
+          <label style="display:flex; align-items:flex-start; gap:12px; font-size:12px; color:var(--muted); cursor:pointer;">
+            <input type="checkbox" required style="margin-top:2px; width:16px; height:16px; accent-color:#000; cursor:pointer;">
+            <span>Я принимаю условия <a href="agreement.html" target="_blank" style="color:var(--ink); text-decoration:underline;">Согласия на обработку персональных данных</a> и даю согласие на обработку моих персональных данных.</span>
+          </label>
+          <label style="display:flex; align-items:flex-start; gap:12px; font-size:12px; color:var(--muted); cursor:pointer;">
+            <input type="checkbox" style="margin-top:2px; width:16px; height:16px; accent-color:#000; cursor:pointer;">
+            <span>Я принимаю условия <a href="adv-agreement.html" target="_blank" style="color:var(--ink); text-decoration:underline;">Согласия на получение рекламных и информационных рассылок</a>.</span>
+          </label>
+        </div>
+        <a class="btn" href="#" onclick="alert('Спасибо! Мы свяжемся с вами в ближайшее время.'); closePopup(); return false;" style="background:#000; color:#fff; border-color:#000;">Получить консультацию</a>
+        <p style="font-size:11px; color:var(--muted); text-align:center; margin-top:8px;">Отправляя заявку, вы соглашаетесь с условиями обработки данных</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleFaq(el) {
+      const item = el.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      // Закрываем все
+      document.querySelectorAll('.faq-item').forEach(function(i) {
+        i.classList.remove('open');
+      });
+      // Открываем текущий, если он был закрыт
+      if (!isOpen) {
+        item.classList.add('open');
+      }
+    }
+
+    function openPopup() {
+      document.getElementById('popup-overlay').style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+    function closePopup() {
+      document.getElementById('popup-overlay').style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+    document.getElementById('popup-overlay').addEventListener('click', function(e) {
+      if (e.target === this) closePopup();
+    });
+
+    // Плавный скролл к якорям
+    document.querySelectorAll('.faq-category-nav a').forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const target = document.querySelector(targetId);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        // Обновляем активный класс
+        document.querySelectorAll('.faq-category-nav a').forEach(function(a) {
+          a.classList.remove('active');
+        });
+        this.classList.add('active');
+      });
+    });
+
+    // Открываем первый вопрос по умолчанию (уже open)
+  </script>
+
 </body>
 </html>
