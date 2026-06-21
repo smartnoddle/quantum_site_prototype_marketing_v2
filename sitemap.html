@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Карта сайта — Quantum Consulting</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .sitemap-hero {
+      background: linear-gradient(145deg, #1a1a2e, #16213e);
+      color: #fff;
+      border-radius: 36px;
+      padding: 48px 72px;
+      margin-bottom: 0;
+      border-bottom: none;
+    }
+    .sitemap-hero h1 {
+      color: #fff;
+      max-width: 860px;
+    }
+    .sitemap-hero p {
+      color: rgba(255,255,255,0.7);
+      max-width: 700px;
+    }
+
+    .sitemap-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 28px;
+    }
+
+    .sitemap-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 24px;
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+    .sitemap-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+    }
+
+    .sitemap-card .card-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+    .sitemap-card .card-header .icon {
+      font-size: 32px;
+      line-height: 1;
+    }
+    .sitemap-card .card-header h3 {
+      font-size: 18px;
+      margin: 0;
+    }
+    .sitemap-card .card-header .badge {
+      margin-left: auto;
+      background: var(--soft);
+      padding: 2px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .sitemap-card .desc {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+
+    .sitemap-card .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .sitemap-card .links a {
+      background: var(--soft);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      color: var(--muted);
+      text-decoration: none;
+      transition: background .15s ease, color .15s ease;
+    }
+    .sitemap-card .links a:hover {
+      background: var(--ink);
+      color: #fff;
+    }
+
+    .sitemap-note {
+      background: #fafaf7;
+      border-radius: 16px;
+      padding: 20px 24px;
+      border: 1px solid var(--line);
+      margin-top: 28px;
+      font-size: 14px;
+      color: var(--muted);
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      justify-content: center;
+      text-align: center;
+    }
+    .sitemap-note span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .sitemap-note strong {
+      color: var(--ink);
+    }
+
+    @media (max-width: 900px) {
+      .sitemap-grid {
+        grid-template-columns: 1fr;
+      }
+      .sitemap-hero {
+        padding: 32px 24px;
+      }
+      .sitemap-note {
+        flex-direction: column;
+        gap: 8px;
+        text-align: left;
+      }
+    }
+
+    /* Стиль для страницы прототипа */
+    .prototype-badge {
+      display: inline-block;
+      background: #ffd600;
+      color: #000;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 10px;
+      border-radius: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-left: 8px;
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="topbar">
+      <a class="brand" href="index.html">Quantum Consulting</a>
+      <nav class="nav">
+        <a href="equipment/index.html">Оборудование</a>
+        <a href="solutions/index.html">Решения</a>
+        <a href="technology/index.html">Технологии</a>
+        <a href="blog.html">Блог</a>
+        <a href="contacts.html">Контакты</a>
+        <a href="#" onclick="openPopup(); return false;">Консультация</a>
+      </nav>
+    </header>
+
+    <!-- ============================================================ -->
+    <!-- HERO -->
+    <!-- ============================================================ -->
+    <section class="sitemap-hero">
+      <span class="label" style="color:rgba(255,255,255,0.5);">Карта сайта</span>
+      <h1>Структура и навигация проекта</h1>
+      <p style="font-size:18px;">Прототип — каркас сайта без дизайна. Здесь показана структура страниц, их взаимосвязи и ключевые смыслы. Дизайн будет наложен поверх этого каркаса.</p>
+      <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:18px;">
+        <span style="background:rgba(255,255,255,0.12); padding:6px 16px; border-radius:20px; font-size:13px; color:rgba(255,255,255,0.7);">📄 45+ страниц</span>
+        <span style="background:rgba(255,255,255,0.12); padding:6px 16px; border-radius:20px; font-size:13px; color:rgba(255,255,255,0.7);">🔗 21 статья в блоге</span>
+        <span style="background:rgba(255,255,255,0.12); padding:6px 16px; border-radius:20px; font-size:13px; color:rgba(255,255,255,0.7);">🧭 7 нишевых страниц</span>
+        <span style="background:rgba(255,255,255,0.12); padding:6px 16px; border-radius:20px; font-size:13px; color:rgba(255,255,255,0.7);">⚙️ 10 технологических страниц</span>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- КАРТА САЙТА -->
+    <!-- ============================================================ -->
+    <section style="padding-top:0; border-bottom:1px solid var(--line);">
+      <div style="margin-top:-12px;">
+
+        <!-- ============================================================ -->
+        <!-- ГЛАВНАЯ -->
+        <!-- ============================================================ -->
+        <div class="sitemap-card">
+          <div class="card-header">
+            <span class="icon">🏠</span>
+            <h3>Главная <span class="prototype-badge">Прототип</span></h3>
+            <span class="badge">Точка входа</span>
+          </div>
+          <div class="desc">
+            Универсальная страница для всех аудиторий. Первый экран с оффером «10 технологий в 1 капсуле», блоки доверия, сравнения с аналогами, навигация по 7 сегментам, FAQ, гарантии, калькулятор окупаемости.
+          </div>
+          <div class="links">
+            <a href="index.html">index.html</a>
+          </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- КАЛЬКУЛЯТОР -->
+        <!-- ============================================================ -->
+        <div class="sitemap-card">
+          <div class="card-header">
+            <span class="icon">📊</span>
+            <h3>Калькулятор окупаемости <span class="prototype-badge">Прототип</span></h3>
+            <span class="badge">Интерактивный</span>
+          </div>
+          <div class="desc">
+            Интерактивный расчёт срока окупаемости капсулы. Выбор модели (3,5 / 4,5 / 6 млн ₽), цена сеанса и количество сеансов в день — ползунки. Результаты: срок окупаемости, выручка, ROI, три сценария (оптимистичный / базовый / пессимистичный), график накопленного дохода. Внизу — форма захвата для индивидуального расчёта.
+          </div>
+          <div class="links">
+            <a href="calculator.html">calculator.html</a>
+          </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- ОБОРУДОВАНИЕ -->
+        <!-- ============================================================ -->
+        <div class="sitemap-card">
+          <div class="card-header">
+            <span class="icon">🛠️</span>
+            <h3>Оборудование <span class="prototype-badge">Прототип</span></h3>
+            <span class="badge">4 страницы</span>
+          </div>
+          <div class="desc">
+            Два флагманских продукта: капсула HOCATT® (10 технологий) и HUGO™ (высокоинтенсивный PEMF). Сравнение продуктов, модельный ряд (3 комплектации), новинки 2026.
+          </div>
+          <div class="links">
+            <a href="equipment/index.html">Обзор</a>
+            <a href="equipment/capsule.html">HOCATT®</a>
+            <a href="equipment/pemf.html">HUGO™</a>
+            <a href="equipment/models.html">Модели</a>
+            <a href="equipment/coming-soon.html">Новинки</a>
+          </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- ТЕХНОЛОГИИ -->
+        <!-- ============================================================ -->
+        <div class="sitemap-card">
+          <div class="card-header">
+            <span class="icon">💡</span>
+            <h3>Технологии <span class="prototype-badge">Прототип</span></h3>
+            <span class="badge">10 страниц</span>
+          </div>
+          <div class="desc">
+            Подробное описание всех 10 технологий МОК-терапии. Каждая технология — отдельная страница с научным обоснованием, эффектами, сравнением с аналогами и применением в сегментах.
+          </div>
+          <div class="links">
+            <a href="technology/index.html">Обзор</a>
+            <a href="technology/hyperthermia.html">Гипертермия</a>
+            <a href="technology/ozone.html">Озон</a>
+            <a href="technology/oxygen.html">Кислород</a>
+            <a href="technology/pemf.html">PEMF</a>
+            <a href="technology/microcurrents.html">Микротоки</a>
+            <a href="technology/infrared.html">FIR</a>
+            <a href="technology/co2-bohr.html">CO₂</a>
+            <a href="technology/aromatherapy.html">Арома</a>
+            <a href="technology/chromotherapy.html">Хромо</a>
+            <a href="technology/uv.html">УФ</a>
+          </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- РЕШЕНИЯ (НИШЕВЫЕ СТРАНИЦЫ) -->
+        <!-- ============================================================ -->
+        <div class="sitemap-card">
+          <div class="card-header">
+            <span class="icon">📄</span>
+            <h3>Решения <span class="prototype-badge">Прототип</span></h3>
+            <span class="badge">7 страниц</span>
+          </div>
+          <div class="desc">
+            Нишевые страницы для каждого сегмента ЦА. Каждая страница адаптирована под конкретную боль сегмента: восстановление, рост чека, реабилитация, премиальный опыт. На главной странице раздела — сетка из 7 карточек с навигацией.
+          </div>
+          <div class="links">
+            <a href="solutions/index.html">Все решения</a>
+            <a href="solutions/clinics.html">🏥 Клиники</a>
+            <a href="solutions/rehab.html">🦴 Реабилитация</a>
+            <a href="solutions/spa.html">💆 SPA</a>
+            <a href="solutions/fitness.html">🏋️ Фитнес</a>
+            <a href="solutions/hotels.html">🏨 Отели</a>
+            <a href="solutions/home-family.html">🏠 Дом</a>
+          </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- БЛОГ -->
+        <!-- ============================================================ -->
+        <div class="sitemap-card">
+          <div class="card-header">
+            <span class="icon">📝</span>
+            <h3>Блог <span class="prototype-badge">Прототип</span></h3>
+            <span class="badge">21 статья</span>
+          </div>
+          <div class="desc">
+            Доказательная база проекта. 21 научно обоснованная статья, структурированная по 4 категориям: озонотерапия (8 статей), PEMF-терапия (3 статьи), для бизнеса (4 статьи), отзывы и кейсы (4 статьи). Каждая статья содержит ссылки на исследования и CTA.
+          </div>
+          <div class="links">
+            <a href="blog.html">Все статьи</a>
+            <a href="blog/ozone-biofilms.html">Озон и биоплёнки</a>
+            <a href="blog/ozone-burns.html">Озон и ожоги</a>
+            <a href="blog/ozone-antioxidant.html">Озон и антиоксиданты</a>
+            <a href="blog/ozone-metabolic.html">Озон и метаболизм</a>
+            <a href="blog/ozone-ent.html">Озон в ЛОР</a>
+            <a href="blog/ozone-bacterial-vaginosis.html">Озон и вагиноз</a>
+            <a href="blog/ozone-emergency.html">Неотложная озонотерапия</a>
+            <a href="blog/ozone-obstetrics.html">Озон в акушерстве</a>
+            <a href="blog/pemf-fda.html">PEMF и FDA</a>
+            <a href="blog/pemf-how-it-works.html">Что такое PEMF</a>
+            <a href="blog/pemf-sports.html">PEMF в спорте</a>
+            <a href="blog/spa-profit.html">SPA и прибыль</a>
+            <a href="blog/recovery-story.html">Кейс: перелом</a>
+          </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- КОНТАКТЫ -->
+        <!-- ============================================================ -->
+        <div class="sitemap-card">
+          <div class="card-header">
+            <span class="icon">📞</span>
+            <h3>Контакты <span class="prototype-badge">Прототип</span></h3>
+            <span class="badge">Связь</span>
+          </div>
+          <div class="desc">
+            Контактная информация: телефон, email, мессенджеры. Демо-центр Divus на Пресне для записи на сеанс. Форма обратной связи с выбором сегмента. Социальные сети: Telegram, YouTube, Instagram, WhatsApp.
+          </div>
+          <div class="links">
+            <a href="contacts.html">contacts.html</a>
+          </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- ЮРИДИЧЕСКИЕ ДОКУМЕНТЫ -->
+        <!-- ============================================================ -->
+        <div class="sitemap-card">
+          <div class="card-header">
+            <span class="icon">⚖️</span>
+            <h3>Юридические документы <span class="prototype-badge">Прототип</span></h3>
+            <span class="badge">4 страницы</span>
+          </div>
+          <div class="desc">
+            Согласие на обработку персональных данных, согласие на получение рассылок, политика конфиденциальности, политика использования Cookies. Все документы доступны из подвала каждой страницы.
+          </div>
+          <div class="links">
+            <a href="agreement.html">Согласие на обработку</a>
+            <a href="adv-agreement.html">Согласие на рассылки</a>
+            <a href="privacy-policy.html">Политика конфиденциальности</a>
+            <a href="cookies-policy.html">Политика Cookies</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- ПОЯСНЕНИЯ -->
+      <!-- ============================================================ -->
+      <div class="sitemap-note">
+        <span><strong>📌 Что такое прототип?</strong> Каркас сайта без дизайна. Все смыслы, структура и логика уже проработаны.</span>
+        <span><strong>🎨 Дизайн</strong> будет наложен поверх этого каркаса на следующем этапе.</span>
+        <span><strong>📄 Все страницы</strong> доступны для просмотра в браузере — кликайте по ссылкам.</span>
+        <span><strong>🔄 Перелинковка</strong> настроена — навигация работает как на готовом сайте.</span>
+      </div>
+
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- ФУТЕР -->
+    <!-- ============================================================ -->
+    <section class="footer">
+      <div>
+        <strong>Quantum Consulting</strong>
+        <p>Поставка и внедрение премиального wellness-оборудования.</p>
+        <p style="margin-top:8px; font-size:13px;">+7 (495) 123-45-67<br>Managing@quantum-consulting.space</p>
+      </div>
+      <div><strong>Оборудование</strong>
+        <p><a href="equipment/capsule.html">Капсула HOCATT®</a><br><a href="equipment/pemf.html">PEMF / HUGO™</a><br><a href="equipment/models.html">Модели</a></p>
+      </div>
+      <div><strong>Решения</strong>
+        <p><a href="solutions/clinics.html">Клиники</a><br><a href="solutions/rehab.html">Реабилитация</a><br><a href="solutions/spa.html">SPA</a><br><a href="solutions/fitness.html">Фитнес</a><br><a href="solutions/hotels.html">Отели</a><br><a href="solutions/home-family.html">Дом</a></p>
+      </div>
+      <div><strong>Материалы</strong>
+        <p><a href="technology/index.html">О технологии</a><br><a href="blog.html">Блог</a><br><a href="faq.html">FAQ</a></p>
+      </div>
+      <div><strong>Контакты</strong>
+        <p><a href="contacts.html">Связаться с нами</a><br><a href="#" onclick="openPopup(); return false;">Заказать звонок</a></p>
+      </div>
+    </section>
+
+    <section style="background:#111; border-bottom:none; padding:24px 72px; border-top:1px solid #333;">
+      <div style="display:flex; flex-wrap:wrap; gap:24px; justify-content:center; font-size:13px;">
+        <a href="agreement.html" target="_blank" style="color:#b9b9b9; text-decoration:underline;">Согласие на обработку персональных данных</a>
+        <a href="adv-agreement.html" target="_blank" style="color:#b9b9b9; text-decoration:underline;">Согласие на получение рассылок</a>
+        <a href="privacy-policy.html" target="_blank" style="color:#b9b9b9; text-decoration:underline;">Политика конфиденциальности</a>
+        <a href="cookies-policy.html" target="_blank" style="color:#b9b9b9; text-decoration:underline;">Политика использования Cookies</a>
+      </div>
+      <div style="text-align:center; margin-top:12px; font-size:12px; color:#888;">
+        ООО «КВАНТОВЫЙ КОНСАЛТИНГ» · ИНН 9718288984 · ОГРН 1257700508306 · г. Москва, ул. Стромынка, д. 5, кв. 5
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================ -->
+  <!-- ПОПАП -->
+  <!-- ============================================================ -->
+  <div id="popup-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:999; align-items:center; justify-content:center;">
+    <div style="background:#fff; border-radius:32px; padding:48px; max-width:480px; width:90%; position:relative; box-shadow:0 40px 80px rgba(0,0,0,0.3); max-height:90vh; overflow-y:auto;">
+      <button onclick="closePopup();" style="position:absolute; top:16px; right:20px; background:none; border:none; font-size:28px; color:#999; cursor:pointer;">&times;</button>
+      <span class="label" style="color:var(--muted);">Бесплатная консультация</span>
+      <h2 style="font-size:28px; margin:0 0 12px;">Получить консультацию специалиста</h2>
+      <p style="font-size:15px; color:var(--muted); margin-bottom:24px;">Оставьте номер — мы перезвоним в течение 15 минут и ответим на все вопросы.</p>
+      <div class="form" style="grid-template-columns:1fr;">
+        <div class="input" style="background:#f4f4f1; color:var(--ink); border:1px solid var(--line);">Имя</div>
+        <div class="input" style="background:#f4f4f1; color:var(--ink); border:1px solid var(--line);">Телефон</div>
+        <select style="height:54px; border-radius:14px; background:#f4f4f1; color:var(--ink); border:1px solid var(--line); padding:0 18px; font-size:15px; width:100%; appearance:none; cursor:pointer;">
+          <option value="" disabled selected>Выберите ваш сегмент</option>
+          <option value="clinics">Клиники</option>
+          <option value="rehab">Реабилитационные центры</option>
+          <option value="spa">SPA и wellness-центры</option>
+          <option value="fitness">Фитнес-клубы</option>
+          <option value="hotels">Отели и санатории</option>
+          <option value="home">Частные лица / Дом</option>
+          <option value="corporate">Корпоративный wellness</option>
+          <option value="athletes">Профессиональные спортсмены</option>
+          <option value="biohacker">Биохакеры</option>
+          <option value="other">Другое</option>
+        </select>
+        <div style="display:flex; flex-direction:column; gap:10px; margin:8px 0;">
+          <label style="display:flex; align-items:flex-start; gap:12px; font-size:12px; color:var(--muted); cursor:pointer;">
+            <input type="checkbox" required style="margin-top:2px; width:16px; height:16px; accent-color:#000; cursor:pointer;">
+            <span>Я принимаю условия <a href="agreement.html" target="_blank" style="color:var(--ink); text-decoration:underline;">Согласия на обработку персональных данных</a> и даю согласие на обработку моих персональных данных.</span>
+          </label>
+          <label style="display:flex; align-items:flex-start; gap:12px; font-size:12px; color:var(--muted); cursor:pointer;">
+            <input type="checkbox" style="margin-top:2px; width:16px; height:16px; accent-color:#000; cursor:pointer;">
+            <span>Я принимаю условия <a href="adv-agreement.html" target="_blank" style="color:var(--ink); text-decoration:underline;">Согласия на получение рекламных и информационных рассылок</a>.</span>
+          </label>
+        </div>
+        <a class="btn" href="#" onclick="alert('Спасибо! Мы свяжемся с вами в ближайшее время.'); closePopup(); return false;" style="background:#000; color:#fff; border-color:#000;">Получить консультацию</a>
+        <p style="font-size:11px; color:var(--muted); text-align:center; margin-top:8px;">Отправляя заявку, вы соглашаетесь с условиями обработки данных</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openPopup() {
+      document.getElementById('popup-overlay').style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+    function closePopup() {
+      document.getElementById('popup-overlay').style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+    document.getElementById('popup-overlay').addEventListener('click', function(e) {
+      if (e.target === this) closePopup();
+    });
+  </script>
+
+</body>
+</html>

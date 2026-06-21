@@ -190,7 +190,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       gap: 12px;
-      margin-top: 8px;
+      margin-top: 4px;
     }
 
     .scenario-card {
@@ -236,13 +236,13 @@
       border-radius: 16px;
       padding: 24px;
       border: 1px solid var(--line);
-      margin-top: 8px;
+      margin-top: 4px;
     }
 
     .chart-container canvas {
       width: 100% !important;
       height: auto !important;
-      max-height: 180px;
+      max-height: 140px;
     }
 
     .chart-legend {
@@ -266,104 +266,6 @@
 
     .chart-legend .l-cost::before { background: #ff1744; width: 14px; height: 3px; }
     .chart-legend .l-revenue::before { background: #1a73e8; width: 14px; height: 3px; }
-
-    /* Сравнение моделей */
-    .compare-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 18px;
-      margin-top: 28px;
-    }
-
-    .compare-card {
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      padding: 24px;
-      text-align: center;
-      transition: transform .15s ease, box-shadow .15s ease;
-    }
-
-    .compare-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 18px 50px rgba(0,0,0,0.06);
-    }
-
-    .compare-card .price {
-      font-size: 28px;
-      font-weight: 700;
-      color: var(--ink);
-      margin: 8px 0;
-    }
-
-    .compare-card .payback {
-      font-size: 20px;
-      font-weight: 600;
-      color: #1a73e8;
-    }
-
-    .compare-card .tag {
-      display: inline-block;
-      background: var(--soft);
-      padding: 4px 14px;
-      border-radius: 20px;
-      font-size: 12px;
-      color: var(--muted);
-      margin-bottom: 8px;
-    }
-
-    /* Экономия 10-в-1 */
-    .savings-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-      margin-top: 28px;
-    }
-
-    .savings-item {
-      display: flex;
-      justify-content: space-between;
-      padding: 12px 16px;
-      border-bottom: 1px solid var(--line);
-      font-size: 14px;
-      color: var(--muted);
-    }
-
-    .savings-item .price {
-      font-weight: 600;
-      color: var(--ink);
-    }
-
-    .savings-total {
-      background: #fafaf7;
-      border-radius: 16px;
-      padding: 20px 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 12px;
-      border: 1px solid var(--line);
-    }
-
-    .savings-total .total-label {
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--ink);
-    }
-
-    .savings-total .total-price {
-      font-size: 24px;
-      font-weight: 700;
-      color: #00c853;
-    }
-
-    .savings-total .total-price .old {
-      font-size: 16px;
-      color: #ff1744;
-      text-decoration: line-through;
-      font-weight: 400;
-      margin-right: 12px;
-    }
 
     /* Форма захвата */
     .calc-cta {
@@ -452,12 +354,6 @@
       .scenarios {
         grid-template-columns: 1fr;
       }
-      .compare-grid {
-        grid-template-columns: 1fr;
-      }
-      .savings-grid {
-        grid-template-columns: 1fr;
-      }
       .calc-cta {
         grid-template-columns: 1fr;
         padding: 32px 28px;
@@ -482,9 +378,20 @@
       }
     }
 
-    /* скрываем стандартный инпут для цены модели */
     .hidden-input {
       display: none;
+    }
+
+    /* дисклеймер под калькулятором */
+    .calc-disclaimer {
+      font-size: 13px;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 16px;
+      padding: 16px 24px;
+      background: #fafaf7;
+      border-radius: 16px;
+      border: 1px solid var(--line);
     }
   </style>
 </head>
@@ -524,12 +431,12 @@
           <div class="field-group">
             <label for="modelSelect">Модель капсулы</label>
             <select id="modelSelect">
-              <option value="base">Базовая — от 1 500 000 ₽</option>
-              <option value="extended" selected>Расширенная — от 2 500 000 ₽</option>
-              <option value="premium">Премиум (с PEMF) — от 3 500 000 ₽</option>
+              <option value="base">Базовая — от 3 500 000 ₽</option>
+              <option value="extended" selected>Расширенная — от 4 500 000 ₽</option>
+              <option value="premium">Премиум (с PEMF) — от 6 000 000 ₽</option>
             </select>
             <div style="font-size:13px; color:var(--muted); margin-top:6px;">
-              Стоимость оборудования: <strong id="modelCostDisplay">2 500 000</strong> ₽
+              Стоимость оборудования: <strong id="modelCostDisplay">4 500 000</strong> ₽
             </div>
           </div>
 
@@ -559,26 +466,6 @@
             </div>
           </div>
 
-          <!-- 4. Дополнительные затраты (опционально) -->
-          <div class="field-group" style="margin-bottom:0;">
-            <label style="font-size:13px; color:var(--muted); font-weight:400;">
-              <input type="checkbox" id="includeCosts" style="margin-right:8px; accent-color:#000;">
-              Учесть затраты на электроэнергию и расходные материалы
-            </label>
-            <div id="costsFields" style="display:none; margin-top:12px; display:none;">
-              <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
-                <div>
-                  <label style="font-size:13px; color:var(--muted);">Электроэнергия (мес.)</label>
-                  <input type="number" id="electricityCost" value="5000" style="width:100%; height:40px; border-radius:10px; border:1px solid var(--line); padding:0 12px; font-size:14px;">
-                </div>
-                <div>
-                  <label style="font-size:13px; color:var(--muted);">Расходные материалы (мес.)</label>
-                  <input type="number" id="suppliesCost" value="3000" style="width:100%; height:40px; border-radius:10px; border:1px solid var(--line); padding:0 12px; font-size:14px;">
-                </div>
-              </div>
-            </div>
-          </div>
-
         </div>
 
         <!-- Правая колонка: результаты -->
@@ -586,10 +473,10 @@
 
           <!-- Главный результат: срок окупаемости -->
           <div class="result-main">
-            <span class="number" id="paybackDisplay">14 <small>мес.</small></span>
+            <span class="number" id="paybackDisplay">25 <small>мес.</small></span>
             <span class="label">Срок окупаемости</span>
             <div style="font-size:14px; color:var(--muted); margin-top:4px;">
-              ≈ <span id="paybackYearsDisplay">1,2</span> года
+              ≈ <span id="paybackYearsDisplay">2,1</span> года
             </div>
           </div>
 
@@ -604,7 +491,7 @@
               <span class="label">Выручка в год</span>
             </div>
             <div class="result-item">
-              <span class="number" id="roiDisplay">202</span>
+              <span class="number" id="roiDisplay">68</span>
               <span class="label">ROI, %</span>
             </div>
           </div>
@@ -613,17 +500,17 @@
           <div class="scenarios">
             <div class="scenario-card optimistic">
               <div class="label">Оптимистичный</div>
-              <div class="number" id="optimisticDisplay">10</div>
+              <div class="number" id="optimisticDisplay">16</div>
               <div class="desc">месяцев</div>
             </div>
             <div class="scenario-card base">
               <div class="label">Базовый</div>
-              <div class="number" id="baseDisplay">14</div>
+              <div class="number" id="baseDisplay">25</div>
               <div class="desc">месяцев</div>
             </div>
             <div class="scenario-card pessimistic">
               <div class="label">Пессимистичный</div>
-              <div class="number" id="pessimisticDisplay">22</div>
+              <div class="number" id="pessimisticDisplay">42</div>
               <div class="desc">месяцев</div>
             </div>
           </div>
@@ -640,9 +527,12 @@
         </div>
 
       </div>
-    </section>
 
-   
+      <!-- Дисклеймер -->
+      <div class="calc-disclaimer">
+        <strong>ℹ️ Важно:</strong> Расчёт является предварительным и основан на средних рыночных показателях. Точный срок окупаемости зависит от множества факторов: загрузки оборудования, ценовой политики, региона, формата бизнеса и других условий. Для получения персонализированного расчёта оставьте заявку ниже.
+      </div>
+    </section>
 
     <!-- ============================================================ -->
     <!-- ФОРМА ЗАХВАТА -->
@@ -772,29 +662,14 @@
   <!-- ============================================================ -->
   <script>
     // ============================================================
-    // 1. ДАННЫЕ
+    // 1. ДАННЫЕ (новые цены)
     // ============================================================
 
     const models = {
-      base: { name: 'Базовая', cost: 1500000 },
-      extended: { name: 'Расширенная', cost: 2500000 },
-      premium: { name: 'Премиум (с PEMF)', cost: 3500000 }
+      base: { name: 'Базовая', cost: 3500000 },
+      extended: { name: 'Расширенная', cost: 4500000 },
+      premium: { name: 'Премиум (с PEMF)', cost: 6000000 }
     };
-
-    const savingsItems = [
-      { name: '🔥 Гипертермия (сауна)', price: 150000 },
-      { name: '💨 Трансдермальное озонирование', price: 180000 },
-      { name: '💨 Ингаляция кислородом', price: 120000 },
-      { name: '⚡ Высокоинтенсивный PEMF', price: 400000 },
-      { name: '🔬 Микротоки', price: 250000 },
-      { name: '🔥 Дальний ИК-спектр (FIR)', price: 180000 },
-      { name: '🌊 CO₂ (эффект Бора)', price: 350000 },
-      { name: '🌸 Ароматерапия', price: 80000 },
-      { name: '🌈 Хромотерапия', price: 60000 },
-      { name: '☀️ УФ-воздействие', price: 90000 }
-    ];
-
-    const totalSavings = savingsItems.reduce((sum, item) => sum + item.price, 0);
 
     // ============================================================
     // 2. ПОЛУЧЕНИЕ ЭЛЕМЕНТОВ
@@ -817,19 +692,6 @@
     const baseDisplay = document.getElementById('baseDisplay');
     const pessimisticDisplay = document.getElementById('pessimisticDisplay');
 
-    const includeCosts = document.getElementById('includeCosts');
-    const costsFields = document.getElementById('costsFields');
-    const electricityCost = document.getElementById('electricityCost');
-    const suppliesCost = document.getElementById('suppliesCost');
-
-    const comparePriceDisplay = document.getElementById('comparePriceDisplay');
-    const compareSessionsDisplay = document.getElementById('compareSessionsDisplay');
-    const compareGrid = document.getElementById('compareGrid');
-
-    const savingsTotal = document.getElementById('savingsTotal');
-    const savingsPercent = document.getElementById('savingsPercent');
-    const savingsPercentMax = document.getElementById('savingsPercentMax');
-
     // ============================================================
     // 3. ФУНКЦИЯ РАСЧЁТА
     // ============================================================
@@ -840,30 +702,21 @@
       const price = parseInt(priceRange.value);
       const sessions = parseInt(sessionsRange.value);
 
-      // Учёт затрат
-      let monthlyCosts = 0;
-      if (includeCosts.checked) {
-        monthlyCosts = (parseInt(electricityCost.value) || 0) + (parseInt(suppliesCost.value) || 0);
-      }
-
       const monthlyRevenue = price * sessions * 30;
-      const monthlyProfit = monthlyRevenue - monthlyCosts;
       const annualRevenue = monthlyRevenue * 12;
-      const paybackMonths = monthlyProfit > 0 ? modelCost / monthlyProfit : Infinity;
+      const paybackMonths = monthlyRevenue > 0 ? modelCost / monthlyRevenue : Infinity;
       const roi = modelCost > 0 ? ((annualRevenue - modelCost) / modelCost) * 100 : 0;
 
       // Три сценария
       const priceOpt = price * 1.3;
       const sessionsOpt = sessions * 1.2;
       const monthlyRevenueOpt = priceOpt * sessionsOpt * 30;
-      const monthlyProfitOpt = monthlyRevenueOpt - monthlyCosts;
-      const paybackOpt = monthlyProfitOpt > 0 ? modelCost / monthlyProfitOpt : Infinity;
+      const paybackOpt = monthlyRevenueOpt > 0 ? modelCost / monthlyRevenueOpt : Infinity;
 
       const pricePess = price * 0.8;
       const sessionsPess = sessions * 0.7;
       const monthlyRevenuePess = pricePess * sessionsPess * 30;
-      const monthlyProfitPess = monthlyRevenuePess - monthlyCosts;
-      const paybackPess = monthlyProfitPess > 0 ? modelCost / monthlyProfitPess : Infinity;
+      const paybackPess = monthlyRevenuePess > 0 ? modelCost / monthlyRevenuePess : Infinity;
 
       // Обновление UI
       modelCostDisplay.textContent = modelCost.toLocaleString();
@@ -882,53 +735,18 @@
       baseDisplay.textContent = Math.round(paybackMonths);
       pessimisticDisplay.textContent = Math.round(paybackPess);
 
-      // Обновление сравнения моделей
-      updateCompare(price, sessions, monthlyCosts);
-
       // Обновление графика
-      drawChart(modelCost, monthlyProfit, paybackMonths);
-
-      // Обновление экономии
-      updateSavings(modelCost);
-
-      // Обновление подписей в сравнении
-      comparePriceDisplay.textContent = price.toLocaleString();
-      compareSessionsDisplay.textContent = sessions;
+      drawChart(modelCost, monthlyRevenue, paybackMonths);
     }
 
     // ============================================================
-    // 4. СРАВНЕНИЕ МОДЕЛЕЙ
+    // 4. ГРАФИК НАКОПЛЕННОГО ДОХОДА (Canvas)
     // ============================================================
 
-    function updateCompare(price, sessions, monthlyCosts) {
-      let html = '';
-      for (const [key, model] of Object.entries(models)) {
-        const monthlyRevenue = price * sessions * 30;
-        const monthlyProfit = monthlyRevenue - monthlyCosts;
-        const payback = monthlyProfit > 0 ? model.cost / monthlyProfit : Infinity;
-        const isSelected = key === modelSelect.value;
-        html += `
-          <div class="compare-card" style="${isSelected ? 'border-color:#000; border-width:2px;' : ''}">
-            <div class="tag">${isSelected ? '✓ Ваша модель' : ''}</div>
-            <h3 style="font-size:16px; margin:4px 0;">${model.name}</h3>
-            <div class="price">${model.cost.toLocaleString()} ₽</div>
-            <div class="payback">${Math.round(payback)} мес.</div>
-            <div style="font-size:13px; color:var(--muted);">окупаемость</div>
-          </div>
-        `;
-      }
-      compareGrid.innerHTML = html;
-    }
-
-    // ============================================================
-    // 5. ГРАФИК НАКОПЛЕННОГО ДОХОДА (Canvas)
-    // ============================================================
-
-    function drawChart(equipmentCost, monthlyProfit, paybackMonths) {
+    function drawChart(equipmentCost, monthlyRevenue, paybackMonths) {
       const canvas = document.getElementById('paybackChart');
       const ctx = canvas.getContext('2d');
 
-      const rect = canvas.parentElement.getBoundingClientRect();
       const width = canvas.parentElement.clientWidth - 48;
       const height = 120;
       canvas.width = width * 2;
@@ -948,11 +766,10 @@
       const maxMonths = Math.max(24, Math.ceil(paybackMonths * 1.4));
       const maxRevenue = equipmentCost * 1.5;
 
-      // Функция для преобразования координат
       const x = (month) => pad.left + (month / maxMonths) * chartW;
       const y = (value) => pad.top + chartH - (value / maxRevenue) * chartH;
 
-      // Линия стоимости оборудования (горизонтальная)
+      // Линия стоимости оборудования
       ctx.beginPath();
       ctx.moveTo(x(0), y(equipmentCost));
       ctx.lineTo(x(maxMonths), y(equipmentCost));
@@ -962,19 +779,18 @@
       ctx.stroke();
       ctx.setLineDash([]);
 
-      // Подпись "Стоимость оборудования"
       ctx.fillStyle = '#ff1744';
       ctx.font = `${11 * dpr}px Arial, sans-serif`;
-      ctx.fillText('Стоимость оборудования', x(maxMonths * 0.7), y(equipmentCost) - 8 * dpr);
+      ctx.fillText('Стоимость оборудования', x(maxMonths * 0.65), y(equipmentCost) - 8 * dpr);
 
       // Линия накопленного дохода
       ctx.beginPath();
       let cumulative = 0;
-      const steps = 30;
+      const steps = 40;
       for (let i = 0; i <= steps; i++) {
         const month = (i / steps) * maxMonths;
-        const monthProfit = monthlyProfit * month;
-        cumulative = Math.min(monthProfit, maxRevenue);
+        const monthRevenue = monthlyRevenue * month;
+        cumulative = Math.min(monthRevenue, maxRevenue);
         const px = x(month);
         const py = y(cumulative);
         if (i === 0) ctx.moveTo(px, py);
@@ -984,16 +800,16 @@
       ctx.lineWidth = 3 * dpr;
       ctx.stroke();
 
-      // Заливка под графиком
+      // Заливка
       const lastX = x(maxMonths);
-      const lastY = y(Math.min(monthlyProfit * maxMonths, maxRevenue));
+      const lastY = y(Math.min(monthlyRevenue * maxMonths, maxRevenue));
       ctx.lineTo(lastX, y(0));
       ctx.lineTo(x(0), y(0));
       ctx.closePath();
       ctx.fillStyle = 'rgba(26, 115, 232, 0.08)';
       ctx.fill();
 
-      // Точка пересечения (окупаемость)
+      // Точка окупаемости
       if (paybackMonths <= maxMonths) {
         const px = x(paybackMonths);
         const py = y(equipmentCost);
@@ -1022,14 +838,12 @@
       ctx.lineTo(x(maxMonths), y(0));
       ctx.stroke();
 
-      // Подписи осей
       ctx.fillStyle = '#999';
       ctx.font = `${10 * dpr}px Arial, sans-serif`;
       ctx.fillText('0', x(0) - 12 * dpr, y(0) + 16 * dpr);
       ctx.fillText('месяцы', x(maxMonths) - 24 * dpr, y(0) + 16 * dpr);
       ctx.fillText('₽', x(0) - 20 * dpr, y(maxRevenue) - 4 * dpr);
 
-      // Метки на оси X
       for (let i = 3; i <= maxMonths; i += 3) {
         if (i <= maxMonths) {
           ctx.fillText(i, x(i) - 6 * dpr, y(0) + 16 * dpr);
@@ -1038,36 +852,15 @@
     }
 
     // ============================================================
-    // 6. КАЛЬКУЛЯТОР ЭКОНОМИИ
-    // ============================================================
-
-    function updateSavings(modelCost) {
-      const selectedModel = models[modelSelect.value];
-      const savings = totalSavings - selectedModel.cost;
-      const percent = Math.round((savings / totalSavings) * 100);
-      const percentMax = Math.round(((totalSavings - 1500000) / totalSavings) * 100);
-
-      savingsTotal.textContent = `${totalSavings.toLocaleString()} ₽`;
-      savingsPercent.textContent = Math.min(percent, 47);
-      savingsPercentMax.textContent = percentMax;
-    }
-
-    // ============================================================
-    // 7. ОБРАБОТЧИКИ СОБЫТИЙ
+    // 5. ОБРАБОТЧИКИ СОБЫТИЙ
     // ============================================================
 
     modelSelect.addEventListener('change', calculate);
     priceRange.addEventListener('input', calculate);
     sessionsRange.addEventListener('input', calculate);
-    includeCosts.addEventListener('change', function() {
-      costsFields.style.display = this.checked ? 'block' : 'none';
-      calculate();
-    });
-    electricityCost.addEventListener('input', calculate);
-    suppliesCost.addEventListener('input', calculate);
 
     // ============================================================
-    // 8. ПОПАП
+    // 6. ПОПАП
     // ============================================================
 
     function openPopup() {
@@ -1085,10 +878,17 @@
     });
 
     // ============================================================
-    // 9. ПЕРВИЧНЫЙ ЗАПУСК
+    // 7. ПЕРВИЧНЫЙ ЗАПУСК
     // ============================================================
 
     calculate();
+
+    // Пересчёт при изменении размера окна (для графика)
+    let resizeTimer;
+    window.addEventListener('resize', function() {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(calculate, 200);
+    });
   </script>
 
 </body>
