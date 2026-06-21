@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quantum Consulting — премиальное wellness-оборудование для SPA, клиник и отелей</title>
+  <meta name="description" content="Quantum Consulting помогает подобрать, поставить и внедрить премиальное wellness-оборудование HOCATT® и HUGO™ для SPA, фитнес-клубов, отелей, санаториев, клиник здоровья и частных резиденций.">
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* Локальные стили только для index.html */
+    .media-hero,
+    .media-card,
+    .media-scene,
+    .media-demo {
+      overflow: hidden;
+      border: 1px solid var(--line, #d7d7d0);
+      border-radius: 28px;
+      background: #f0f0eb;
+    }
+
+    .media-hero {
+      min-height: 520px;
+      display: flex;
+      align-items: stretch;
+    }
+
+    .media-hero img,
+    .media-card img,
+    .media-scene img,
+    .media-demo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .media-card {
+      height: 260px;
+      margin-bottom: 22px;
+    }
+
+    .media-scene {
+      height: 320px;
+    }
+
+    .media-demo {
+      height: 460px;
+      margin-top: 34px;
+    }
+
+    .image-note {
+      display: block;
+      margin-top: 10px;
+      font-size: 13px;
+      color: var(--muted, #626262);
+    }
+
+    .scene-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 34px;
+    }
+
+    .scene-card {
+      background: var(--card, #fff);
+      border: 1px solid var(--line, #d7d7d0);
+      border-radius: 28px;
+      padding: 20px;
+    }
+
+    .scene-card h3 {
+      margin-top: 16px;
+      margin-bottom: 8px;
+    }
+
+    .proof-band {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 18px;
+      margin-top: 34px;
+    }
+
+    .proof-box,
+    .note-box {
+      background: var(--card, #fff);
+      border: 1px solid var(--line, #d7d7d0);
+      border-radius: 28px;
+      padding: 28px;
+    }
+
+    .note-box {
+      background: #fff8e9;
+    }
+
+    .technology-preview {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .tech-mini {
+      background: var(--card, #fff);
+      border: 1px solid var(--line, #d7d7d0);
+      border-radius: 20px;
+      padding: 16px;
+      min-height: 130px;
+    }
+
+    .tech-mini h3 {
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .subtle {
+      color: var(--muted, #626262);
+      font-size: 14px;
+    }
+
+    .hero-copy p {
+      max-width: 720px;
+    }
+
+    @media (max-width: 1180px) {
+      .scene-grid,
+      .technology-preview,
+      .proof-band {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .media-hero {
+        min-height: 420px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .scene-grid,
+      .technology-preview,
+      .proof-band {
+        grid-template-columns: 1fr;
+      }
+
+      .media-hero,
+      .media-demo {
+        height: auto;
+        min-height: 280px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+
+    <header class="topbar">
+      <a class="brand" href="index.html">Quantum Consulting</a>
+      <nav class="nav">
+        <a href="equipment/capsule.html">Оборудование</a>
+        <a href="solutions/spa.html">Решения</a>
+        <a href="technology/index.html">Технологии</a>
+        <a href="research.html">Исследования</a>
+        <a href="blog.html">Блог</a>
+        <a href="contacts.html">Контакты</a>
+        <a href="contacts.html">Консультация</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="label">High-tech wellness equipment</span>
+        <h1>Премиальное wellness-оборудование для SPA, клиник, отелей и частных резиденций</h1>
+        <p>Quantum Consulting помогает подобрать, поставить и внедрить оборудование HOCATT® и HUGO™: от выбора модели и расчёта сценария использования до обучения персонала и запуска услуги.</p>
+
+        <div class="actions">
+          <a class="btn" href="equipment/models.html">Подобрать оборудование</a>
+          <a class="btn secondary" href="contacts.html">Получить консультацию</a>
+        </div>
+
+        <p class="subtle" style="margin-top:18px; max-width: 760px;">
+          Мы поставляем не просто оборудование, а готовый сценарий запуска новой premium wellness-услуги: с понятным позиционированием, логикой внедрения и следующим коммерческим шагом.
+        </p>
+      </div>
+
+      <div class="media-hero">
+        <img src="assets/images/hero-capsule-premium.webp" alt="Премиальный интерьер wellness-пространства с капсулой HOCATT®">
+      </div>
+    </section>
+
+    <!-- О КОМПАНИИ / КЛЮЧЕВАЯ ЛОГИКА -->
+    <section>
+      <div class="two-col">
+        <div>
+          <span class="label">О компании</span>
+          <h2>Мы поставляем не просто оборудование, а готовый сценарий запуска wellness-услуги</h2>
+        </div>
+        <div>
+          <p>Quantum Consulting работает с бизнесом и частными клиентами, которым важно внедрить технологичное оборудование аккуратно: подобрать модель, подготовить помещение, обучить персонал, настроить коммуникацию и запустить понятный клиентский путь.</p>
+
+          <div class="grid cols-3">
+            <div class="card compact">
+              <h3>Поставка из США</h3>
+              <p>Работа с оборудованием HOCATT® и HUGO™.</p>
+            </div>
+
+            <div class="card compact">
+              <h3>Запуск под ключ</h3>
+              <p>Подбор, обучение, сценарии применения и логика запуска услуги.</p>
+            </div>
+
+            <div class="card compact">
+              <h3>Сервис и сопровождение</h3>
+              <p>Поддержка после внедрения и помощь в следующем шаге развития.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ОБОРУДОВАНИЕ -->
+    <section>
+      <span class="label">Оборудование</span>
+      <h2>Два ключевых направления</h2>
+      <p>Пользователь быстро выбирает, что ему интересно: мультифункциональная капсула, PEMF-оборудование или сравнение моделей и комплектаций.</p>
+
+      <div class="grid cols-3">
+        <a class="card" href="equipment/capsule.html">
+          <div class="media-card">
+            <img src="assets/images/product-capsule-card.webp" alt="Мультифункциональная wellness-капсула HOCATT®">
+          </div>
+          <h3>Мультифункциональная капсула HOCATT®</h3>
+          <p>Оборудование 10-в-1 для wellness-программ, релаксации, восстановления и премиального клиентского опыта.</p>
+          <div class="actions">
+            <span class="btn secondary">Подробнее о капсуле</span>
+          </div>
+        </a>
+
+        <a class="card" href="equipment/pemf.html">
+          <div class="media-card">
+            <img src="assets/images/product-pemf-card.webp" alt="PEMF-оборудование HUGO™ для восстановления и wellness-сценариев">
+          </div>
+          <h3>PEMF / HUGO™</h3>
+          <p>Импульсное электромагнитное поле как отдельное направление для восстановления, расслабления и поддержки энергии.</p>
+          <div class="actions">
+            <span class="btn secondary">Подробнее о PEMF</span>
+          </div>
+        </a>
+
+        <a class="card" href="equipment/models.html">
+          <div class="media-card">
+            <img src="assets/images/product-models-overview.webp" alt="Сравнение моделей и комплектаций wellness-оборудования">
+          </div>
+          <h3>Модели и комплектации</h3>
+          <p>Сравнение моделей, функций, сценариев использования, габаритов и дополнительных опций.</p>
+          <div class="actions">
+            <span class="btn secondary">Сравнить модели</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ПРОДУКТОВЫЙ ФОКУС -->
+    <section>
+      <span class="label">Фокус продукта</span>
+      <h2>Капсула HOCATT® — это не аппарат в углу, а новый премиальный сценарий продаж</h2>
+      <p class="text-lead">
+        Главная коммерческая мысль: бизнес покупает не «железо», а готовый high-tech wellness-ритуал. Клиент видит красивую процедуру, понимает ценность высокого чека, а владелец получает новый продукт для SPA-меню, фитнес-пакетов, санаторных программ или частной резиденции.
+      </p>
+
+      <div class="metric-row">
+        <div class="metric">
+          <strong>10-в-1</strong>
+          <span>одна процедура вместо набора разрозненных услуг</span>
+        </div>
+        <div class="metric">
+          <strong>30–40</strong>
+          <span>минут на цельный wellness-сеанс</span>
+        </div>
+        <div class="metric">
+          <strong>1</strong>
+          <span>кабинет, один сценарий, один обученный специалист</span>
+        </div>
+        <div class="metric">
+          <strong>B2B + B2C</strong>
+          <span>для бизнеса и частных клиентов</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- СЦЕНАРИИ СРЕДЫ -->
+    <section>
+      <span class="label">Где это работает лучше всего</span>
+      <h2>Капсула должна выглядеть как часть сильного пространства</h2>
+      <p>На главной важно не только показать оборудование, но и сразу дать посетителю представление, в какой среде оно раскрывается лучше всего: SPA, recovery-зона фитнес-клуба, wellness-пространство отеля или санатория.</p>
+
+      <div class="scene-grid">
+        <div class="scene-card">
+          <div class="media-scene">
+            <img src="assets/images/capsule-spa-environment.webp" alt="Капсула HOCATT® в премиальном SPA-пространстве">
+          </div>
+          <h3>SPA и wellness</h3>
+          <p>Премиальная процедура и новый клиентский опыт, который легко встроить в SPA-меню, ритуалы и пакеты ухода.</p>
+        </div>
+
+        <div class="scene-card">
+          <div class="media-scene">
+            <img src="assets/images/capsule-fitness-recovery.webp" alt="Капсула HOCATT® в recovery-зоне фитнес-клуба">
+          </div>
+          <h3>Фитнес и recovery</h3>
+          <p>Сценарий для восстановления после нагрузки, который помогает усилить premium-формат клуба и персональных программ.</p>
+        </div>
+
+        <div class="scene-card">
+          <div class="media-scene">
+            <img src="assets/images/capsule-hotel-wellness.webp" alt="Капсула HOCATT® в wellness-зоне отеля или санатория">
+          </div>
+          <h3>Отели и санатории</h3>
+          <p>Готовая wellness-программа для гостей: красиво выглядит, легко объясняется и усиливает ценность отдыха.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- РЕШЕНИЯ -->
+    <section>
+      <span class="label">Решения</span>
+      <h2>Для кого подбираем оборудование</h2>
+      <div class="grid cols-7">
+        <a class="card compact" href="solutions/spa.html">
+          <h3>SPA и wellness</h3>
+          <p>Премиальная процедура и новый клиентский опыт</p>
+        </a>
+        <a class="card compact" href="solutions/fitness.html">
+          <h3>Фитнес и спорт</h3>
+          <p>Восстановление после нагрузок</p>
+        </a>
+        <a class="card compact" href="solutions/cosmetology.html">
+          <h3>Косметология</h3>
+          <p>Anti-age и поддерживающие программы</p>
+        </a>
+        <a class="card compact" href="solutions/hotels.html">
+          <h3>Отели и санатории</h3>
+          <p>Wellness-программа для гостей</p>
+        </a>
+        <a class="card compact" href="solutions/clinics.html">
+          <h3>Клиники здоровья</h3>
+          <p>Осторожные восстановительные сценарии</p>
+        </a>
+        <a class="card compact" href="solutions/athletes.html">
+          <h3>Спортсмены</h3>
+          <p>Поддержка активного образа жизни</p>
+        </a>
+        <a class="card compact" href="solutions/home-family.html">
+          <h3>Дом и семья</h3>
+          <p>Премиальное оборудование для частной резиденции</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- ПРОЦЕСС ВНЕДРЕНИЯ -->
+    <section>
+      <span class="label">Процесс</span>
+      <h2>Как проходит внедрение</h2>
+      <div class="grid cols-7 steps">
+        <div class="card compact step">
+          <h3>Задача</h3>
+          <p>Понимаем формат объекта и цель.</p>
+        </div>
+        <div class="card compact step">
+          <h3>Подбор</h3>
+          <p>Выбираем модель и комплектацию.</p>
+        </div>
+        <div class="card compact step">
+          <h3>Расчёт</h3>
+          <p>Готовим сценарий использования.</p>
+        </div>
+        <div class="card compact step">
+          <h3>Помещение</h3>
+          <p>Проверяем требования к установке.</p>
+        </div>
+        <div class="card compact step">
+          <h3>Поставка</h3>
+          <p>Организуем доставку оборудования.</p>
+        </div>
+        <div class="card compact step">
+          <h3>Обучение</h3>
+          <p>Обучаем персонал работе с процедурой.</p>
+        </div>
+        <div class="card compact step">
+          <h3>Запуск</h3>
+          <p>Помогаем подготовить первые продажи.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ТЕХНОЛОГИИ -->
+    <section>
+      <span class="label">Технологии</span>
+      <h2>10 технологий в одной капсуле</h2>
+      <p>На главной даём только короткий обзор. Подробное описание и визуальная система каждой технологии раскрываются на отдельной странице.</p>
+
+      <div class="technology-preview">
+        <a class="tech-mini" href="technology/ozone.html">
+          <h3>Озон</h3>
+          <p class="subtle">Чистая wellness-среда и технологичность процедуры.</p>
+        </a>
+        <a class="tech-mini" href="technology/pemf.html">
+          <h3>PEMF</h3>
+          <p class="subtle">Импульсное поле как high-tech компонент восстановления.</p>
+        </a>
+        <a class="tech-mini" href="technology/microcurrents.html">
+          <h3>Микротоки</h3>
+          <p class="subtle">Деликатный body-care и уходовый контекст.</p>
+        </a>
+        <a class="tech-mini" href="technology/co2-bohr.html">
+          <h3>CO₂</h3>
+          <p class="subtle">Газообмен и ощущение глубокой технологичности.</p>
+        </a>
+        <a class="tech-mini" href="technology/infrared.html">
+          <h3>FIR и прогрев</h3>
+          <p class="subtle">Контролируемое тепло и ощущение телесного комфорта.</p>
+        </a>
+      </div>
+
+      <div class="actions" style="margin-top: 26px;">
+        <a class="btn secondary" href="technology/index.html">Открыть все технологии</a>
+      </div>
+    </section>
+
+    <!-- ДОКАЗАТЕЛЬНАЯ БАЗА -->
+    <section>
+      <span class="label">Доверие и доказательная база</span>
+      <h2>Научные публикации усиливают доверие, но не заменяют корректное позиционирование</h2>
+
+      <div class="proof-band">
+        <div class="proof-box">
+          <h3>Что важно донести на главной</h3>
+          <p>
+            Отдельные технологии, связанные с озоном, PEMF, прогревом, микротоками и другими компонентами, имеют исследовательскую и клиническую историю. Это усиливает доверие к продукту, особенно со стороны клиник, санаториев и профессиональной аудитории.
+          </p>
+          <p style="margin-top: 16px;">
+            При этом сайт Quantum Consulting продаёт <strong>wellness-оборудование и сценарии внедрения</strong>, а не обещание лечения конкретных состояний. Поэтому на главной мы говорим языком восстановления, комфорта, премиального сервиса и продуманного запуска услуги.
+          </p>
+
+          <div class="actions">
+            <a class="btn" href="research.html">Смотреть исследования</a>
+            <a class="btn secondary" href="blog.html">Перейти в блог</a>
+          </div>
+        </div>
+
+        <div class="note-box">
+          <h3>Редакционное правило</h3>
+          <p>
+            На публичных страницах используем аккуратные формулировки: wellness, восстановление, релакс, premium body-care, клиентский опыт, запуск новой услуги.
+          </p>
+          <p style="margin-top: 14px;">
+            Подробные публикации, механизмы и разбор исследований лучше раскрывать в отдельных статьях и в разделе «Исследования и публикации».
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ДЕМОНСТРАЦИЯ ПРОЦЕДУРЫ -->
+    <section>
+      <span class="label">Как выглядит процедура</span>
+      <h2>Важно показать комфорт ещё до первого визита</h2>
+      <p>Один из самых важных визуальных аргументов — человек находится внутри капсулы комфортно, при этом голова остаётся снаружи. Это помогает снять тревогу и объяснить, что процедура выглядит спокойно, безопасно и премиально.</p>
+
+      <div class="media-demo">
+        <img src="assets/images/capsule-procedure-comfort.webp" alt="Человек комфортно проходит процедуру в капсуле HOCATT®, голова находится снаружи">
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section>
+      <div class="cta">
+        <div>
+          <span class="label">Следующий шаг</span>
+          <h2>Подберём оборудование под ваш формат</h2>
+          <p>Расскажите, где планируете использовать оборудование: SPA, клиника, фитнес, отель, санаторий или частная резиденция. Команда предложит подходящую комплектацию и следующий шаг.</p>
+        </div>
+        <div class="form">
+          <div class="input">Имя</div>
+          <div class="input">Телефон</div>
+          <div class="input">Тип объекта / задача</div>
+          <div class="input">Комментарий</div>
+          <a class="btn" href="contacts.html">Получить консультацию</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <section class="footer">
+      <div>
+        <strong>Quantum Consulting</strong>
+        <p>Поставка и внедрение премиального wellness-оборудования.</p>
+      </div>
+
+      <div>
+        <strong>Оборудование</strong>
+        <p>
+          <a href="equipment/capsule.html">Капсула HOCATT®</a><br>
+          <a href="equipment/pemf.html">PEMF / HUGO™</a><br>
+          <a href="equipment/models.html">Модели</a>
+        </p>
+      </div>
+
+      <div>
+        <strong>Решения</strong>
+        <p>
+          <a href="solutions/spa.html">SPA</a><br>
+          <a href="solutions/fitness.html">Фитнес</a><br>
+          <a href="solutions/hotels.html">Отели</a><br>
+          <a href="solutions/clinics.html">Клиники</a><br>
+          <a href="solutions/home-family.html">Дом</a>
+        </p>
+      </div>
+
+      <div>
+        <strong>Материалы</strong>
+        <p>
+          <a href="technology/index.html">О технологии</a><br>
+          <a href="research.html">Исследования</a><br>
+          <a href="blog.html">Блог</a>
+        </p>
+      </div>
+
+      <div>
+        <strong>Контакты</strong>
+        <p>
+          <a href="contacts.html">Заявка</a><br>
+          Telegram<br>
+          WhatsApp<br>
+          YouTube<br>
+          Instagram
+        </p>
+      </div>
+    </section>
+
+  </main>
+</body>
+</html>
