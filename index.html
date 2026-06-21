@@ -689,24 +689,92 @@
       </div>
     </section>
 
-    <!-- ============================================================ -->
-    <!-- FAQ -->
-    <!-- ============================================================ -->
-    <section style="background:#fafaf7;">
-      <span class="label">FAQ</span>
-      <h2>Короткие ответы на главные вопросы</h2>
-      <div class="faq-list">
-        <div class="faq-item"><strong>Это медицинское оборудование?</strong><p>Оборудование используется в wellness-формате. Мы не обещаем лечение заболеваний. Для индивидуальных ограничений нужна консультация специалиста.</p></div>
-        <div class="faq-item"><strong>Нужна ли медицинская лицензия?</strong><p>Финальную формулировку нужно согласовать с юристом. На сайте мы говорим через формат процедуры и консультацию специалиста.</p></div>
-        <div class="faq-item"><strong>Сколько места занимает оборудование?</strong><p>Капсула компактна, помещается в стандартный кабинет. Точные размеры зависят от модели — мы рассчитываем под ваш объект.</p></div>
-        <div class="faq-item"><strong>Кто может проводить процедуру?</strong><p>Мы обучаем персонал работе с оборудованием. Процедура не требует медицинского образования, но мы рекомендуем проходить обучение.</p></div>
-        <div class="faq-item"><strong>Можно ли поставить оборудование дома?</strong><p>Да, для частного сценария нужна отдельная консультация по помещению, установке и режимам использования.</p></div>
-        <div class="faq-item"><strong>Как подобрать модель?</strong><p>По типу объекта, задачам, потоку клиентов, бюджету и нужным функциям. Мы помогаем подобрать оптимальную комплектацию.</p></div>
-        <div class="faq-item"><strong>Безопасно ли для гипертоников?</strong><p>Капсула — не сауна. Температура регулируется от 35°С до 43°С. Голова снаружи — нет перегрева. Для гипертоников предусмотрены щадящие режимы.</p></div>
-        <div class="faq-item"><strong>Что если оборудование сломается?</strong><p>Мы предоставляем гарантию 1 год и сервисную поддержку в Москве. Склад запчастей в РФ — не ждём месяцами поставок из-за границы.</p></div>
-        <div class="faq-item"><strong>Требуется ли медицинская лицензия для установки?</strong><p>Нет. Оборудование позиционируется как wellness-решение, а не медицинское устройство. Это юридически чистая установка для любого формата бизнеса.</p></div>
+<!-- ============================================================ -->
+<!-- БЛОК FAQ С АККОРДЕОНОМ (единый стиль) -->
+<!-- ============================================================ -->
+<section>
+  <span class="label">Часто задаваемые вопросы</span>
+  <h2>Ответы на главные вопросы</h2>
+  <p style="max-width:860px;">Коротко и по делу — о технологии, безопасности, окупаемости и установке.</p>
+
+  <div class="faq-list">
+
+    <div class="faq-item open">
+      <div class="question" onclick="toggleFaq(this)">
+        <span>Это медицинское оборудование?</span>
+        <span class="icon">▾</span>
       </div>
-    </section>
+      <div class="answer">
+        <p>Оборудование используется в <strong>wellness-формате</strong>. Мы не обещаем лечение заболеваний. Для индивидуальных ограничений нужна консультация специалиста.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="question" onclick="toggleFaq(this)">
+        <span>Нужна ли медицинская лицензия для установки?</span>
+        <span class="icon">▾</span>
+      </div>
+      <div class="answer">
+        <p>Нет. Оборудование позиционируется как <strong>wellness-решение</strong>, а не медицинское устройство. Это юридически чистая установка для любого формата бизнеса.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="question" onclick="toggleFaq(this)">
+        <span>Сколько места занимает капсула?</span>
+        <span class="icon">▾</span>
+      </div>
+      <div class="answer">
+        <p>Капсула компактна — <strong>2–3 м²</strong>, помещается в стандартный кабинет. Точные размеры зависят от модели — мы рассчитываем под ваш объект.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="question" onclick="toggleFaq(this)">
+        <span>Кто может проводить процедуру?</span>
+        <span class="icon">▾</span>
+      </div>
+      <div class="answer">
+        <p>Мы обучаем персонал работе с оборудованием. Процедура не требует медицинского образования, но мы рекомендуем проходить обучение.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="question" onclick="toggleFaq(this)">
+        <span>Безопасно ли для гипертоников?</span>
+        <span class="icon">▾</span>
+      </div>
+      <div class="answer">
+        <p>Капсула — не сауна. Температура регулируется от <strong>35°С до 43°С</strong>. Голова снаружи — нет перегрева. Для гипертоников предусмотрены щадящие режимы.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="question" onclick="toggleFaq(this)">
+        <span>Что если оборудование сломается?</span>
+        <span class="icon">▾</span>
+      </div>
+      <div class="answer">
+        <p>Мы предоставляем <strong>гарантию 1 год</strong> и сервисную поддержку в Москве. Склад запчастей в РФ — не ждём месяцами поставок из-за границы.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="question" onclick="toggleFaq(this)">
+        <span>Можно ли установить капсулу дома?</span>
+        <span class="icon">▾</span>
+      </div>
+      <div class="answer">
+        <p>Да, для частного сценария нужна отдельная консультация по помещению, установке и режимам использования.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="text-align:center; margin-top:24px;">
+    <a href="faq.html" class="btn secondary" style="padding:10px 24px; min-height:auto; font-size:14px;">Все вопросы и ответы →</a>
+  </div>
+</section>
 
     <!-- ============================================================ -->
     <!-- ФОРМА ЗАХВАТА — ПРАВИЛЬНЫЙ ЗАГОЛОВОК (сохранён) -->
@@ -859,6 +927,41 @@
       if (e.target === this) closePopup();
     });
   </script>
+
+<script>
+// ============================================================
+// FAQ АККОРДЕОН — единый для всего сайта
+// ============================================================
+
+function toggleFaq(el) {
+  const item = el.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+
+  // Закрываем все открытые элементы
+  document.querySelectorAll('.faq-item').forEach(function(i) {
+    if (i !== item) {
+      i.classList.remove('open');
+    }
+  });
+
+  // Переключаем текущий
+  if (isOpen) {
+    item.classList.remove('open');
+  } else {
+    item.classList.add('open');
+  }
+}
+
+// Находим все вопросы и вешаем обработчики (на случай, если onclick не сработал)
+document.addEventListener('DOMContentLoaded', function() {
+  const questions = document.querySelectorAll('.faq-item .question');
+  questions.forEach(function(q) {
+    q.addEventListener('click', function() {
+      toggleFaq(this);
+    });
+  });
+});
+</script>
 
 </body>
 </html>
