@@ -20,18 +20,20 @@
       </nav>
     </header>
 
+    <!-- ============================================================ -->
     <!-- HERO -->
+    <!-- ============================================================ -->
     <section class="hero narrow">
       <div>
         <span class="label">Свяжитесь с нами</span>
         <h1>Мы на связи — расскажем, покажем и поможем подобрать решение</h1>
-        <p>Оставьте заявку, и наш специалист свяжется с вами в ближайшее время. Или запишитесь на демо-сеанс в одном из центров, чтобы лично ощутить эффект процедуры.</p>
+        <p>Оставьте заявку, и наш специалист свяжется с вами в ближайшее время. Или запишитесь на демо-сеанс в центре Divus, чтобы лично ощутить эффект процедуры.</p>
         <div class="actions">
           <a class="btn" href="#demo">Записаться на демо</a>
-          <a class="btn secondary" href="#centers">Центры с капсулой</a>
+          <a class="btn secondary" href="#" onclick="openPopup(); return false;">Получить консультацию</a>
         </div>
         <div class="kicker-row" style="margin-top:24px;">
-          <span class="kicker">📍 2 центра в Москве</span>
+          <span class="kicker">📍 Демо-центр в Москве</span>
           <span class="kicker">💎 HOCATT® и HUGO™</span>
           <span class="kicker">🧘 Оцените эффект на себе</span>
         </div>
@@ -39,13 +41,15 @@
       <div class="visual" style="background: linear-gradient(145deg, #1a1a2e, #16213e); display:flex; align-items:center; justify-content:center; border: none;">
         <div style="text-align:center; color:#fff; padding:20px;">
           <div style="font-size:80px; margin-bottom:8px;">📍</div>
-          <span style="font-size:14px; opacity:0.7;">2 центра в Москве</span>
-          <div style="font-size:12px; opacity:0.4; margin-top:4px;">Фитнес-центр ENKOR · Клиника Divus</div>
+          <span style="font-size:14px; opacity:0.7;">1 демо-центр в Москве</span>
+          <div style="font-size:12px; opacity:0.4; margin-top:4px;">Клиника Divus · Пресня</div>
         </div>
       </div>
     </section>
 
+    <!-- ============================================================ -->
     <!-- КОНТАКТЫ КОМПАНИИ -->
+    <!-- ============================================================ -->
     <section>
       <span class="label">Наши контакты</span>
       <h2>Свяжитесь с нами удобным способом</h2>
@@ -70,15 +74,15 @@
         </div>
         <div class="card compact" style="text-align:center;">
           <div style="font-size:36px; margin-bottom:12px;">📍</div>
-          <h3 style="font-size:16px;">Адрес</h3>
-          <p style="font-size:15px;">Москва, ул. Стромынка, д. 5, кв. 5</p>
-          <p style="font-size:13px; color:var(--muted);">Офис и шоурум</p>
+          <h3 style="font-size:16px;">Демо-центр</h3>
+          <p style="font-size:15px;">Москва, ул. Климашкина, д. 16</p>
+          <p style="font-size:13px; color:var(--muted);">Клиника Divus · Пресня</p>
         </div>
       </div>
     </section>
 
     <!-- ============================================================ -->
-    <!-- БЛОК: ПОПРОБУЙТЕ НА СЕБЕ — ЦЕНТРЫ С КАПСУЛОЙ -->
+    <!-- БЛОК: ПОПРОБУЙТЕ НА СЕБЕ — ЦЕНТР С КАПСУЛОЙ -->
     <!-- ============================================================ -->
     <section id="demo" style="background:#fafaf7;">
       <span class="label">Попробуйте на себе</span>
@@ -123,6 +127,10 @@
 
       </div>
 
+      <div style="margin-top:18px; text-align:center;">
+        <span style="font-size:14px; color:var(--muted);">📍 Все центры находятся в Москве. Запись по предварительной договорённости.</span>
+      </div>
+
       <div style="margin-top:24px; padding:18px 24px; background:#fff; border-radius:16px; border-left:4px solid #000;">
         <p style="margin:0; font-size:15px;"><strong>💡 Почему стоит попробовать:</strong> После первого сеанса вы поймёте, что капсула — это не просто сауна. Тепло, лёгкость, ясность в голове. И вы сможете принять решение с полным пониманием.</p>
       </div>
@@ -139,7 +147,9 @@
       </div>
     </section>
 
+    <!-- ============================================================ -->
     <!-- ФОРМА ОБРАТНОЙ СВЯЗИ -->
+    <!-- ============================================================ -->
     <section>
       <div class="cta" style="background:#171717; color:#fff; border-radius:36px; padding:54px;">
         <div>
@@ -166,30 +176,9 @@
       </div>
     </section>
 
-    <!-- КАРТА -->
-    <section style="background:#fafaf7;">
-      <span class="label">Как нас найти</span>
-      <h2>Офис и шоурум в Москве</h2>
-      <div style="background:#fff; border:1px solid var(--line); border-radius:26px; overflow:hidden; margin-top:28px; height:360px; display:flex; align-items:center; justify-content:center; color:var(--muted);">
-        <span style="font-size:16px;">📍 Здесь будет карта — ул. Стромынка, д. 5, Москва</span>
-      </div>
-      <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:18px; margin-top:18px;">
-        <div style="background:#fff; border:1px solid var(--line); border-radius:16px; padding:18px; text-align:center;">
-          <span style="font-size:20px;">🚇</span>
-          <p style="font-size:14px; margin:6px 0 0;">Метро «Сокольники»<br>7 минут пешком</p>
-        </div>
-        <div style="background:#fff; border:1px solid var(--line); border-radius:16px; padding:18px; text-align:center;">
-          <span style="font-size:20px;">🅿️</span>
-          <p style="font-size:14px; margin:6px 0 0;">Бесплатная парковка<br>для посетителей</p>
-        </div>
-        <div style="background:#fff; border:1px solid var(--line); border-radius:16px; padding:18px; text-align:center;">
-          <span style="font-size:20px;">♿</span>
-          <p style="font-size:14px; margin:6px 0 0;">Доступно для<br>маломобильных групп</p>
-        </div>
-      </div>
-    </section>
-
+    <!-- ============================================================ -->
     <!-- СОЦИАЛЬНЫЕ СЕТИ -->
+    <!-- ============================================================ -->
     <section>
       <span class="label">Мы в соцсетях</span>
       <h2>Подписывайтесь на наши каналы</h2>
@@ -217,7 +206,9 @@
       </div>
     </section>
 
+    <!-- ============================================================ -->
     <!-- ЮРИДИЧЕСКИЙ БЛОК -->
+    <!-- ============================================================ -->
     <section style="background:#111; border-bottom:none; padding:24px 72px; border-top:1px solid #333;">
       <div style="display:flex; flex-wrap:wrap; gap:24px; justify-content:center; font-size:13px;">
         <a href="agreement.html" target="_blank" style="color:#b9b9b9; text-decoration:underline;">Согласие на обработку персональных данных</a>
@@ -232,7 +223,9 @@
 
   </main>
 
+  <!-- ============================================================ -->
   <!-- ПОПАП -->
+  <!-- ============================================================ -->
   <div id="popup-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:999; align-items:center; justify-content:center;">
     <div style="background:#fff; border-radius:32px; padding:48px; max-width:480px; width:90%; position:relative; box-shadow:0 40px 80px rgba(0,0,0,0.3); max-height:90vh; overflow-y:auto;">
       <button onclick="closePopup();" style="position:absolute; top:16px; right:20px; background:none; border:none; font-size:28px; color:#999; cursor:pointer;">&times;</button>
